@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+        <!-- Blank space for the title to be filled in my the templates-->
+        {% block title %}<title>Base.html</title>{% endblock %}
+
+
+    </head>
+    <body>
+        
+        <nav>
+            <h1>KingsWayFinder</h1>
+        </nav>
+
+
+
+        <div class = "sidebar">
+            {% block sidebar_content %}
+            {%endblock%}
+        </div>
+
+
+
+
+
+        <footer>
+            <div class = "contact_details">
+                <div>
+                    <h1 class = "footer_text">Contact Details:</h1>
+                </div>
+
+                <div>
+                    <p class = "footer_text">Web Developer - Zachary Hamilton contact@ zach.hamilton@kingsway.school.nz</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class = "footer_text"> Created By Zachary Hamilton</h2>
+            </div>
+
+        </footer>
+
+        
+    </body>
+</html>

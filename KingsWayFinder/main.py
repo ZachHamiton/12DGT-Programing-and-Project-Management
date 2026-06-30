@@ -7,6 +7,6 @@ app = create_app()
 # makes sure that the app only runs if this file is run
 if __name__ == '__main__':
     # Starts the local web sever
-    app.run(debug = True)
+    app.run(debug = True) #NEED TO CHANGE
 
      

@@ -1,0 +1,71 @@
+/* Styles for elements in all pages of the website */
+
+
+
+/* sets margin to 0 so that i can manually add what I want */
+body{
+    margin: 0px;
+}
+
+
+
+/* ------------------ */
+/* Nav bar and footer */
+/* ------------------ */
+
+nav, footer{
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 0, 128);
+    margin: 0px;
+    width: 100%;
+}
+
+nav{
+    height: 70px;
+    justify-content: left;
+}
+
+nav h1{
+    font-family: sans-serif;
+    color: white;
+}
+
+
+
+
+
+footer {
+  justify-content: space-between; /*Might need to change if 3 items are added*/
+  min-height: 70px;
+}
+
+.footer_text{
+    font-family: sans-serif;
+    color: white;
+    margin: 5px;
+}
+
+
+.contact_details{
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+
+
+/* ------- */
+/* Sidebar */
+/* ------- */
+
+.sidebar{
+    width: 400px;
+    border: 2px solid rgb(18, 80, 196);
+    border-radius: 50px;
+    height: 800px;
+    margin: 50px;
+    box-shadow: 0px 2px 5px rgba(18, 80, 196, 0.7);
+}
+
+
