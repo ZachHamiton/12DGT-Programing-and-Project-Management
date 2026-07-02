@@ -13,38 +13,39 @@
 
     </head>
     <body>
-        
-        <nav>
-            <h1>KingsWayFinder</h1>
-        </nav>
+        <!-- Navbar section -->
+        <div class = "nav">
+            <h1 class = "nav_text">KingsWayFinder</h1>
+        </div>
+
+        <!-- Middle section -->
+        <div class = "main">
+            <div class = "sidebar">
+                {% block sidebar_content %}
+                
+                {%endblock%}
+            </div>
 
 
 
-        <div class = "sidebar">
-            {% block sidebar_content %}
-            {%endblock%}
         </div>
 
 
 
 
-
-        <footer>
+        <!-- Footer section -->
+        <div class = "footer">
             <div class = "contact_details">
-                <div>
-                    <h1 class = "footer_text">Contact Details:</h1>
-                </div>
-
-                <div>
-                    <p class = "footer_text">Web Developer - Zachary Hamilton contact@ zach.hamilton@kingsway.school.nz</p>
-                </div>
+                <p class = "footer_text">If you find any problems or have any suggestions, please contact the webmaster at zach.hamilton@kingsway.school.nz</p>
             </div>
 
-            <div>
-                <h2 class = "footer_text"> Created By Zachary Hamilton</h2>
-            </div>
 
-        </footer>
+            <div class = "footer_text">
+                <p>Copyright © 2026 &nbsp; &nbsp; &nbsp;Created By Zachary Hamilton</p>
+            </div>
+            
+
+        </div class = "footer">
 
         
     </body>

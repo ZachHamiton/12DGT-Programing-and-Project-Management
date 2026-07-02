@@ -1,10 +1,17 @@
 /* Styles for elements in all pages of the website */
 
-
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin: 0;
+    padding:0;
+}
 
 /* sets margin to 0 so that i can manually add what I want */
 body{
-    margin: 0px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 
@@ -13,44 +20,39 @@ body{
 /* Nav bar and footer */
 /* ------------------ */
 
-nav, footer{
+.nav{
     display: flex;
     align-items: center;
-    background-color: rgb(0, 0, 128);
-    margin: 0px;
-    width: 100%;
-}
-
-nav{
-    height: 70px;
     justify-content: left;
+    height: 70px;
+    background-color: navy;
+    padding: 0px 50px 0px 50px;
+    border-bottom: 5px solid #FFD403;
 }
 
-nav h1{
+
+
+.nav_text{
     font-family: sans-serif;
     color: white;
 }
 
 
 
-
-
-footer {
-  justify-content: space-between; /*Might need to change if 3 items are added*/
-  min-height: 70px;
-}
-
-.footer_text{
-    font-family: sans-serif;
-    color: white;
-    margin: 5px;
-}
-
-
-.contact_details{
+.footer {
     display: flex;
-    flex-direction: row; 
     align-items: center;
+    justify-content: space-between; 
+    margin-top: auto;
+    /* border: 2px solid grey; */
+    border-radius: 5px;
+    min-height: 40px;
+    padding:1%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7);
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+    margin-bottom: 0.25%;
+    font-family: sans-serif;
 }
 
 
@@ -60,12 +62,20 @@ footer {
 /* ------- */
 
 .sidebar{
-    width: 400px;
-    border: 2px solid rgb(18, 80, 196);
-    border-radius: 50px;
-    height: 800px;
-    margin: 50px;
-    box-shadow: 0px 2px 5px rgba(18, 80, 196, 0.7);
+    /* width: 400px; */
+    width: 20%;
+
+    border-radius: 2rem;
+    height: 80vh;
+    margin: 1.5%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7);
+}
+
+.footer_right_side{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    min-width: 25%;
 }
 
 
