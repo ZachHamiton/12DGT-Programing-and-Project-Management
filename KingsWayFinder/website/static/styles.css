@@ -1,8 +1,9 @@
 /* Styles for elements in all pages of the website */
 
 * {
-    box-sizing: border-box;
-    overflow-x: hidden;
+    box-sizing: border-box; /* fixes problem with padding where it extended the block more than 100%*/
+    overflow-x: hidden; /* makes there be no unwanted scroll bars*/
+    /* give createor full control over margins and paddings */
     margin: 0;
     padding:0;
 }
@@ -10,8 +11,8 @@
 /* sets margin to 0 so that i can manually add what I want */
 body{
     display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+    min-height: 100vh; /*helps the footer always be at the bottom*/
+    flex-direction: column; /*makes the three main sections (nav bar, content, and footer go on top of each other rather then beside each other )*/
 }
 
 
@@ -43,16 +44,15 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    margin-top: auto;
-    /* border: 2px solid grey; */
+    font-family: sans-serif;
     border-radius: 5px;
-    min-height: 40px;
+    min-height: 40px; /* make sure that the footer doesn't get smaller then 40px so it looks nice however leave room for it to grow*/
     padding:1%;
     box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7);
+    margin-top: auto;  /* makes the footer always go to the bottom */
     margin-left: 0.25%;
     margin-right: 0.25%;
     margin-bottom: 0.25%;
-    font-family: sans-serif;
 }
 
 
@@ -61,21 +61,15 @@ body{
 /* Sidebar */
 /* ------- */
 
-.sidebar{
-    /* width: 400px; */
-    width: 20%;
 
+.sidebar{
+    width: 20%;
     border-radius: 2rem;
     height: 80vh;
     margin: 1.5%;
     box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7);
 }
 
-.footer_right_side{
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    min-width: 25%;
-}
+
 
 
