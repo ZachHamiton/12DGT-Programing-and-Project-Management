@@ -1,0 +1,63 @@
+
+<!-- base.html has block that can be overridden by putting differant html into blocks with the same name-->
+{% extends "base.html" %} 
+
+<!-- changes the title -->
+{% block title %}<title>KingsWayFinder</title>{% endblock %}
+
+
+<!-- changes what the pages content is / middle is -->
+{% block content %}
+    <div class = "sidebar">
+        <div>
+            <h2>Finder</h2>
+            <br>
+            <input type = "text" placeholder = "Type code here" class = "finder_input">
+            <div class = "table_div">
+                <table>
+                    <thead>
+                        <th>Starting Letter</th>
+                        <th> Building</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>Allen</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Bolam</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>Arts/Drama Block</td>
+                        </tr>
+                        <tr>
+                            <td>G</td>
+                            <td>Event Centre / Gym</td>
+                        </tr>
+                        <tr>
+                            <td>K</td>
+                            <td>Te Kainga</td>
+                        </tr>
+
+                        <tr>
+                            <td>S</td>
+                            <td>Stanford</td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+                
+    </div>
+
+{%endblock%}
+
