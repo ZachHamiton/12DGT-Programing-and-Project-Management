@@ -9,55 +9,57 @@
 <!-- changes what the pages content is / middle is -->
 {% block content %}
     <div class = "sidebar">
-        <div>
+        <div class = "sidebar_content">
+            
             <h2>Finder</h2>
             <br>
             <input type = "text" placeholder = "Type code here" class = "finder_input">
+            <br>
+            <br>
+            <h2> Room Code Key</h2>
+
             <div class = "table_div">
+
+                <!-- table explaining which letters correspond to each building -->
                 <table>
                     <thead>
-                        <th>Starting Letter</th>
-                        <th> Building</th>
+                         <th> Building</th>
+                        <th> Start Finder With the Letter</th>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>A</td>
-                            <td>Allen</td>
-                        </tr>
-                        <tr>
-                            <td>B</td>
-                            <td>Bolam</td>
-                        </tr>
-                        <tr>
-                            <td>D</td>
-                            <td>Arts/Drama Block</td>
-                        </tr>
-                        <tr>
-                            <td>G</td>
-                            <td>Event Centre / Gym</td>
-                        </tr>
-                        <tr>
-                            <td>K</td>
-                            <td>Te Kainga</td>
-                        </tr>
-
-                        <tr>
-                            <td>S</td>
-                            <td>Stanford</td>
-                        </tr>
-
-
+                        <tr><td>Allen</td> <td>A</td></tr>
+                        <tr><td>Bolam</td><td>B</td></tr>
+                        <tr><td>Arts/Drama Block</td><td>D</td></tr>
+                        <tr><td>Event Centre / Gym</td><td>G</td></tr>
+                        <tr><td>Te Kainga</td><td>K</td></tr>
+                        <tr><td>Stanford</td><td>S</td></tr>
                     </tbody>
 
                 </table>
 
+                <!-- table that explains the conpanants of the room code -->
+                <table>
+                    <thead>
+                         <th> Part of code</th>
+                        <th> Meaning </th>
+                    </thead>
+
+                    <tbody>
+                        <tr><td>1st Letter</td> <td> Building</td></tr>
+                        <tr><td>1st Number</td> <td> The floor level</td></tr>
+                        <tr><td>2nd and 3rd Numbers</td> <td>The room's unique number on its floor</td></tr>
+                        <tr><td>Letter at the End</td><td>The room is a connected side-room</td></tr>
+                    </tbody>
+
+                </table>
+
+
+
+
             </div>
-
-
         </div>
                 
     </div>
-
 {%endblock%}
 
