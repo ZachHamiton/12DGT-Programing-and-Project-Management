@@ -3,7 +3,32 @@
 :root{
     --footer_min_height: 40px;
     --nav_height:70px;
-    
+    /* the top and left positions of all the buildings in the zoomed out map */
+    --stanford_polygon_top:  6.39%;  --stanford_polygon_left: -2.19%; 
+    --allen_polygon_top:     43.5%;  --allen_polygon_left:     9.5%;
+    --bolam_polygon_top:     45.96%; --bolam_polygon_left:     24%;
+    --ec_polygon_top:        21.66%; --ec_polygon_left:        42.71%;
+    --te-kianga_polygon_top: 42.50%; --te-kianga_polygon_left: 46.62%;
+    --arts_polygon_top:      4.31%;  --arts_polygon_left:      60.29%;
+
+    /* The top and left positions of all the labels of the zoomed ou map */
+
+    --stanford_label_top:  22.5%; --stanford_label_left: 20.5%; 
+    --allen_label_top:     55%;    --allen_label_left:     12.5%;
+    --bolam_label_top:     63%;    --bolam_label_left:    29%;
+    --ec_label_top:        30%;    --ec_label_left:        49.5%;
+    --te-kianga_label_top: 58%;    --te-kianga_label_left: 48.5%;
+    --arts_label_top:      3.25%;  --arts_label_left:      65.5%;
+
+
+    --field_label_top:         10%;    --field_label_left:         30%; 
+    --cola_label_top:          10%;    --cola_label_left:          52.5%;
+    --astro_label_top:         55%;    --astro_label_left:         40%;
+    --allen_quad_label_top:    38%;    --allen_quad_label_left:    20%;
+    --office_label_top:        73%;    --office_label_left:        23%;
+    --main_entrance_label_top: 83%;    --main_entrance_label_left: 62%;
+    --back_gate_label_top:     46%;   --back_gate_label_left:      0%;
+
 }
 
 
@@ -15,7 +40,6 @@
     padding:0;
 }
 
-/* sets margin to 0 so that i can manually add what I want */
 body{
     display: flex;
     min-height: 100vh; /*helps the footer always be at the bottom*/
@@ -190,7 +214,7 @@ tr:nth-child(even){
 }
 
 
-
+/* og numbers */
 /* .stanford_polygon_contianer  { top: 100px; left: 100px;}
 .allen_polygon_contianer     { top: 375px; left: 250px;}
 .bolam_polygon_contianer     { top: 385px; left: 450px;}
@@ -199,15 +223,17 @@ tr:nth-child(even){
 .arts_polygon_contianer      { top: 85px; left: 900px;} */
 
 
-.stanford_polygon_contianer  { top: 6.39%;  left: 0.31%; }
-.allen_polygon_contianer     { top: 44.58%; left: 12.02%; }
-.bolam_polygon_contianer     { top: 45.96%; left: 27.65%; }
-.ec_polygon_contianer        { top: 21.66%; left: 45.21%; }
-.te-kianga_polygon_contianer { top: 42.50%; left: 49.12%; }
-.arts_polygon_contianer      { top: 4.31%;  left: 62.79%; }
+/* sets the positions of the buildings in the zoomed out map */
+.stanford_polygon_contianer  { top: var(--stanford_polygon_top);  left: var(--stanford_polygon_left);}
+.allen_polygon_contianer     { top: var(--allen_polygon_top);     left: var(--allen_polygon_left);}
+.bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: var(--bolam_polygon_left);}
+.ec_polygon_contianer        { top: var(--ec_polygon_top);        left: var(--ec_polygon_left);}
+.te-kianga_polygon_contianer { top: var(--te-kianga_polygon_top); left: var(--te-kianga_polygon_left);}
+.arts_polygon_contianer      { top: var(--arts_polygon_top);      left: var(--arts_polygon_left);}
 
 
 
+/* sets the clip path for the differant buildings */
 .stanford_polygon{ clip-path: polygon(5% 34%, 28% 2%, 75% 23%, 80% 16%, 94% 22%, 83% 41%, 35% 20%, 27% 30%, 30% 32%, 21% 44%);}
 .allen_polygon{clip-path: polygon(7% 1%, 14% 1%, 14% 4%, 22% 4%, 22% 24%, 16% 24%, 16% 29%, 3% 29%, 3% 20%, 1% 20%, 1% 11%, 2% 11%, 2% 4%, 7% 4%);}
 .bolam_polygon{clip-path: polygon(13% 1%, 27% 1%, 27% 26%, 23% 26%, 23% 29%, 5% 29%, 7% 27%, 4% 25%, 2% 27%, 0% 25%, 13% 15%);}
@@ -215,46 +241,97 @@ tr:nth-child(even){
 .te-kianga_polygon { clip-path: polygon(34% 2%, 33% 14%, 40% 15%, 43% 22%, 47% 25%, 49% 29%, 49% 37%, 44% 44%, 39% 42%, 33% 38%, 27% 35%, 19% 32%, 9% 31%, 1% 31%, 1% 28%, 3% 26%, 3% 23%, 1% 21%, 1% 18%, 3% 16%, 3% 13%, 1% 11%, 1% 8%, 3% 6%, 3% 3%, 1% 1%, 1% 0%);}
 .arts_polygon {clip-path: polygon(30% 20%, 27% 25%, 24% 23%, 22% 26%, 18% 23%, 19% 22%, 7% 13%, 1% 13%, 1% 4%, 4% 1%);}
 
-.building_labal{
+
+
+/* sets the labelsso that they change height based of screen width and can be placed anywhere the map */
+.building_label{
     position: absolute;
     font-size: 1.8vw;
+    font-family: sans-serif;
 }
 
-.stanford_labal  { top: 20%;  left: 20%; }
-.allen_labal     { top: 55%; left: 15%; }
-.bolam_labal     { top: 63%; left: 32%; }
-.ec_labal        { top: 30%; left: 52%; }
-.te-kianga_labal { top: 58%; left: 52%; }
-.arts_labal      { top: 10%;  left: 72%; }
+/* sets the positions of the labels */
+.stanford_label  { top: var(--stanford_label_top);  left: var(--stanford_label_left); }
+.allen_label     { top: var(--allen_label_top);     left: var(--allen_label_left); }
+.bolam_label     { top: var(--bolam_label_top);     left: var(--bolam_label_left); }
+.ec_label        { top: var(--ec_label_top);        left: var(--ec_label_left); }
+.te-kianga_label { top: var(--te-kianga_label_top); left: var(--te-kianga_label_left); }
+.arts_label      { top: var(--arts_label_top);      left: var(--arts_label_left); }
+
+
+
+.other_label{
+    position: absolute;
+    font-size: 1.5vw;
+    font-family: serif;
+    color: grey;
+}
+
+
+/* sets the positions of the labels */
+.field_label          { top: var(--field_label_top);          left: var(--field_label_left); }
+.cola_label           { top: var(--cola_label_top);           left: var(--cola_label_left); }
+.astro_label          { top: var(--astro_label_top);          left: var(--astro_label_left); }
+.allen_quad_label     { top: var(--allen_quad_label_top);     left: var(--allen_quad_label_left); }
+.office_label         { top: var(--office_label_top);         left: var(--office_label_left); }
+.main_entrance_label  { top: var(--main_entrance_label_top);  left: var(--main_entrance_label_left); }
+.back_gate_label      { top: var(--back_gate_label_top);      left: var(--back_gate_label_left); }
 
 
 
 
 
+@media screen and (max-width: 850px) {
 
-
-@media screen and (max-width: 800px) {
-
+/* makes the sidebar and map go ontop of each other */
 .content{  
     flex-direction:column;
 }
 
-
+/* since the map is the only think horizonally */
 .map{
-    width: 100%;
+    width: 125%;
 }
 
 .sidebar{
-    order: 2;
-    width:100%;
+    order: 2; /* makes the sidebar under the map */
+    width: 97%;
     height: auto;
 }
-.building_labal{
+.building_label{
+    font-size: 2.8vw;
+}
+
+.other_label{
     position: absolute;
-    font-size: 3vw;
+    font-size: 2.5vw;
+    font-family: serif;
+    color: grey;
 }
 
 
 
 
+/* moving 1 % to the right */
+.stanford_polygon_contianer  { top: var(--stanford_polygon_top);  left: calc(var(--stanford_polygon_left) + 1%); }
+.allen_polygon_contianer     { top: var(--allen_polygon_top);     left: calc(var(--allen_polygon_left) + 1%); }
+.bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: calc(var(--bolam_polygon_left) + 1%); }
+.ec_polygon_contianer        { top: var(--ec_polygon_top);        left: calc(var(--ec_polygon_left) + 1%); }
+.te-kianga_polygon_contianer { top: var(--te-kianga_polygon_top); left: calc(var(--te-kianga_polygon_left) + 1%); }
+.arts_polygon_contianer      { top: var(--arts_polygon_top);      left: calc(var(--arts_polygon_left) + 1%); }
+
+.stanford_label  { top: var(--stanford_label_top);  left: calc(var(--stanford_label_left) + 1%); }
+.allen_label     { top: var(--allen_label_top);     left: calc(var(--allen_label_left) + 1%); }
+.bolam_label     { top: var(--bolam_label_top);     left: calc(var(--bolam_label_left) + 1%); }
+.ec_label        { top: var(--ec_label_top);        left: calc(var(--ec_label_left) + 1%); }
+.te-kianga_label { top: var(--te-kianga_label_top); left: calc(var(--te-kianga_label_left) + 1%); }
+.arts_label      { top: var(--arts_label_top);      left: calc(var(--arts_label_left) + 1%); }
+
+.field_label          { top: var(--field_label_top);          left: calc(var(--field_label_left) + 1%); }
+.cola_label           { top: var(--cola_label_top);           left: calc(var(--cola_label_left) + 1%); }
+.astro_label          { top: var(--astro_label_top);          left: calc(var(--astro_label_left) + 1%); }
+.allen_quad_label     { top: var(--allen_quad_label_top);     left: calc(var(--allen_quad_label_left) + 1%); }
+.office_label         { top: var(--office_label_top);         left: calc(var(--office_label_left) + 1%); }
+.main_entrance_label  { top: var(--main_entrance_label_top);  left: calc(var(--main_entrance_label_left) - 1%); }
+.back_gate_label      { top: var(--back_gate_label_top);      left: calc(var(--back_gate_label_left) + 1%); }
 }
