@@ -72,6 +72,7 @@ body{
     flex-direction:row;
     width: 100%;
     flex: 1;
+    align-items: flex-start;
 }
 
 
@@ -105,6 +106,8 @@ body{
     width:100%;
     font-size: 20px;
 }
+
+/* Key */
 
 
 .table_div{
@@ -148,3 +151,110 @@ tr:nth-child(even){
 }
 
 
+
+/* ============== */
+/* Zoomed out Map */
+/* ============== */
+
+
+.map{
+    position: relative;
+    width:78%;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    flex: 0 0 auto; /* prevents flexbox from changing its size */
+}
+
+.zoomed_out_map_image{
+    position: absolute;
+    height: 750px;
+    z-index: 10;
+    
+}
+
+.polygon_container{
+    position: absolute;
+    width: 50%; 
+    aspect-ratio: 1 / 1;
+    filter: drop-shadow(1px 1px 0px black) 
+            drop-shadow(-1px -1px 0px black) 
+            drop-shadow(1px -1px 0px black) 
+            drop-shadow(-1px 1px 0px black);
+}
+
+.polygon{
+    width: 100%; 
+    height: 100%;
+    background-color: rgb(255,255,255); 
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* .stanford_polygon_contianer  { top: 100px; left: 100px;}
+.allen_polygon_contianer     { top: 375px; left: 250px;}
+.bolam_polygon_contianer     { top: 385px; left: 450px;}
+.ec_polygon_contianer        { top: 210px; left: 675px;}
+.te-kianga_polygon_contianer { top: 360px; left: 725px;}
+.arts_polygon_contianer      { top: 85px; left: 900px;} */
+
+
+.stanford_polygon_contianer  { top: 6.39%;  left: 0.31%; }
+.allen_polygon_contianer     { top: 44.58%; left: 12.02%; }
+.bolam_polygon_contianer     { top: 45.96%; left: 27.65%; }
+.ec_polygon_contianer        { top: 21.66%; left: 45.21%; }
+.te-kianga_polygon_contianer { top: 42.50%; left: 49.12%; }
+.arts_polygon_contianer      { top: 4.31%;  left: 62.79%; }
+
+
+
+.stanford_polygon{ clip-path: polygon(5% 34%, 28% 2%, 75% 23%, 80% 16%, 94% 22%, 83% 41%, 35% 20%, 27% 30%, 30% 32%, 21% 44%);}
+.allen_polygon{clip-path: polygon(7% 1%, 14% 1%, 14% 4%, 22% 4%, 22% 24%, 16% 24%, 16% 29%, 3% 29%, 3% 20%, 1% 20%, 1% 11%, 2% 11%, 2% 4%, 7% 4%);}
+.bolam_polygon{clip-path: polygon(13% 1%, 27% 1%, 27% 26%, 23% 26%, 23% 29%, 5% 29%, 7% 27%, 4% 25%, 2% 27%, 0% 25%, 13% 15%);}
+.ec_polygon {clip-path: polygon(11% 1%, 46% 1%, 46% 6%, 49% 6%, 49% 9%, 51% 9%, 50% 18%, 46% 18%, 46% 24%, 9% 22%, 9% 19%, 1% 16%, 7% 5%, 8% 5%, 9% 2%, 11% 2%);}
+.te-kianga_polygon { clip-path: polygon(34% 2%, 33% 14%, 40% 15%, 43% 22%, 47% 25%, 49% 29%, 49% 37%, 44% 44%, 39% 42%, 33% 38%, 27% 35%, 19% 32%, 9% 31%, 1% 31%, 1% 28%, 3% 26%, 3% 23%, 1% 21%, 1% 18%, 3% 16%, 3% 13%, 1% 11%, 1% 8%, 3% 6%, 3% 3%, 1% 1%, 1% 0%);}
+.arts_polygon {clip-path: polygon(30% 20%, 27% 25%, 24% 23%, 22% 26%, 18% 23%, 19% 22%, 7% 13%, 1% 13%, 1% 4%, 4% 1%);}
+
+.building_labal{
+    position: absolute;
+    font-size: 1.8vw;
+}
+
+.stanford_labal  { top: 20%;  left: 20%; }
+.allen_labal     { top: 55%; left: 15%; }
+.bolam_labal     { top: 63%; left: 32%; }
+.ec_labal        { top: 30%; left: 52%; }
+.te-kianga_labal { top: 58%; left: 52%; }
+.arts_labal      { top: 10%;  left: 72%; }
+
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+
+.content{  
+    flex-direction:column;
+}
+
+
+.map{
+    width: 100%;
+}
+
+.sidebar{
+    order: 2;
+    width:100%;
+    height: auto;
+}
+.building_labal{
+    position: absolute;
+    font-size: 3vw;
+}
+
+
+
+
+}
