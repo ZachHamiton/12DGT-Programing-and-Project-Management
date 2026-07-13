@@ -8,58 +8,74 @@
 
 <!-- changes what the pages content is / middle is -->
 {% block content %}
-    <div class = "sidebar">
-        <div class = "sidebar_content">
-            
-            <h2>Finder</h2>
-            <br>
-            <input type = "text" placeholder = "Type code here" class = "finder_input">
-            <br>
-            <br>
-            <h2> Room Code Key</h2>
+    <div class = "content">
+        <div class = "sidebar">
+            <div class = "sidebar_content">
 
-            <div class = "table_div">
+                <!-- Finder -->
 
-                <!-- table explaining which letters correspond to each building -->
-                <table>
-                    <thead>
-                         <th> Building</th>
-                        <th> Start Finder With the Letter</th>
-                    </thead>
+                <h2>Finder</h2>
+                <br> <!-- make sure that useing br is a good thing to do !!!!!!!!-->
 
-                    <tbody>
-                        <tr><td>Allen</td> <td>A</td></tr>
-                        <tr><td>Bolam</td><td>B</td></tr>
-                        <tr><td>Arts/Drama Block</td><td>D</td></tr>
-                        <tr><td>Event Centre / Gym</td><td>G</td></tr>
-                        <tr><td>Te Kainga</td><td>K</td></tr>
-                        <tr><td>Stanford</td><td>S</td></tr>
-                    </tbody>
+                <!-- When this input is typed into it highlight places on the map depending on what is typed in -->
+                <input type = "text" placeholder = "Type code here" class = "finder_input">
+                <br>
+                <br>
 
-                </table>
+                <!-- explains information about the map so that users can better understand it -->
+                <h2> Room Code Key</h2>
 
-                <!-- table that explains the conpanants of the room code -->
-                <table>
-                    <thead>
-                         <th> Part of code</th>
-                        <th> Meaning </th>
-                    </thead>
+                <div class = "table_div">
 
-                    <tbody>
-                        <tr><td>1st Letter</td> <td> Building</td></tr>
-                        <tr><td>1st Number</td> <td> The floor level</td></tr>
-                        <tr><td>2nd and 3rd Numbers</td> <td>The room's unique number on its floor</td></tr>
-                        <tr><td>Letter at the End</td><td>The room is a connected side-room</td></tr>
-                    </tbody>
+                    <!-- table explaining which letters correspond to each building -->
+                    <table>
+                        <thead>
+                            <th> Building</th>
+                            <th> Start Finder With the Letter</th>
+                        </thead>
 
-                </table>
+                        <tbody>
+                            <tr><td>Allen</td> <td>A</td></tr>
+                            <tr><td>Bolam</td><td>B</td></tr>
+                            <tr><td>Arts/Drama Block</td><td>D</td></tr>
+                            <tr><td>Event Centre / Gym</td><td>G</td></tr>
+                            <tr><td>Te Kainga</td><td>K</td></tr>
+                            <tr><td>Stanford</td><td>S</td></tr>
+                        </tbody>
 
+                    </table>
 
+                    <!-- table that explains the conpanants of the room code -->
+                    <table>
+                        <thead>
+                            <th>Part of code</th>
+                            <th>Meaning</th>
+                        </thead>
 
+                        <tbody>
+                            <tr><td>1st Letter</td> <td> Building</td></tr>
+                            <tr><td>1st Number</td> <td> The floor level</td></tr>
+                            <tr><td>2nd and 3rd Numbers</td> <td>The room's unique number on its floor</td></tr>
+                            <tr><td>Letter at the End</td><td>The room is a connected side-room</td></tr>
+                        </tbody>
 
-            </div>
+                    </table>
+                </div>
+            </div>   
         </div>
-                
+
+        <div class = "map">
+            
+
+        </div>
+
+
+
+
+
+
+
+        
     </div>
 {%endblock%}
 
