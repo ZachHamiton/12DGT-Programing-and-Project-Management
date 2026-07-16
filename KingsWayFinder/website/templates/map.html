@@ -9,8 +9,14 @@
 <!-- changes what the pages content is / middle is -->
 {% block content %}
     <div class = "content">
-        <div class = "sidebar">
+        <div class = "sidebar" id = "left_sidebar">
             <div class = "sidebar_content">
+
+
+                <!-- button that hides the sidebar when pressed -->
+                <button class = "left_sidebar_button" id = "left_sidebar_close_button" ><img class = "left_sidebar_image" src = "{{ url_for('static', filename='images/collapse_side_panal_left.svg') }}" alt = "Collapse left sidebar icon"></button>
+                
+
 
                 <!-- Finder -->
 
@@ -58,16 +64,24 @@
                             <tr><td>2nd and 3rd Numbers</td> <td>The room's unique number on its floor</td></tr>
                             <tr><td>Letter at the End</td><td>The room is a connected side-room</td></tr>
                         </tbody>
-
                     </table>
                 </div>
             </div>   
         </div>
 
-        <div class = "map">
-            <div class="polygon_container stanford_polygon_contianer">
-                <div class="polygon stanford_polygon"> 
-                </div>
+        <div class = "map" id = "map">
+            
+
+            <!-- opens the left side pannel -->
+            <button class = "left_sidebar_button hidden" id = "left_sidebar_open_button"><img class = "left_sidebar_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></button>
+
+
+            <!-- divs that clip path into the shapes of the buildings -->
+          
+
+            <div class="polygon_container stanford_polygon_contianer"> <!-- the first div is the clip pathed divs container for the shape to apear correctaly this div must be the same aspect ratio as when the clip path was being drawn in this case the aspect ratio is 1:1 -->
+                <div class="polygon stanford_polygon" href = "youtube.com"></div> <!-- This is the div that the clip path will be applied too -->
+                
             </div>
 
             <div class="polygon_container allen_polygon_contianer">
@@ -95,7 +109,7 @@
                 </div>
             </div>
 
-
+            <!-- labels for the buildings -->
             <h1 class = "building_label stanford_label">Stanford</h1>
             <h1 class = "building_label allen_label">Allen</h1>
             <h1 class = "building_label bolam_label">Bolam</h1>
@@ -104,6 +118,7 @@
             <h1 class = "building_label arts_label">Arts Block</h1>
 
 
+            <!-- labels for other things on the map -->
             <h2 class="other_label field_label">Field</h2>
             <h2 class="other_label cola_label">Cola</h2>
             <h2 class="other_label astro_label">Astro</h2>
