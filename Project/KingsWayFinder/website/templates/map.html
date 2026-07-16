@@ -1,0 +1,137 @@
+
+<!-- base.html has block that can be overridden by putting differant html into blocks with the same name-->
+{% extends "base.html" %} 
+
+<!-- changes the title -->
+{% block title %}<title>KingsWayFinder</title>{% endblock %}
+
+
+<!-- changes what the pages content is / middle is -->
+{% block content %}
+    <div class = "content">
+        <div class = "sidebar">
+            <div class = "sidebar_content">
+
+                <!-- Finder -->
+
+                <h2>Finder</h2>
+                <br> <!-- make sure that useing br is a good thing to do !!!!!!!!-->
+
+                <!-- When this input is typed into it highlight places on the map depending on what is typed in -->
+                <input type = "text" placeholder = "Type code here" class = "finder_input">
+                <br>
+                <br>
+
+                <!-- explains information about the map so that users can better understand it -->
+                <h2> Room Code Key</h2>
+
+                <div class = "table_div">
+
+                    <!-- table explaining which letters correspond to each building -->
+                    <table>
+                        <thead>
+                            <th> Building</th>
+                            <th> Start Finder With the Letter</th>
+                        </thead>
+
+                        <tbody>
+                            <tr><td>Allen</td> <td>A</td></tr>
+                            <tr><td>Bolam</td><td>B</td></tr>
+                            <tr><td>Arts/Drama Block</td><td>D</td></tr>
+                            <tr><td>Event Centre / Gym</td><td>G</td></tr>
+                            <tr><td>Te Kainga</td><td>K</td></tr>
+                            <tr><td>Stanford</td><td>S</td></tr>
+                        </tbody>
+
+                    </table>
+
+                    <!-- table that explains the conpanants of the room code -->
+                    <table>
+                        <thead>
+                            <th>Part of code</th>
+                            <th>Meaning</th>
+                        </thead>
+
+                        <tbody>
+                            <tr><td>1st Letter</td> <td> Building</td></tr>
+                            <tr><td>1st Number</td> <td> The floor level</td></tr>
+                            <tr><td>2nd and 3rd Numbers</td> <td>The room's unique number on its floor</td></tr>
+                            <tr><td>Letter at the End</td><td>The room is a connected side-room</td></tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>   
+        </div>
+
+        <div class = "map">
+
+            <!-- divs that clip path into the shapes of the buildings -->
+
+            <div class="polygon_container stanford_polygon_contianer"> <!-- the first div is the clip pathed divs container for the shape to apear correctaly this div must be the same aspect ratio as when the clip path was being drawn in this case the aspect ratio is 1:1 -->
+                <div class="polygon stanford_polygon" href = "youtube.com"></div> <!-- This is the div that the clip path will be applied too -->
+                
+            </div>
+
+            <div class="polygon_container allen_polygon_contianer">
+                <div class="polygon allen_polygon"> 
+                </div>
+            </div>
+
+            <div class="polygon_container bolam_polygon_contianer">
+                <div class="polygon bolam_polygon"> 
+                </div>
+            </div>
+
+            <div class="polygon_container ec_polygon_contianer">
+                <div class="polygon ec_polygon"> 
+                </div>
+            </div>
+
+            <div class="polygon_container te-kianga_polygon_contianer">
+                <div class="polygon te-kianga_polygon"> 
+                </div>
+            </div>
+
+            <div class="polygon_container arts_polygon_contianer">
+                <div class="polygon arts_polygon"> 
+                </div>
+            </div>
+
+            <!-- labels for the buildings -->
+            <h1 class = "building_label stanford_label">Stanford</h1>
+            <h1 class = "building_label allen_label">Allen</h1>
+            <h1 class = "building_label bolam_label">Bolam</h1>
+            <h1 class = "building_label ec_label ">Event Centre</h1>
+            <h1 class = "building_label te-kianga_label ">Te-kianga (Area)</h1>
+            <h1 class = "building_label arts_label">Arts Block</h1>
+
+
+            <!-- labels for other things on the map -->
+            <h2 class="other_label field_label">Field</h2>
+            <h2 class="other_label cola_label">Cola</h2>
+            <h2 class="other_label astro_label">Astro</h2>
+            <h2 class="other_label allen_quad_label">Allen Quad</h2>
+            <h2 class="other_label office_label">Office</h2>
+            <h2 class="other_label main_entrance_label">MAIN ENTRANCE<br>100 Jelas Road</h2>
+            <h2 class="other_label back_gate_label">Back Gate</h2>
+
+
+
+
+
+        </div>
+
+
+        
+
+
+
+
+
+
+
+        
+    </div>
+{%endblock%}
+

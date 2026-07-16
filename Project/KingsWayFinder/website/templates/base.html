@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+        <!-- Blank space for the title to be filled in my the templates-->
+        {% block title %}<title>Base.html</title>{% endblock %}
+
+
+    </head>
+    <body>
+        <!-- Navbar section -->
+        <div class = "nav">
+            <h1 class = "nav_text">KingsWayFinder</h1>
+        </div>
+
+        <!-- content section -->
+        <div class = "content">
+            {% block content %}
+            {%endblock%}
+        </div>
+
+
+
+
+        <!-- Footer section -->
+        <div class = "footer">
+            <div class = "contact_details">
+                <p class = "footer_text">If you run into any problems or have any suggestions, please contact the webmaster at zach.hamilton@kingsway.school.nz</p>
+            </div>
+            
+
+
+            <div class = "footer_text">
+                <p>Copyright © 2026 &nbsp; &nbsp; &nbsp;Created By Zachary Hamilton</p>
+            </div>
+            
+
+        </div class = "footer">
+
+
+        
+    </body>
+</html>
