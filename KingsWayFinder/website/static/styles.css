@@ -235,12 +235,12 @@ tr:nth-child(even){
 
 
 /* sets the clip path for the differant buildings which is what gives them there distinct shape */
-.stanford_polygon{ clip-path: polygon(5% 34%, 28% 2%, 75% 23%, 80% 16%, 94% 22%, 83% 41%, 35% 20%, 27% 30%, 30% 32%, 21% 44%);}
-.allen_polygon{clip-path: polygon(7% 1%, 14% 1%, 14% 4%, 22% 4%, 22% 24%, 16% 24%, 16% 29%, 3% 29%, 3% 20%, 1% 20%, 1% 11%, 2% 11%, 2% 4%, 7% 4%);}
-.bolam_polygon{clip-path: polygon(13% 1%, 27% 1%, 27% 26%, 23% 26%, 23% 29%, 5% 29%, 7% 27%, 4% 25%, 2% 27%, 0% 25%, 13% 15%);}
-.ec_polygon {clip-path: polygon(11% 1%, 46% 1%, 46% 6%, 49% 6%, 49% 9%, 51% 9%, 50% 18%, 46% 18%, 46% 24%, 9% 22%, 9% 19%, 1% 16%, 7% 5%, 8% 5%, 9% 2%, 11% 2%);}
-.te-kianga_polygon { clip-path: polygon(34% 2%, 33% 14%, 40% 15%, 43% 22%, 47% 25%, 49% 29%, 49% 37%, 44% 44%, 39% 42%, 33% 38%, 27% 35%, 19% 32%, 9% 31%, 1% 31%, 1% 28%, 3% 26%, 3% 23%, 1% 21%, 1% 18%, 3% 16%, 3% 13%, 1% 11%, 1% 8%, 3% 6%, 3% 3%, 1% 1%, 1% 0%);}
-.arts_polygon {clip-path: polygon(30% 20%, 27% 25%, 24% 23%, 22% 26%, 18% 23%, 19% 22%, 7% 13%, 1% 13%, 1% 4%, 4% 1%);}
+#stanford_polygon{ clip-path: polygon(5% 34%, 28% 2%, 75% 23%, 80% 16%, 94% 22%, 83% 41%, 35% 20%, 27% 30%, 30% 32%, 21% 44%);}
+#allen_polygon{clip-path: polygon(7% 1%, 14% 1%, 14% 4%, 22% 4%, 22% 24%, 16% 24%, 16% 29%, 3% 29%, 3% 20%, 1% 20%, 1% 11%, 2% 11%, 2% 4%, 7% 4%);}
+#bolam_polygon{clip-path: polygon(13% 1%, 27% 1%, 27% 26%, 23% 26%, 23% 29%, 5% 29%, 7% 27%, 4% 25%, 2% 27%, 0% 25%, 13% 15%);}
+#ec_polygon {clip-path: polygon(11% 1%, 46% 1%, 46% 6%, 49% 6%, 49% 9%, 51% 9%, 50% 18%, 46% 18%, 46% 24%, 9% 22%, 9% 19%, 1% 16%, 7% 5%, 8% 5%, 9% 2%, 11% 2%);}
+#te-kianga_polygon { clip-path: polygon(34% 2%, 33% 14%, 40% 15%, 43% 22%, 47% 25%, 49% 29%, 49% 37%, 44% 44%, 39% 42%, 33% 38%, 27% 35%, 19% 32%, 9% 31%, 1% 31%, 1% 28%, 3% 26%, 3% 23%, 1% 21%, 1% 18%, 3% 16%, 3% 13%, 1% 11%, 1% 8%, 3% 6%, 3% 3%, 1% 1%, 1% 0%);}
+#arts_polygon {clip-path: polygon(30% 20%, 27% 25%, 24% 23%, 22% 26%, 18% 23%, 19% 22%, 7% 13%, 1% 13%, 1% 4%, 4% 1%);}
 
 
 
@@ -294,7 +294,7 @@ tr:nth-child(even){
 }
 
 
-.left_sidebar_image{
+.left_sidebar_button_image{
     width: 80%;
 }
 
@@ -312,6 +312,11 @@ tr:nth-child(even){
     margin: 1%;
 }
 
+
+/* everything that is given this class will highlight */
+.highlighted{
+    background-color: yellowgreen;
+}
 
 
 
@@ -340,6 +345,15 @@ tr:nth-child(even){
     height: auto;
 }
 
+#left_sidebar_open_button{
+    position: absolute;
+    top:75%;
+    z-index: 5;
+}
+
+
+
+
 /* makes the building and other labels more readable */
 .building_label{
     font-size: 2.8vw;
@@ -349,11 +363,13 @@ tr:nth-child(even){
     font-size: 2.5vw;
 }
 
-
+.left_sidebar_button_image{
+    transform: rotate(-90deg)
+}
 
 
 /* moving 1 % to the right */
-.stanford_polygon_contianer  { top: var(--stanford_polygon_top);  left: calc(var(--stanford_polygon_left) + 1%); }
+.stanford_polygon_contianer  { top: var(--stanford_polygon_top);  left: calc(var(--stanford_polygon_left) + 1%);}
 .allen_polygon_contianer     { top: var(--allen_polygon_top);     left: calc(var(--allen_polygon_left) + 1%); }
 .bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: calc(var(--bolam_polygon_left) + 1%); }
 .ec_polygon_contianer        { top: var(--ec_polygon_top);        left: calc(var(--ec_polygon_left) + 1%); }
@@ -374,16 +390,5 @@ tr:nth-child(even){
 .office_label         { top: var(--office_label_top);         left: calc(var(--office_label_left) + 1%); }
 .main_entrance_label  { top: var(--main_entrance_label_top);  left: calc(var(--main_entrance_label_left) - 1%); }
 .back_gate_label      { top: var(--back_gate_label_top);      left: calc(var(--back_gate_label_left) + 1%); }
-
-
-
-/* makes the sidebar button not large */
-.left_sidebar_button{
-    width:5%;
-}
-
-
-
-
 
 }

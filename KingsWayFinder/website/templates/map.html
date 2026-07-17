@@ -14,7 +14,7 @@
 
 
                 <!-- button that hides the sidebar when pressed -->
-                <button class = "left_sidebar_button" id = "left_sidebar_close_button" ><img class = "left_sidebar_image" src = "{{ url_for('static', filename='images/collapse_side_panal_left.svg') }}" alt = "Collapse left sidebar icon"></button>
+                <button class = "left_sidebar_button" id = "left_sidebar_close_button" ><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/collapse_side_panal_left.svg') }}" alt = "Collapse left sidebar icon"></button>
                 
 
 
@@ -24,7 +24,7 @@
                 <br> <!-- make sure that useing br is a good thing to do !!!!!!!!-->
 
                 <!-- When this input is typed into it highlight places on the map depending on what is typed in -->
-                <input type = "text" placeholder = "Type code here" class = "finder_input">
+                <input type = "text" placeholder = "Type code here" class = "finder_input" id = "finder_input">
                 <br>
                 <br>
 
@@ -43,7 +43,7 @@
                         <tbody>
                             <tr><td>Allen</td> <td>A</td></tr>
                             <tr><td>Bolam</td><td>B</td></tr>
-                            <tr><td>Arts/Drama Block</td><td>D</td></tr>
+                            <tr><td>Arts Block</td><td>D</td></tr>
                             <tr><td>Event Centre / Gym</td><td>G</td></tr>
                             <tr><td>Te Kainga</td><td>K</td></tr>
                             <tr><td>Stanford</td><td>S</td></tr>
@@ -73,39 +73,39 @@
             
 
             <!-- opens the left side pannel -->
-            <button class = "left_sidebar_button hidden" id = "left_sidebar_open_button"><img class = "left_sidebar_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></button>
+            <button class = "left_sidebar_button hidden" id = "left_sidebar_open_button"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></button>
 
 
             <!-- divs that clip path into the shapes of the buildings -->
           
 
             <div class="polygon_container stanford_polygon_contianer"> <!-- the first div is the clip pathed divs container for the shape to apear correctaly this div must be the same aspect ratio as when the clip path was being drawn in this case the aspect ratio is 1:1 -->
-                <div class="polygon stanford_polygon" href = "youtube.com"></div> <!-- This is the div that the clip path will be applied too -->
+                <div class="polygon" id = "stanford_polygon" href = "youtube.com"></div> <!-- This is the div that the clip path will be applied too -->
                 
             </div>
 
             <div class="polygon_container allen_polygon_contianer">
-                <div class="polygon allen_polygon"> 
+                <div class="polygon" id = "allen_polygon"> 
                 </div>
             </div>
 
             <div class="polygon_container bolam_polygon_contianer">
-                <div class="polygon bolam_polygon"> 
+                <div class="polygon" id = "bolam_polygon"> 
                 </div>
             </div>
 
             <div class="polygon_container ec_polygon_contianer">
-                <div class="polygon ec_polygon"> 
+                <div class="polygon" id = "ec_polygon" > 
                 </div>
             </div>
 
             <div class="polygon_container te-kianga_polygon_contianer">
-                <div class="polygon te-kianga_polygon"> 
+                <div class="polygon" id = "te-kianga_polygon"> 
                 </div>
             </div>
 
             <div class="polygon_container arts_polygon_contianer">
-                <div class="polygon arts_polygon"> 
+                <div class="polygon" id = "arts_polygon"> 
                 </div>
             </div>
 
@@ -114,7 +114,7 @@
             <h1 class = "building_label allen_label">Allen</h1>
             <h1 class = "building_label bolam_label">Bolam</h1>
             <h1 class = "building_label ec_label ">Event Centre</h1>
-            <h1 class = "building_label te-kianga_label ">Te-kianga (Area)</h1>
+            <h1 class = "building_label te-kianga_label ">Te Kianga (Area)</h1>
             <h1 class = "building_label arts_label">Arts Block</h1>
 
 
