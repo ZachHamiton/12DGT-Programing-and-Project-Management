@@ -29,11 +29,11 @@ leftSidePannelOpenButton.addEventListener("click", openLeftSidebar);
 
 
 // gets all constances needed for the checkForHighlights function
-const stanfordPolygon = document.getElementById("stanford_polygon");
+const sanfordPolygon = document.getElementById("sanford_polygon");
 const allenPolygon = document.getElementById("allen_polygon");
 const bolamPolygon = document.getElementById("bolam_polygon");
 const ecPolygon = document.getElementById("ec_polygon");
-const teKiangaPolygon = document.getElementById("te-kianga_polygon");
+const teKaingaPolygon = document.getElementById("te-kainga_polygon");
 const artsPolygon = document.getElementById("arts_polygon");
 
 const finderInput = document.getElementById("finder_input");
@@ -69,9 +69,9 @@ function checkForHighlights(){
     if (finderInputValue.length < 6 &&  listOfValidSecondCharacters.includes(secondCharacterFinderInput)){
         // causes the corisponding building to highlight or unhighlight. 
         if (firstCharacterFinderInput === "s" ){
-            stanfordPolygon.classList.add("highlighted");
+            sanfordPolygon.classList.add("highlighted");
         }else{
-            stanfordPolygon.classList.remove("highlighted");
+            sanfordPolygon.classList.remove("highlighted");
         }
 
         if (firstCharacterFinderInput === "a"){
@@ -93,9 +93,9 @@ function checkForHighlights(){
         }
 
         if (firstCharacterFinderInput === "k"){
-            teKiangaPolygon.classList.add("highlighted");
+            teKaingaPolygon.classList.add("highlighted");
         }else{
-            teKiangaPolygon.classList.remove("highlighted");
+            teKaingaPolygon.classList.remove("highlighted");
         }
 
         if (firstCharacterFinderInput === "d"){
@@ -107,25 +107,25 @@ function checkForHighlights(){
     }else{ 
         // checks if the full name has been written out
         // if so that building is highlighted
-        if(String(finderInputValue).toLowerCase() === "stanford"){
-            stanfordPolygon.classList.add("highlighted");
+        if(String(finderInputValue).toLowerCase() === "sanford"){
+            sanfordPolygon.classList.add("highlighted");
         }else if(String(finderInputValue).toLowerCase() === "allen"){
             allenPolygon.classList.add("highlighted");
         }else if(String(finderInputValue).toLowerCase() === "bolam"){
             bolamPolygon.classList.add("highlighted");
         }else if(String(finderInputValue).toLowerCase() === "event centre" || String(finderInputValue).toLowerCase() === "event center" || String(finderInputValue).toLowerCase() === "gym"){
             ecPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "te kianga"){
-            teKiangaPolygon.classList.add("highlighted");
+        }else if(String(finderInputValue).toLowerCase() === "te kainga"){
+            teKaingaPolygon.classList.add("highlighted");
         }else if(String(finderInputValue).toLowerCase() === "arts" || String(finderInputValue).toLowerCase() === "arts block"){
             artsPolygon.classList.add("highlighted");
         // if nothing has triggered any highlighting everything is unhighlighted
         }else{    
-            stanfordPolygon.classList.remove("highlighted");
+            sanfordPolygon.classList.remove("highlighted");
             allenPolygon.classList.remove("highlighted");
             bolamPolygon.classList.remove("highlighted");
             ecPolygon.classList.remove("highlighted");
-            teKiangaPolygon.classList.remove("highlighted");
+            teKaingaPolygon.classList.remove("highlighted");
             artsPolygon.classList.remove("highlighted");
         }
     }

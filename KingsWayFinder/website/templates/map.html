@@ -46,7 +46,7 @@
                             <tr><td>Arts Block</td><td>D</td></tr>
                             <tr><td>Event Centre / Gym</td><td>G</td></tr>
                             <tr><td>Te Kainga</td><td>K</td></tr>
-                            <tr><td>Stanford</td><td>S</td></tr>
+                            <tr><td>Sanford</td><td>S</td></tr>
                         </tbody>
 
                     </table>
@@ -76,45 +76,39 @@
             <button class = "left_sidebar_button hidden" id = "left_sidebar_open_button"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></button>
 
 
-            <!-- divs that clip path into the shapes of the buildings -->
-          
+            <!-- creates the differant shapes for the buildings by making an svg and puting a polygon insided it with speicfic points to make differant points -->
+            <svg class="polygon_container sanford_polygon_contianer" viewBox="0 0 100 100">
+                <polygon class="polygon" id="sanford_polygon" points="5,34 28,2 75,23 80,16 94,22 83,41 35,20 27,30 30,32 21,44"></polygon>
+            </svg>
 
-            <div class="polygon_container stanford_polygon_contianer"> <!-- the first div is the clip pathed divs container for the shape to apear correctaly this div must be the same aspect ratio as when the clip path was being drawn in this case the aspect ratio is 1:1 -->
-                <div class="polygon" id = "stanford_polygon" href = "youtube.com"></div> <!-- This is the div that the clip path will be applied too -->
-                
-            </div>
+            <svg class="polygon_container allen_polygon_contianer" viewBox="0 0 100 100" >
+                <polygon class="polygon" id="allen_polygon" points="7,1 14,1 14,4 22,4 22,24 16,24 16,29 3,29 3,20 1,20 1,11 2,11 2,4 7,4"></polygon>
+            </svg>
 
-            <div class="polygon_container allen_polygon_contianer">
-                <div class="polygon" id = "allen_polygon"> 
-                </div>
-            </div>
+            <svg class="polygon_container bolam_polygon_contianer" viewBox="0 0 100 100" >
+                <polygon class="polygon" id="bolam_polygon" points="13,1 27,1 27,26 23,26 23,29 5,29 7,27 4,25 2,27 0,25 13,15"></polygon>
+            </svg>
 
-            <div class="polygon_container bolam_polygon_contianer">
-                <div class="polygon" id = "bolam_polygon"> 
-                </div>
-            </div>
+            <svg class="polygon_container ec_polygon_contianer" viewBox="0 0 100 100" >
+                <polygon class="polygon" id="ec_polygon" points="11,1 46,1 46,6 49,6 49,9 51,9 50,18 46,18 46,24 9,22 9,19 1,16 7,5 8,5 9,2 11,2"></polygon>
+            </svg>
 
-            <div class="polygon_container ec_polygon_contianer">
-                <div class="polygon" id = "ec_polygon" > 
-                </div>
-            </div>
+            <svg class="polygon_container te-kainga_polygon_contianer" viewBox="0 0 100 100" >
+                <polygon class="polygon" id="te-kainga_polygon" points="34,2 33,14 40,15 43,22 47,25 49,29 49,37 44,44 39,42 33,38 27,35 19,32 9,31 1,31 1,28 3,26 3,23 1,21 1,18 3,16 3,13 1,11 1,8 3,6 3,3 1,1 1,0"></polygon>
+            </svg>
 
-            <div class="polygon_container te-kianga_polygon_contianer">
-                <div class="polygon" id = "te-kianga_polygon"> 
-                </div>
-            </div>
+            <svg class="polygon_container arts_polygon_contianer" viewBox="0 0 100 100">
+                <polygon class="polygon" id="arts_polygon" points="30,20 27,25 24,23 22,26 18,23 19,22 7,13 1,13 1,4 4,1"></polygon>
+            </svg>
 
-            <div class="polygon_container arts_polygon_contianer">
-                <div class="polygon" id = "arts_polygon"> 
-                </div>
-            </div>
+            
 
             <!-- labels for the buildings -->
-            <h1 class = "building_label stanford_label">Stanford</h1>
+            <h1 class = "building_label sanford_label">Sanford</h1>
             <h1 class = "building_label allen_label">Allen</h1>
             <h1 class = "building_label bolam_label">Bolam</h1>
             <h1 class = "building_label ec_label ">Event Centre</h1>
-            <h1 class = "building_label te-kianga_label ">Te Kianga (Area)</h1>
+            <h1 class = "building_label te-kainga_label ">Te Kainga (Area)</h1>
             <h1 class = "building_label arts_label">Arts Block</h1>
 
 
