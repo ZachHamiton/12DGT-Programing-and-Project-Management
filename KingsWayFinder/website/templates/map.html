@@ -9,7 +9,7 @@
 <!-- changes what the pages content is / middle is -->
 {% block content %}
     <div class = "content">
-        <div class = "sidebar" id = "left_sidebar">
+        <div class = "sidebar move_right" id = "left_sidebar">
             <div class = "sidebar_content">
 
 
@@ -70,10 +70,14 @@
         </div>
 
         <div class = "map" id = "map">
-            
 
             <!-- opens the left side pannel -->
             <button class = "left_sidebar_button hidden" id = "left_sidebar_open_button"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></button>
+
+            <!-- zoom in and out button -->
+            <!-- <button class = "zoom_button" id = "zoom_in_button"><h1 class = "zoom_button_text">+</h1></button>
+
+            <button class = "zoom_button" id = "zoom_out_button"><h1 class = "zoom_button_text">-</h1></button> -->
 
 
             <!-- creates the differant shapes for the buildings by making an svg and puting a polygon insided it with speicfic points to make differant points -->
@@ -118,8 +122,10 @@
             <h2 class="other_label astro_label">Astro</h2>
             <h2 class="other_label allen_quad_label">Allen Quad</h2>
             <h2 class="other_label office_label">Office</h2>
-            <h2 class="other_label main_entrance_label">MAIN ENTRANCE<br>100 Jelas Road</h2>
+            <h2 class="other_label main_entrance_label">Main Entrance<br>100 Jelas Road</h2>
             <h2 class="other_label back_gate_label">Back Gate</h2>
+
+
 
 
 

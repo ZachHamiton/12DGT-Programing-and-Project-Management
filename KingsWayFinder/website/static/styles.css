@@ -4,31 +4,29 @@
 :root{
     /* the top and left positions of all the buildings in the zoomed out map */
     /* variables are used because these numbers are used more then once throughout the document and have calculations like calc( var(sanford_polygon_left) - 1%) */
-    --sanford_polygon_top:  6.39%;  --sanford_polygon_left: -2.19%; 
-    --allen_polygon_top:     43.5%;  --allen_polygon_left:     9.5%;
-    --bolam_polygon_top:     45.96%; --bolam_polygon_left:     24%;
-    --ec_polygon_top:        21.66%; --ec_polygon_left:        42.71%;
-    --te-kainga_polygon_top: 42.50%; --te-kainga_polygon_left: 46.62%;
-    --arts_polygon_top:      4.31%;  --arts_polygon_left:      60.29%;
-
+    --sanford_polygon_top     :   3.86%;  --sanford_polygon_left    :  -2.65%;
+    --allen_polygon_top       :  48.78%;  --allen_polygon_left      :  11.50%;
+    --bolam_polygon_top       :  51.76%;  --bolam_polygon_left      :  29.05%;
+    --ec_polygon_top          :  22.35%;  --ec_polygon_left         :  51.70%;
+    --te-kainga_polygon_top   :  47.57%;  --te-kainga_polygon_left  :  56.43%;
+    --arts_polygon_top        :   1.34%;  --arts_polygon_left       :  72.98%;
     /* The top and left positions of all the labels of the zoomed ou map */
     /* buildings labels */
-    --sanford_label_top:  22.5%; --sanford_label_left: 20.5%; 
-    --allen_label_top:     55%;    --allen_label_left:     12.5%;
-    --bolam_label_top:     63%;    --bolam_label_left:    29%;
-    --ec_label_top:        30%;    --ec_label_left:        49.5%;
-    --te-kainga_label_top: 58%;    --te-kainga_label_left: 48.5%;
-    --arts_label_top:      3.25%;  --arts_label_left:      65.5%;
+    --sanford_label_top       :  23.36%;  --sanford_label_left      :  24.82%;
+    --allen_label_top         :  62.71%;  --allen_label_left        :  15.13%;
+    --bolam_label_top         :  72.39%;  --bolam_label_left        :  34.11%;
+    --ec_label_top            :  32.44%;  --ec_label_left           :  59.92%;
+    --te-kainga_label_top     :  66.34%;  --te-kainga_label_left    :  58.71%;
+    --arts_label_top          :   0.06%;  --arts_label_left         :  79.29%;
 
     /* other labels */
-    --field_label_top:         10%;    --field_label_left:         30%; 
-    --cola_label_top:          10%;    --cola_label_left:          52.5%;
-    --astro_label_top:         55%;    --astro_label_left:         40%;
-    --allen_quad_label_top:    38%;    --allen_quad_label_left:    20%;
-    --office_label_top:        73%;    --office_label_left:        23%;
-    --main_entrance_label_top: 83%;    --main_entrance_label_left: 62%;
-    --back_gate_label_top:     46%;   --back_gate_label_left:      0%;
-
+    --field_label_top         :   8.23%;  --field_label_left        :  36.32%;
+    --cola_label_top          :   8.23%;  --cola_label_left         :  63.55%;
+    --astro_label_top         :  62.71%;  --astro_label_left        :  48.42%;
+    --allen_quad_label_top    :  42.13%;  --allen_quad_label_left   :  24.21%;
+    --office_label_top        :  84.49%;  --office_label_left       :  27.84%;
+    --main_entrance_label_top :  85.38%;  --main_entrance_label_left:  87.16%;
+    --back_gate_label_top     :  51.81%;  --back_gate_label_left    :   0.00%;
 }
 
 
@@ -114,6 +112,8 @@ body{
     padding: 24px;
     font-family: sans-serif;
     min-height: 500px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
 }
 
 
@@ -183,24 +183,22 @@ tr:nth-child(even){
 
 .map{
     position: relative; /* enables absolute positioning inside the map*/
-    width:78%;
     overflow: hidden;
     aspect-ratio: 16 / 9;
-    flex: 0 0 auto; /* prevents flexbox from changing its size (given by AI) */
-}
+    flex: 1 0 auto; /* prevents flexbox from changing its size (given by AI) */
+    margin: 1%;
 
-.zoomed_out_map_image{  
-    position: absolute; 
-    height: 750px;
-    z-index: 10;
+    transition: width 0.3s ease-in;
     
 }
 
+
 .polygon_container{
     position: absolute;
-    width: 50%; 
+    width: 57.5%; 
     aspect-ratio: 1 / 1; /* makes sure the the polygon containers stay a square to keep the shape of the buildings */
     overflow: visible; /* make the border visable */ 
+    pointer-events: none;
 }
 
 .polygon{
@@ -210,6 +208,7 @@ tr:nth-child(even){
     stroke: black;  /* border for polygons */
     stroke-width: 0.3%;  /* border width for polygons */
     transition: fill 0.3s ease;
+    pointer-events: auto;
 }
 
 
@@ -255,6 +254,11 @@ tr:nth-child(even){
     color: grey;
 }
 
+.main_entrance_label{
+    font-size: 1.185vw; /* makes the label always 2 lines instead of somtimes changing to 4 */ 
+
+}
+
 
 /* sets the positions of the labels */
 .field_label          { top: var(--field_label_top);          left: var(--field_label_left); }
@@ -290,6 +294,21 @@ tr:nth-child(even){
 }
 
 
+/* zoom in and out buttons */
+
+.zoom_button{
+    width: 50px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 40%;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.zoom_button_text{
+    font-size: 40px;
+}
+
 
 /* ===================== */
 /* JS toggleable classes */
@@ -300,10 +319,7 @@ tr:nth-child(even){
     display: none;
 }
 
-/* makes the map take up the whole screen */
-.width100{
-   width: 125%;
-}
+
 
 /* everything that is given this class will highlight */
 .highlighted{
@@ -311,76 +327,91 @@ tr:nth-child(even){
 }
 
 
+.width100{
+   width: 75%;
+   overflow: scroll;
+} 
 
 
-@media screen and (max-width: 850px) {
+/* .move_left{ */
+    /* transform: translateX(-110%); */
+/* } */
+
+
+/* .move_right{ */
+    /* transform: translateX(0%); */
+/* } */
+
+
+/* @media screen and (max-width: 850px) { */
 
 /* makes the sidebar and map go ontop of each other */
-.content{  
-    flex-direction:column;
-}
+/* .content{   */
+    /* flex-direction:column; */
+/* } */
 
 /* since the map is the only thing horizonally it should take up the whole screen */
-.map{
-    width: 125%; /* is 125% because the left side of the map is white space and size the screen is small it is good to maximise the map area */
-}
-.width100{
-   width: 125%;
-}
+/* .map{ */
+    /* width: 100%; is 125% because the left side of the map is white space and size the screen is small it is good to maximise the map area */
+/* } */
+
+
+
 
 
 
 /* makes the sidebar take up the whole width of the bottom of the screen */
-.sidebar{
-    order: 2; /* makes the sidebar under the map */
-    width: 97%; 
-    height: auto;
-}
+/* .sidebar{ */
+    /* order: 2; makes the sidebar under the map */
+    /* width: 97%;  */
+    /* height: auto; */
+/* } */
 
-#left_sidebar_open_button{
-    position: absolute;
-    top:75%;
-    z-index: 5;
-}
+/* #left_sidebar_open_button{ */
+    /* position: absolute; */
+    /* top:75%; */
+    /* z-index: 5; */
+/* } */
 
 
 
 
 /* makes the building and other labels more readable */
-.building_label{
-    font-size: 2.8vw;
-}
+/* .building_label{ */
+    /* font-size: 2.8vw; */
+/* } */
 
-.other_label{
-    font-size: 2.5vw;
-}
+/* .other_label{ */
+    /* font-size: 2.5vw; */
+/* } */
 
-.left_sidebar_button_image{
-    transform: rotate(-90deg)
-}
+/* .left_sidebar_button_image{ */
+    /* transform: rotate(-90deg) */
+/* } */
 
 
 /* moving 1 % to the right */
-.sanford_polygon_contianer  { top: var(--sanford_polygon_top);  left: calc(var(--sanford_polygon_left) + 1%);}
-.allen_polygon_contianer     { top: var(--allen_polygon_top);     left: calc(var(--allen_polygon_left) + 1%); }
-.bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: calc(var(--bolam_polygon_left) + 1%); }
-.ec_polygon_contianer        { top: var(--ec_polygon_top);        left: calc(var(--ec_polygon_left) + 1%); }
-.te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: calc(var(--te-kainga_polygon_left) + 1%); }
-.arts_polygon_contianer      { top: var(--arts_polygon_top);      left: calc(var(--arts_polygon_left) + 1%); }
+/* .sanford_polygon_contianer  { top: var(--sanford_polygon_top);  left: calc(var(--sanford_polygon_left) + 1%);} */
+/* .allen_polygon_contianer     { top: var(--allen_polygon_top);     left: calc(var(--allen_polygon_left) + 1%); } */
+/* .bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: calc(var(--bolam_polygon_left) + 1%); } */
+/* .ec_polygon_contianer        { top: var(--ec_polygon_top);        left: calc(var(--ec_polygon_left) + 1%); } */
+/* .te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: calc(var(--te-kainga_polygon_left) + 1%); } */
+/* .arts_polygon_contianer      { top: var(--arts_polygon_top);      left: calc(var(--arts_polygon_left) + 1%); } */
 
-.sanford_label  { top: var(--sanford_label_top);  left: calc(var(--sanford_label_left) + 1%); }
-.allen_label     { top: var(--allen_label_top);     left: calc(var(--allen_label_left) + 1%); }
-.bolam_label     { top: var(--bolam_label_top);     left: calc(var(--bolam_label_left) + 1%); }
-.ec_label        { top: var(--ec_label_top);        left: calc(var(--ec_label_left) + 1%); }
-.te-kainga_label { top: var(--te-kainga_label_top); left: calc(var(--te-kainga_label_left) + 1%); }
-.arts_label      { top: var(--arts_label_top);      left: calc(var(--arts_label_left) + 1%); }
+/* .sanford_label  { top: var(--sanford_label_top);  left: calc(var(--sanford_label_left) + 1%); } */
+/* .allen_label     { top: var(--allen_label_top);     left: calc(var(--allen_label_left) + 1%); } */
+/* .bolam_label     { top: var(--bolam_label_top);     left: calc(var(--bolam_label_left) + 1%); } */
+/* .ec_label        { top: var(--ec_label_top);        left: calc(var(--ec_label_left) + 1%); } */
+/* .te-kainga_label { top: var(--te-kainga_label_top); left: calc(var(--te-kainga_label_left) + 1%); } */
+/* .arts_label      { top: var(--arts_label_top);      left: calc(var(--arts_label_left) + 1%); } */
 
-.field_label          { top: var(--field_label_top);          left: calc(var(--field_label_left) + 1%); }
-.cola_label           { top: var(--cola_label_top);           left: calc(var(--cola_label_left) + 1%); }
-.astro_label          { top: var(--astro_label_top);          left: calc(var(--astro_label_left) + 1%); }
-.allen_quad_label     { top: var(--allen_quad_label_top);     left: calc(var(--allen_quad_label_left) + 1%); }
-.office_label         { top: var(--office_label_top);         left: calc(var(--office_label_left) + 1%); }
-.main_entrance_label  { top: var(--main_entrance_label_top);  left: calc(var(--main_entrance_label_left) - 1%); }
-.back_gate_label      { top: var(--back_gate_label_top);      left: calc(var(--back_gate_label_left) + 1%); }
+/* .field_label          { top: var(--field_label_top);          left: calc(var(--field_label_left) + 1%); } */
+/* .cola_label           { top: var(--cola_label_top);           left: calc(var(--cola_label_left) + 1%); } */
+/* .astro_label          { top: var(--astro_label_top);          left: calc(var(--astro_label_left) + 1%); } */
+/* .allen_quad_label     { top: var(--allen_quad_label_top);     left: calc(var(--allen_quad_label_left) + 1%); } */
+/* .office_label         { top: var(--office_label_top);         left: calc(var(--office_label_left) + 1%); } */
+/* .main_entrance_label  { top: var(--main_entrance_label_top);  left: calc(var(--main_entrance_label_left) - 1%); } */
+/* .back_gate_label      { top: var(--back_gate_label_top);      left: calc(var(--back_gate_label_left) + 1%); } */
+/*  */
 
-}
+/* } */
