@@ -10,11 +10,6 @@ function closeLeftSidebar() {
     leftSidePannelOpenButton.classList.remove("hidden");
 }
 
-
-function marginAndPadding0(){
-    leftSidebar.add("margin_and_padding0")
-}
-
 // when activeated it will open the left sidebar
 function openLeftSidebar(){
     leftSidebar.classList.remove("hidden");
@@ -28,45 +23,6 @@ leftSidePannelCloseButton.addEventListener("click", closeLeftSidebar);
 // when the left sidebar open button it click it wil run the LeftSidebar which will open the leftsidebar
 leftSidePannelOpenButton.addEventListener("click", openLeftSidebar);
 
-/*
-// gets constants for closeLeftSidebar and openLeftSidebar functions
-const leftSidePannelCloseButton = document.getElementById("left_sidebar_close_button");
-const leftSidePannelOpenButton = document.getElementById("left_sidebar_open_button");
-const leftSidebar = document.getElementById("left_sidebar");
-const map = document.getElementById("map");
-
-
-
-// when activeated it will close the left sidebar and make the map take up the full screen
-
-function leftSidebarMoveLeft(){
-    leftSidebar.classList.remove('move_right');
-    leftSidebar.classList.add('move_left');
-    leftSidebar.addEventListener('transitionend', leftSidebarDisplayNone, { once: true })
-}
-
-
-function leftSidebarDisplayNone() {
-    leftSidebar.classList.add("hidden");
-    leftSidePannelOpenButton.classList.remove("hidden");
-}
-
-function leftSidebarDisplay(){
-    leftSidebar.classList.remove("hidden");
-    leftSidePannelOpenButton.classList.add("hidden");
-
-    requestAnimationFrame(() => {
-        leftSidebar.classList.remove('move_left');
-        leftSidebar.classList.add('move_right');
-    });
-}
-
-
-leftSidePannelCloseButton.addEventListener("click",leftSidebarMoveLeft );
-
-leftSidePannelOpenButton.addEventListener("click", leftSidebarDisplay);
-
-*/
 
 
 
@@ -196,30 +152,6 @@ function checkForHighlights(){
 finderInput.addEventListener("input", checkForHighlights);
 
 
-
-
-
-// // Zooming the map in and out
-
-// // const needed for zooming in on the map
-
-// const zoomInButton = document.getElementById("zoom_in_button");
-// const zoomOutButton = document.getElementById("zoom_out_button");
-// let zoom = 0
-
-
-// function zoomInMap(){
-//     map.classList.add("width100");
-// }
-
-
-// function zoomOutMap(){
-//     map.classList.remove("width100");
-// }
-
-
-// zoomInButton.addEventListener("click", zoomInMap);
-// zoomOutButton.addEventListener("click", zoomOutMap);
 
 
  

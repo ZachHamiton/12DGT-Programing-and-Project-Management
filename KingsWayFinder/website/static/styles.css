@@ -1,17 +1,18 @@
-/* Styles for elements in all pages of the website */
+/* ------- */
+/* root    */
+/* #region */
 
 /* place to add variables */
 :root{
     /* the top and left positions of all the buildings in the zoomed out map */
-    /* variables are used because these numbers are used more then once throughout the document and have calculations like calc( var(sanford_polygon_left) - 1%) */
     --sanford_polygon_top     :   3.86%;  --sanford_polygon_left    :  -1.65%;
     --allen_polygon_top       :  48.78%;  --allen_polygon_left      :  12.50%;
     --bolam_polygon_top       :  51.76%;  --bolam_polygon_left      :  30.05%;
     --ec_polygon_top          :  22.35%;  --ec_polygon_left         :  52.70%;
     --te-kainga_polygon_top   :  47.57%;  --te-kainga_polygon_left  :  57.43%;
     --arts_polygon_top        :   1.34%;  --arts_polygon_left       :  73.98%;
-    /* The top and left positions of all the labels of the zoomed ou map */
-    /* buildings labels */
+
+    /* buildings labels top and left variables */
     --sanford_label_top       :  23.36%;  --sanford_label_left      :  25.82%;
     --allen_label_top         :  62.71%;  --allen_label_left        :  16.13%;
     --bolam_label_top         :  72.39%;  --bolam_label_left        :  35.11%;
@@ -19,7 +20,7 @@
     --te-kainga_label_top     :  66.34%;  --te-kainga_label_left    :  59.71%;
     --arts_label_top          :   0.06%;  --arts_label_left         :  80.29%;
 
-    /* other labels */
+    /* other labels top and left variables*/
     --field_label_top         :   5.00%;  --field_label_left        :  32.00%;
     --cola_label_top          :   8.23%;  --cola_label_left         :  60.50%;
     --astro_label_top         :  62.71%;  --astro_label_left        :  49.42%;
@@ -29,11 +30,13 @@
     --back_gate_label_top     :  51.81%;  --back_gate_label_left    :   1.00%;
 
 
-    /* other polgons */
+    /* other polgons top and left variables*/
     --field_polygon_top      :   0.00%;  --field_polygon_left      :   13.50%;
     --cola_polygon_top       :   0.00%;   --cola_polygon_left      :   51.00%;
     --astro_polygon_top      :  48.00%;   --astro_polygon_left     :   46.50%;
 }
+/* #endregion */
+
 
 
 * {
@@ -45,7 +48,7 @@
 }
 
 body{
-    display: flex;
+    display: flex; 
     min-height: 100vh; /*helps the footer always be at the bottom*/
     flex-direction: column; /*makes the three main sections (nav bar, content, and footer go on top of each other rather then beside each other )*/
 }
@@ -54,7 +57,7 @@ body{
 
 /* ------------------ */
 /* Nav bar and footer */
-/* ------------------ */
+/* #region----------- */
 
 .nav{
     display: flex;
@@ -90,10 +93,12 @@ body{
     margin-bottom: 0.25%;
 }
 
+/* #endregion */
 
-/* ======= */
+
+/* ------- */
 /* content */
-/* ======= */
+/* ------- */
 
 .content{
     display: flex;
@@ -106,7 +111,7 @@ body{
 
 /* ------- */
 /* Sidebar */
-/* ------- */
+/* #region */
 
 .sidebar{
     width: 22%;
@@ -114,11 +119,10 @@ body{
     border-radius: 24px;
     height: 80vh;
     margin: 1.5%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7); /* makes th e sidebar look like its hovering above everything else*/
-    padding: 24px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7); /* makes the sidebar look like its hovering above everything else*/
+    padding: 1.5%;
     font-family: sans-serif;
     min-height: 500px;
-    transition: width 0.3s ease-in-out;
 }
 
 
@@ -137,11 +141,44 @@ body{
     font-size: 20px;
 }
 
-/* Key */
+.left_sidebar_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self:flex-end;
+    width:50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 40%;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+.left_sidebar_button_image{
+    width: 80%;
+}
+
+#left_sidebar_open_button{
+    position: absolute;
+    top:0%;
+    left:0%;
+}
+
+
+/* #endregion */
+
+
+
+/* ------------------ */
+/* Classroom code Key */
+/* #region------------*/
+
+
+
 
 
 .table_div{
-    flex: 1; /* makes the table div take up all reamaining space*/ 
+    flex: 1; /* makes the table div take up all remaining space*/ 
     overflow-y: scroll;
     margin-top: 5%;
     border-radius: 12px;
@@ -178,32 +215,32 @@ tr:nth-child(even){
     background-color: #e9e9e9;
 
 }
+/* #endregion */
 
 
-
-/* ============== */
-/* Zoomed out Map */
-/* ============== */
+/* ----------------------------------------------- */
+/* Areas Map (shows buildings and notable locations)*/
+/* #region ----------------------------------- */
 
 
 .map{
     position: relative; /* enables absolute positioning inside the map*/
     overflow: hidden;
-    aspect-ratio: 16 / 9;
-    flex: 1 0 auto; /* prevents flexbox from changing its size (given by AI) */
+    aspect-ratio: 16 / 9; /* makes the map always in scale */
+    flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
     margin: 1%;
-
     transition: width 0.3s ease-in;
     
 }
 
-
+/* ---------------------- */
+/* #region polygons styles*/
 .polygon_container{
     position: absolute;
     width: 57.5%; 
     aspect-ratio: 1 / 1; /* makes sure the the polygon containers stay a square to keep the shape of the buildings */
     overflow: visible; /* make the border visable */ 
-    pointer-events: none;
+    pointer-events: none; /* makes the hover feature on the buildings work better because the polygon container is very large and goes over other elements */
 }
 
 .polygon{
@@ -212,79 +249,46 @@ tr:nth-child(even){
     fill: white; /* background-color but for polygons */
     stroke: black;  /* border for polygons */
     stroke-width: 0.3%;  /* border width for polygons */
-    transition: transform 0.3s ease, fill 0.3s ease;
-    pointer-events: auto;
-    transform-origin: center center;
-    transform-box: fill-box;
+    transition: transform 0.3s ease, fill 0.3s ease; /* makes the transition smooth */
+    pointer-events: auto; /* makes the hover feature work because its parent has pointer-events: none; */
+    transform-origin: center center; /* makes the polygon expand from the center */
+    transform-box: fill-box; /* also makes the polygon expand from the center */
 }
 
-
+/* changes the colour and size when hovered over */
 .polygon:hover{
     fill: rgb(173, 216, 230, 0.5);
     transform: scale(1.03);
 }
 
-
+/* formates the shapes that aren't buildings */
 .other_polygon{
-    width: 100%; 
+    width: 100%;
     height: 100%;
-    fill: white; /* background-color but for polygons */
+    fill: white;
     transition: transform 0.3s ease, fill 0.3s ease;
     pointer-events: auto;
     transform-origin: center center;
     transform-box: fill-box;
 }
 
+/* makes them have the same hover effect as the .polygon's */
 .other_polygon:hover{
     fill: rgb(173, 216, 230, 0.5);
     transform: scale(1.03);
 }
+/* #endregion polygons */
 
 
-
-/* og numbers */
-/* .sanford_polygon_contianer  { top: 100px; left: 100px;}
-.allen_polygon_contianer     { top: 375px; left: 250px;}
-.bolam_polygon_contianer     { top: 385px; left: 450px;}
-.ec_polygon_contianer        { top: 210px; left: 675px;}
-.te-kainga_polygon_contianer { top: 360px; left: 725px;}
-.arts_polygon_contianer      { top: 85px; left: 900px;} */
-
-
-/* sets the positions of the buildings in the zoomed out map */
-.sanford_polygon_contianer  { top: var(--sanford_polygon_top);  left: var(--sanford_polygon_left);}
-.allen_polygon_contianer     { top: var(--allen_polygon_top);     left: var(--allen_polygon_left);}
-.bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: var(--bolam_polygon_left);}
-.ec_polygon_contianer        { top: var(--ec_polygon_top);        left: var(--ec_polygon_left);}
-.te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: var(--te-kainga_polygon_left);}
-.arts_polygon_contianer      { top: var(--arts_polygon_top);      left: var(--arts_polygon_left);}
-
-/* other polygons */
-.field_polygon_contianer     { top: var(--field_polygon_top);      left: var(--field_polygon_left); }
-.cola_polygon_contianer      { top: var(--cola_polygon_top);      left: var(--cola_polygon_left);}
-.astro_polygon_contianer     { top: var(--astro_polygon_top);      left: var(--astro_polygon_left);}
-
-#field_polygon{
-    border: 4px solid transparent; /* Sets the 4px width */ 
-    border-image: linear-gradient(to bottom, red, white) 1;
-}
-
-/* styles that labels for the buildin */
+/* -------------------- */
+/* #region label styles */
+/* styles that labels for the building */
 .building_label{
     position: absolute;
-    font-size: 1.8vw; /* sets the label so that they change height based of screen width*/
+    font-size: 1.8vw; /* sets the label so that they change height based of screen width so that they remain the same scale compaired with the buildings*/
     font-family: sans-serif;
     pointer-events: none;
 }
-
-/* sets the positions of the labels */
-.sanford_label  { top: var(--sanford_label_top);  left: var(--sanford_label_left); }
-.allen_label     { top: var(--allen_label_top);     left: var(--allen_label_left); }
-.bolam_label     { top: var(--bolam_label_top);     left: var(--bolam_label_left); }
-.ec_label        { top: var(--ec_label_top);        left: var(--ec_label_left); }
-.te-kainga_label { top: var(--te-kainga_label_top); left: var(--te-kainga_label_left); }
-.arts_label      { top: var(--arts_label_top);      left: var(--arts_label_left); }
-
 
 /* styles the other labels */
 .other_label{
@@ -310,16 +314,38 @@ tr:nth-child(even){
     font-family: sans-serif;
 }
 
-
-
-
-
-
-
+/* makes the label always 2 lines instead of somtimes changing to 4 */ 
 .main_entrance_label{
-    font-size: 1.185vw; /* makes the label always 2 lines instead of somtimes changing to 4 */ 
-
+    font-size: 1.185vw; 
 }
+
+/* #endregion */
+
+
+/* ---------------------------------- */
+/* #region polygon and label position */
+/* sets the positions of the buildings in the areas map */
+.sanford_polygon_contianer   { top: var(--sanford_polygon_top);   left: var(--sanford_polygon_left);}
+.allen_polygon_contianer     { top: var(--allen_polygon_top);     left: var(--allen_polygon_left);}
+.bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: var(--bolam_polygon_left);}
+.ec_polygon_contianer        { top: var(--ec_polygon_top);        left: var(--ec_polygon_left);}
+.te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: var(--te-kainga_polygon_left);}
+.arts_polygon_contianer      { top: var(--arts_polygon_top);      left: var(--arts_polygon_left);}
+
+/* other polygons positions */
+.field_polygon_contianer     { top: var(--field_polygon_top);      left: var(--field_polygon_left); }
+.cola_polygon_contianer      { top: var(--cola_polygon_top);       left: var(--cola_polygon_left);}
+.astro_polygon_contianer     { top: var(--astro_polygon_top);      left: var(--astro_polygon_left);}
+
+
+
+/* sets the positions of the labels */
+.sanford_label   { top: var(--sanford_label_top);   left: var(--sanford_label_left); }
+.allen_label     { top: var(--allen_label_top);     left: var(--allen_label_left); }
+.bolam_label     { top: var(--bolam_label_top);     left: var(--bolam_label_left); }
+.ec_label        { top: var(--ec_label_top);        left: var(--ec_label_left); }
+.te-kainga_label { top: var(--te-kainga_label_top); left: var(--te-kainga_label_left); }
+.arts_label      { top: var(--arts_label_top);      left: var(--arts_label_left); }
 
 
 /* sets the positions of the labels */
@@ -331,58 +357,20 @@ tr:nth-child(even){
 .main_entrance_label  { top: var(--main_entrance_label_top);  left: var(--main_entrance_label_left); }
 .back_gate_label      { top: var(--back_gate_label_top);      left: var(--back_gate_label_left); }
 
+/* #endregion */
 
+/* #endregion */
 
-
-.left_sidebar_button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self:flex-end;
-    width:50px;
-    aspect-ratio: 1 / 1;
-    border-radius: 40%;
-    overflow: hidden;
-    background-color: white;
-}
-
-
-.left_sidebar_button_image{
-    width: 80%;
-}
-
-#left_sidebar_open_button{
-    position: absolute;
-    top:0%;
-    left:0%;
-}
-
-
-/* zoom in and out buttons */
-
-.zoom_button{
-    width: 50px;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    border-radius: 40%;
-    background-color: white;
-    border: 2px solid black;
-}
-
-.zoom_button_text{
-    font-size: 40px;
-}
 
 
 /* ===================== */
 /* JS toggleable classes */
-/* ===================== */
+/* #region============== */
 
 /* everything with the hidden class will not be visable or clickable */
 .hidden {
     display: none;
 }
-
 
 
 /* everything that is given this class will highlight */
@@ -394,26 +382,13 @@ tr:nth-child(even){
     fill: rgb(154, 205, 50);
 }
 
-
-.width100{
-   width: 75%;
-   overflow: scroll;
-} 
+/* #endregion */
 
 
-.width0{
-    width: 0;
-    min-width: 0px;
-    overflow: hidden;
-}
 
-
-.margin_and_padding0{
-    padding: 0;
-    margin: 0;
-}
-
-
+/* -------- */
+/* grid_box */
+/* #region */
 
 /* for development */
 .grid_box_width{
@@ -480,23 +455,12 @@ tr:nth-child(even){
 .grid_box_80_H_text { top: 81%; left: 1%; }
 .grid_box_90_H_text { top: 91%; left: 1%; }
 
-
+/* #endregion */
 
 
 
 @media screen and (max-width: 850px) { 
-
-
-
-
- }
-
-
-
-
-
-
-
+}
 
 
 
@@ -542,31 +506,4 @@ tr:nth-child(even){
 
 /* .left_sidebar_button_image{ */
     /* transform: rotate(-90deg) */
-/* } */
-
-
-/* moving 1 % to the right */
-/* .sanford_polygon_contianer  { top: var(--sanford_polygon_top);  left: calc(var(--sanford_polygon_left) + 1%);} */
-/* .allen_polygon_contianer     { top: var(--allen_polygon_top);     left: calc(var(--allen_polygon_left) + 1%); } */
-/* .bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: calc(var(--bolam_polygon_left) + 1%); } */
-/* .ec_polygon_contianer        { top: var(--ec_polygon_top);        left: calc(var(--ec_polygon_left) + 1%); } */
-/* .te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: calc(var(--te-kainga_polygon_left) + 1%); } */
-/* .arts_polygon_contianer      { top: var(--arts_polygon_top);      left: calc(var(--arts_polygon_left) + 1%); } */
-
-/* .sanford_label  { top: var(--sanford_label_top);  left: calc(var(--sanford_label_left) + 1%); } */
-/* .allen_label     { top: var(--allen_label_top);     left: calc(var(--allen_label_left) + 1%); } */
-/* .bolam_label     { top: var(--bolam_label_top);     left: calc(var(--bolam_label_left) + 1%); } */
-/* .ec_label        { top: var(--ec_label_top);        left: calc(var(--ec_label_left) + 1%); } */
-/* .te-kainga_label { top: var(--te-kainga_label_top); left: calc(var(--te-kainga_label_left) + 1%); } */
-/* .arts_label      { top: var(--arts_label_top);      left: calc(var(--arts_label_left) + 1%); } */
-
-/* .field_label          { top: var(--field_label_top);          left: calc(var(--field_label_left) + 1%); } */
-/* .cola_label           { top: var(--cola_label_top);           left: calc(var(--cola_label_left) + 1%); } */
-/* .astro_label          { top: var(--astro_label_top);          left: calc(var(--astro_label_left) + 1%); } */
-/* .allen_quad_label     { top: var(--allen_quad_label_top);     left: calc(var(--allen_quad_label_left) + 1%); } */
-/* .office_label         { top: var(--office_label_top);         left: calc(var(--office_label_left) + 1%); } */
-/* .main_entrance_label  { top: var(--main_entrance_label_top);  left: calc(var(--main_entrance_label_left) - 1%); } */
-/* .back_gate_label      { top: var(--back_gate_label_top);      left: calc(var(--back_gate_label_left) + 1%); } */
-/*  */
-
 /* } */

@@ -74,12 +74,6 @@
             <!-- opens the left side pannel -->
             <button class = "left_sidebar_button hidden" id = "left_sidebar_open_button"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></button>
 
-            <!-- zoom in and out button -->
-            <!-- <button class = "zoom_button" id = "zoom_in_button"><h1 class = "zoom_button_text">+</h1></button>
-
-            <button class = "zoom_button" id = "zoom_out_button"><h1 class = "zoom_button_text">-</h1></button> -->
-
-
             <!-- creates the differant shapes for the buildings by making an svg and puting a polygon insided it with speicfic points to make differant points -->
             <svg class="polygon_container sanford_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="sanford_polygon" points="5,34 28,2 75,23 80,16 94,22 83,41 35,20 27,30 30,32 21,44"></polygon>
@@ -128,7 +122,7 @@
             <h1 class = "building_label arts_label">Arts Block</h1>
 
 
-            <!-- labels for other things on the map -->
+            <!-- labels for other things on the map that aren't buildings-->
             <h2 class="other_label field_label" id = "field_label">Field</h2>
             <h2 class="other_label cola_label" id = "cola_label">Cola</h2>
             <h2 class="other_label astro_label" id = "astro_label">Astro</h2>
@@ -138,52 +132,52 @@
             <h2 class="other_label back_gate_label">Back Gate</h2>
 
 
-
+            <!-- Measureing grid (Height) -->
+            <div class="grid_box_10_H grid_box_height"></div>
+            <div class="grid_box_20_H grid_box_height"></div>
+            <div class="grid_box_30_H grid_box_height"></div>
+            <div class="grid_box_40_H grid_box_height"></div>
+            <div class="grid_box_50_H grid_box_height"></div>
+            <div class="grid_box_60_H grid_box_height"></div>
+            <div class="grid_box_70_H grid_box_height"></div>
+            <div class="grid_box_80_H grid_box_height"></div>
+            <div class="grid_box_90_H grid_box_height"></div>
 
                                     
-                <!-- Div Elements (Width) -->
-                <div class="grid_box_10_W grid_box_width"></div>
-                <div class="grid_box_20_W grid_box_width"></div>
-                <div class="grid_box_30_W grid_box_width"></div>
-                <div class="grid_box_40_W grid_box_width"></div>
-                <div class="grid_box_50_W grid_box_width"></div>
-                <div class="grid_box_60_W grid_box_width"></div>
-                <div class="grid_box_70_W grid_box_width"></div>
-                <div class="grid_box_80_W grid_box_width"></div>
-                <div class="grid_box_90_W grid_box_width"></div>
+            <!-- Measureing grid (Width) -->
+            <div class="grid_box_10_W grid_box_width"></div>
+            <div class="grid_box_20_W grid_box_width"></div>
+            <div class="grid_box_30_W grid_box_width"></div>
+            <div class="grid_box_40_W grid_box_width"></div>
+            <div class="grid_box_50_W grid_box_width"></div>
+            <div class="grid_box_60_W grid_box_width"></div>
+            <div class="grid_box_70_W grid_box_width"></div>
+            <div class="grid_box_80_W grid_box_width"></div>
+            <div class="grid_box_90_W grid_box_width"></div>
 
-                <!-- Div Elements (Height) -->
-                <div class="grid_box_10_H grid_box_height"></div>
-                <div class="grid_box_20_H grid_box_height"></div>
-                <div class="grid_box_30_H grid_box_height"></div>
-                <div class="grid_box_40_H grid_box_height"></div>
-                <div class="grid_box_50_H grid_box_height"></div>
-                <div class="grid_box_60_H grid_box_height"></div>
-                <div class="grid_box_70_H grid_box_height"></div>
-                <div class="grid_box_80_H grid_box_height"></div>
-                <div class="grid_box_90_H grid_box_height"></div>
+            <!-- Measureing grid text (Height) -->
+            <p class="grid_box_10_H_text grid_box_H_text">10%</p>
+            <p class="grid_box_20_H_text grid_box_H_text">20%</p>
+            <p class="grid_box_30_H_text grid_box_H_text">30%</p>
+            <p class="grid_box_40_H_text grid_box_H_text">40%</p>
+            <p class="grid_box_50_H_text grid_box_H_text">50%</p>
+            <p class="grid_box_60_H_text grid_box_H_text">60%</p>
+            <p class="grid_box_70_H_text grid_box_H_text">70%</p>
+            <p class="grid_box_80_H_text grid_box_H_text">80%</p>
+            <p class="grid_box_90_H_text grid_box_H_text">90%</p>
 
-                <!-- Text Elements (Width) -->
-                <p class="grid_box_10_W_text grid_box_W_text">10%</p>
-                <p class="grid_box_20_W_text grid_box_W_text">20%</p>
-                <p class="grid_box_30_W_text grid_box_W_text">30%</p>
-                <p class="grid_box_40_W_text grid_box_W_text">40%</p>
-                <p class="grid_box_50_W_text grid_box_W_text">50%</p>
-                <p class="grid_box_60_W_text grid_box_W_text">60%</p>
-                <p class="grid_box_70_W_text grid_box_W_text">70%</p>
-                <p class="grid_box_80_W_text grid_box_W_text">80%</p>
-                <p class="grid_box_90_W_text grid_box_W_text">90%</p>
+            <!-- Measureing grid text (Width) -->
+            <p class="grid_box_10_W_text grid_box_W_text">10%</p>
+            <p class="grid_box_20_W_text grid_box_W_text">20%</p>
+            <p class="grid_box_30_W_text grid_box_W_text">30%</p>
+            <p class="grid_box_40_W_text grid_box_W_text">40%</p>
+            <p class="grid_box_50_W_text grid_box_W_text">50%</p>
+            <p class="grid_box_60_W_text grid_box_W_text">60%</p>
+            <p class="grid_box_70_W_text grid_box_W_text">70%</p>
+            <p class="grid_box_80_W_text grid_box_W_text">80%</p>
+            <p class="grid_box_90_W_text grid_box_W_text">90%</p>
 
-                <!-- Text Elements (Height) -->
-                <p class="grid_box_10_H_text grid_box_H_text">10%</p>
-                <p class="grid_box_20_H_text grid_box_H_text">20%</p>
-                <p class="grid_box_30_H_text grid_box_H_text">30%</p>
-                <p class="grid_box_40_H_text grid_box_H_text">40%</p>
-                <p class="grid_box_50_H_text grid_box_H_text">50%</p>
-                <p class="grid_box_60_H_text grid_box_H_text">60%</p>
-                <p class="grid_box_70_H_text grid_box_H_text">70%</p>
-                <p class="grid_box_80_H_text grid_box_H_text">80%</p>
-                <p class="grid_box_90_H_text grid_box_H_text">90%</p>
+           
 
 
 
