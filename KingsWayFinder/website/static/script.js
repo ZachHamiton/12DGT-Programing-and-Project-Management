@@ -1,4 +1,3 @@
-
 // gets constants for closeLeftSidebar and openLeftSidebar functions
 const leftSidePannelCloseButton = document.getElementById("left_sidebar_close_button");
 const leftSidePannelOpenButton = document.getElementById("left_sidebar_open_button");
@@ -9,6 +8,11 @@ const map = document.getElementById("map");
 function closeLeftSidebar() {
     leftSidebar.classList.add("hidden");
     leftSidePannelOpenButton.classList.remove("hidden");
+}
+
+
+function marginAndPadding0(){
+    leftSidebar.add("margin_and_padding0")
 }
 
 // when activeated it will open the left sidebar
@@ -23,8 +27,6 @@ leftSidePannelCloseButton.addEventListener("click", closeLeftSidebar);
 
 // when the left sidebar open button it click it wil run the LeftSidebar which will open the leftsidebar
 leftSidePannelOpenButton.addEventListener("click", openLeftSidebar);
-
-
 
 /*
 // gets constants for closeLeftSidebar and openLeftSidebar functions
@@ -75,6 +77,10 @@ const bolamPolygon = document.getElementById("bolam_polygon");
 const ecPolygon = document.getElementById("ec_polygon");
 const teKaingaPolygon = document.getElementById("te-kainga_polygon");
 const artsPolygon = document.getElementById("arts_polygon");
+const fieldPolygon = document.getElementById("field_polygon");
+const colaPolygon = document.getElementById("cola_polygon");
+const astroPolygon = document.getElementById("astro_polygon");
+
 
 const finderInput = document.getElementById("finder_input");
 
@@ -144,7 +150,7 @@ function checkForHighlights(){
             artsPolygon.classList.remove("highlighted");
         }
 
-    }else{ 
+    }else{
         // checks if the full name has been written out
         // if so that building is highlighted
         if(String(finderInputValue).toLowerCase() === "sanford"){
@@ -159,14 +165,23 @@ function checkForHighlights(){
             teKaingaPolygon.classList.add("highlighted");
         }else if(String(finderInputValue).toLowerCase() === "arts" || String(finderInputValue).toLowerCase() === "arts block"){
             artsPolygon.classList.add("highlighted");
-        // if nothing has triggered any highlighting everything is unhighlighted
-        }else{    
+        }else if(String(finderInputValue).toLowerCase() === "field"){
+            fieldPolygon.classList.add("highlighted");
+        }else if(String(finderInputValue).toLowerCase() === "cola"){
+            colaPolygon.classList.add("highlighted");
+        }else if(String(finderInputValue).toLowerCase() === "astro" || String(finderInputValue).toLowerCase() === "bolam court"){
+            astroPolygon.classList.add("highlighted");
+        }else{
+             // if nothing has triggered any highlighting everything is unhighlighted
             sanfordPolygon.classList.remove("highlighted");
             allenPolygon.classList.remove("highlighted");
             bolamPolygon.classList.remove("highlighted");
             ecPolygon.classList.remove("highlighted");
             teKaingaPolygon.classList.remove("highlighted");
             artsPolygon.classList.remove("highlighted");
+            fieldPolygon.classList.remove("highlighted");
+            colaPolygon.classList.remove("highlighted");
+            astroPolygon.classList.remove("highlighted");
         }
     }
    

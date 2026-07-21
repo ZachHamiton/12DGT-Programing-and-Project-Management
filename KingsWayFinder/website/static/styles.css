@@ -4,29 +4,35 @@
 :root{
     /* the top and left positions of all the buildings in the zoomed out map */
     /* variables are used because these numbers are used more then once throughout the document and have calculations like calc( var(sanford_polygon_left) - 1%) */
-    --sanford_polygon_top     :   3.86%;  --sanford_polygon_left    :  -2.65%;
-    --allen_polygon_top       :  48.78%;  --allen_polygon_left      :  11.50%;
-    --bolam_polygon_top       :  51.76%;  --bolam_polygon_left      :  29.05%;
-    --ec_polygon_top          :  22.35%;  --ec_polygon_left         :  51.70%;
-    --te-kainga_polygon_top   :  47.57%;  --te-kainga_polygon_left  :  56.43%;
-    --arts_polygon_top        :   1.34%;  --arts_polygon_left       :  72.98%;
+    --sanford_polygon_top     :   3.86%;  --sanford_polygon_left    :  -1.65%;
+    --allen_polygon_top       :  48.78%;  --allen_polygon_left      :  12.50%;
+    --bolam_polygon_top       :  51.76%;  --bolam_polygon_left      :  30.05%;
+    --ec_polygon_top          :  22.35%;  --ec_polygon_left         :  52.70%;
+    --te-kainga_polygon_top   :  47.57%;  --te-kainga_polygon_left  :  57.43%;
+    --arts_polygon_top        :   1.34%;  --arts_polygon_left       :  73.98%;
     /* The top and left positions of all the labels of the zoomed ou map */
     /* buildings labels */
-    --sanford_label_top       :  23.36%;  --sanford_label_left      :  24.82%;
-    --allen_label_top         :  62.71%;  --allen_label_left        :  15.13%;
-    --bolam_label_top         :  72.39%;  --bolam_label_left        :  34.11%;
-    --ec_label_top            :  32.44%;  --ec_label_left           :  59.92%;
-    --te-kainga_label_top     :  66.34%;  --te-kainga_label_left    :  58.71%;
-    --arts_label_top          :   0.06%;  --arts_label_left         :  79.29%;
+    --sanford_label_top       :  23.36%;  --sanford_label_left      :  25.82%;
+    --allen_label_top         :  62.71%;  --allen_label_left        :  16.13%;
+    --bolam_label_top         :  72.39%;  --bolam_label_left        :  35.11%;
+    --ec_label_top            :  32.44%;  --ec_label_left           :  60.92%;
+    --te-kainga_label_top     :  66.34%;  --te-kainga_label_left    :  59.71%;
+    --arts_label_top          :   0.06%;  --arts_label_left         :  80.29%;
 
     /* other labels */
-    --field_label_top         :   8.23%;  --field_label_left        :  36.32%;
-    --cola_label_top          :   8.23%;  --cola_label_left         :  63.55%;
-    --astro_label_top         :  62.71%;  --astro_label_left        :  48.42%;
-    --allen_quad_label_top    :  42.13%;  --allen_quad_label_left   :  24.21%;
-    --office_label_top        :  84.49%;  --office_label_left       :  27.84%;
-    --main_entrance_label_top :  85.38%;  --main_entrance_label_left:  87.16%;
-    --back_gate_label_top     :  51.81%;  --back_gate_label_left    :   0.00%;
+    --field_label_top         :   5.00%;  --field_label_left        :  32.00%;
+    --cola_label_top          :   8.23%;  --cola_label_left         :  60.50%;
+    --astro_label_top         :  62.71%;  --astro_label_left        :  49.42%;
+    --allen_quad_label_top    :  42.13%;  --allen_quad_label_left   :  25.21%;
+    --office_label_top        :  84.49%;  --office_label_left       :  28.84%;
+    --main_entrance_label_top :  85.38%;  --main_entrance_label_left:  86.16%;
+    --back_gate_label_top     :  51.81%;  --back_gate_label_left    :   1.00%;
+
+
+    /* other polgons */
+    --field_polygon_top      :   0.00%;  --field_polygon_left      :   13.50%;
+    --cola_polygon_top       :   0.00%;   --cola_polygon_left      :   51.00%;
+    --astro_polygon_top      :  48.00%;   --astro_polygon_left     :   46.50%;
 }
 
 
@@ -112,8 +118,7 @@ body{
     padding: 24px;
     font-family: sans-serif;
     min-height: 500px;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(0);
+    transition: width 0.3s ease-in-out;
 }
 
 
@@ -207,9 +212,34 @@ tr:nth-child(even){
     fill: white; /* background-color but for polygons */
     stroke: black;  /* border for polygons */
     stroke-width: 0.3%;  /* border width for polygons */
-    transition: fill 0.3s ease;
+    transition: transform 0.3s ease, fill 0.3s ease;
     pointer-events: auto;
+    transform-origin: center center;
+    transform-box: fill-box;
 }
+
+
+.polygon:hover{
+    fill: rgb(173, 216, 230, 0.5);
+    transform: scale(1.03);
+}
+
+
+.other_polygon{
+    width: 100%; 
+    height: 100%;
+    fill: white; /* background-color but for polygons */
+    transition: transform 0.3s ease, fill 0.3s ease;
+    pointer-events: auto;
+    transform-origin: center center;
+    transform-box: fill-box;
+}
+
+.other_polygon:hover{
+    fill: rgb(173, 216, 230, 0.5);
+    transform: scale(1.03);
+}
+
 
 
 /* og numbers */
@@ -229,12 +259,22 @@ tr:nth-child(even){
 .te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: var(--te-kainga_polygon_left);}
 .arts_polygon_contianer      { top: var(--arts_polygon_top);      left: var(--arts_polygon_left);}
 
+/* other polygons */
+.field_polygon_contianer     { top: var(--field_polygon_top);      left: var(--field_polygon_left); }
+.cola_polygon_contianer      { top: var(--cola_polygon_top);      left: var(--cola_polygon_left);}
+.astro_polygon_contianer     { top: var(--astro_polygon_top);      left: var(--astro_polygon_left);}
+
+#field_polygon{
+    border: 4px solid transparent; /* Sets the 4px width */ 
+    border-image: linear-gradient(to bottom, red, white) 1;
+}
 
 /* styles that labels for the buildin */
 .building_label{
     position: absolute;
     font-size: 1.8vw; /* sets the label so that they change height based of screen width*/
     font-family: sans-serif;
+    pointer-events: none;
 }
 
 /* sets the positions of the labels */
@@ -252,7 +292,29 @@ tr:nth-child(even){
     font-size: 1.5vw;
     font-family: serif;
     color: grey;
+    pointer-events: none;
 }
+
+#field_label{
+    color: black;
+    font-family: sans-serif;
+}
+
+#cola_label{
+    color: black;
+    font-family: sans-serif;
+}
+
+#astro_label{
+    color: black;
+    font-family: sans-serif;
+}
+
+
+
+
+
+
 
 .main_entrance_label{
     font-size: 1.185vw; /* makes the label always 2 lines instead of somtimes changing to 4 */ 
@@ -290,7 +352,9 @@ tr:nth-child(even){
 }
 
 #left_sidebar_open_button{
-    margin: 1%;
+    position: absolute;
+    top:0%;
+    left:0%;
 }
 
 
@@ -323,7 +387,11 @@ tr:nth-child(even){
 
 /* everything that is given this class will highlight */
 .highlighted{
-    fill: yellowgreen;
+    fill: rgb(154, 205, 50, 0.5);
+}
+
+.highlighted:hover{
+    fill: rgb(154, 205, 50);
 }
 
 
@@ -333,17 +401,104 @@ tr:nth-child(even){
 } 
 
 
-/* .move_left{ */
-    /* transform: translateX(-110%); */
-/* } */
+.width0{
+    width: 0;
+    min-width: 0px;
+    overflow: hidden;
+}
 
 
-/* .move_right{ */
-    /* transform: translateX(0%); */
-/* } */
+.margin_and_padding0{
+    padding: 0;
+    margin: 0;
+}
 
 
-/* @media screen and (max-width: 850px) { */
+
+/* for development */
+.grid_box_width{
+    position: absolute;
+    border: 2px solid blue;
+    top:0%;
+    pointer-events: none;
+}
+
+.grid_box_W_text{
+    position: absolute;
+    color: blue;
+}
+
+.grid_box_height{
+    position: absolute;
+    border: 2px solid red;
+    top:0%;
+    pointer-events: none;
+}
+
+.grid_box_H_text{
+    position: absolute;
+    color: red;
+}
+
+.grid_box_10_W { width: 10%; height: 100%; }
+.grid_box_20_W { width: 20%; height: 100%; }
+.grid_box_30_W { width: 30%; height: 100%; }
+.grid_box_40_W { width: 40%; height: 100%; }
+.grid_box_50_W { width: 50%; height: 100%; }
+.grid_box_60_W { width: 60%; height: 100%; }
+.grid_box_70_W { width: 70%; height: 100%; }
+.grid_box_80_W { width: 80%; height: 100%; }
+.grid_box_90_W { width: 90%; height: 100%; }
+
+.grid_box_10_H { width: 100%; height: 10%; }
+.grid_box_20_H { width: 100%; height: 20%; }
+.grid_box_30_H { width: 100%; height: 30%; }
+.grid_box_40_H { width: 100%; height: 40%; }
+.grid_box_50_H { width: 100%; height: 50%; }
+.grid_box_60_H { width: 100%; height: 60%; }
+.grid_box_70_H { width: 100%; height: 70%; }
+.grid_box_80_H { width: 100%; height: 80%; }
+.grid_box_90_H { width: 100%; height: 90%; }
+
+.grid_box_10_W_text { top: 1%; left: 11%; }
+.grid_box_20_W_text { top: 1%; left: 21%; }
+.grid_box_30_W_text { top: 1%; left: 31%; }
+.grid_box_40_W_text { top: 1%; left: 41%; }
+.grid_box_50_W_text { top: 1%; left: 51%; }
+.grid_box_60_W_text { top: 1%; left: 61%; }
+.grid_box_70_W_text { top: 1%; left: 71%; }
+.grid_box_80_W_text { top: 1%; left: 81%; }
+.grid_box_90_W_text { top: 1%; left: 91%; }
+
+.grid_box_10_H_text { top: 11%; left: 1%; }
+.grid_box_20_H_text { top: 21%; left: 1%; }
+.grid_box_30_H_text { top: 31%; left: 1%; }
+.grid_box_40_H_text { top: 41%; left: 1%; }
+.grid_box_50_H_text { top: 51%; left: 1%; }
+.grid_box_60_H_text { top: 61%; left: 1%; }
+.grid_box_70_H_text { top: 71%; left: 1%; }
+.grid_box_80_H_text { top: 81%; left: 1%; }
+.grid_box_90_H_text { top: 91%; left: 1%; }
+
+
+
+
+
+@media screen and (max-width: 850px) { 
+
+
+
+
+ }
+
+
+
+
+
+
+
+
+
 
 /* makes the sidebar and map go ontop of each other */
 /* .content{   */
