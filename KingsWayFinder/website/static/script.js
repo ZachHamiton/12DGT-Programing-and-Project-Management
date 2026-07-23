@@ -6,14 +6,20 @@ const map = document.getElementById("map");
 
 // when activeated it will close the left sidebar and make the map take up the full screen
 function closeLeftSidebar() {
-    leftSidebar.classList.add("hidden");
+    // leftSidebar.classList.add("hidden");
     leftSidePannelOpenButton.classList.remove("hidden");
+    leftSidePannelOpenButton.classList.add("hidden_animation");
+    leftSidebar.classList.remove("opening");
+    leftSidebar.classList.add("closing");
 }
 
 // when activeated it will open the left sidebar
 function openLeftSidebar(){
-    leftSidebar.classList.remove("hidden");
+    leftSidePannelOpenButton.classList.remove("hidden_animation");
     leftSidePannelOpenButton.classList.add("hidden");
+    leftSidebar.classList.remove("closing");
+    leftSidebar.classList.add("opening");
+    
 }
 
 
@@ -146,7 +152,6 @@ function checkForHighlights(){
 
 
 }
-
 
 // every time that the finder input is changed the checkForHighlights function runs
 finderInput.addEventListener("input", checkForHighlights);
