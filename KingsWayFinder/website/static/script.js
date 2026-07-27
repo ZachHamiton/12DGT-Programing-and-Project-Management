@@ -4,21 +4,47 @@ const leftSidePannelOpenButton = document.getElementById("left_sidebar_open_butt
 const leftSidebar = document.getElementById("left_sidebar");
 const map = document.getElementById("map");
 
-// when activeated it will close the left sidebar and make the map take up the full screen
+// gets all constances needed for the checkForHighlights function
+const sanfordPolygon = document.getElementById("sanford_polygon");
+const allenPolygon = document.getElementById("allen_polygon");
+const bolamPolygon = document.getElementById("bolam_polygon");
+const ecPolygon = document.getElementById("ec_polygon");
+const teKaingaPolygon = document.getElementById("te-kainga_polygon");
+const artsPolygon = document.getElementById("arts_polygon");
+const fieldPolygon = document.getElementById("field_polygon");
+const colaPolygon = document.getElementById("cola_polygon");
+const astroPolygon = document.getElementById("astro_polygon");
+const finderInput = document.getElementById("finder_input");
+
+
+
+
+
+
+// when activeated it will close the left sidebar and make the map take up the full screen. The width of the sidebar would get smaller and it will be translated to the right
 function closeLeftSidebar() {
-    // leftSidebar.classList.add("hidden");
-    leftSidePannelOpenButton.classList.remove("hidden");
-    leftSidePannelOpenButton.classList.add("hidden_animation");
-    leftSidebar.classList.remove("opening");
-    leftSidebar.classList.add("closing");
+    if (leftSidePannelOpenButton){
+        leftSidePannelOpenButton.classList.remove("hidden");
+        leftSidePannelOpenButton.classList.add("hidden_animation");
+    }
+
+    if (leftSidebar){
+        leftSidebar.classList.remove("opening");
+        leftSidebar.classList.add("closing");
+    }
 }
 
-// when activeated it will open the left sidebar
+// when activeated it will open the left sidebar. the width of the sidebar will grow and it will be translated to the right
 function openLeftSidebar(){
-    leftSidePannelOpenButton.classList.remove("hidden_animation");
-    leftSidePannelOpenButton.classList.add("hidden");
-    leftSidebar.classList.remove("closing");
-    leftSidebar.classList.add("opening");
+    if(leftSidePannelOpenButton){
+        leftSidePannelOpenButton.classList.remove("hidden_animation");
+        leftSidePannelOpenButton.classList.add("hidden");
+    }
+
+    if(leftSidebar){
+        leftSidebar.classList.remove("closing");
+        leftSidebar.classList.add("opening");
+    }
     
 }
 
@@ -32,26 +58,14 @@ leftSidePannelOpenButton.addEventListener("click", openLeftSidebar);
 
 
 
-// gets all constances needed for the checkForHighlights function
-const sanfordPolygon = document.getElementById("sanford_polygon");
-const allenPolygon = document.getElementById("allen_polygon");
-const bolamPolygon = document.getElementById("bolam_polygon");
-const ecPolygon = document.getElementById("ec_polygon");
-const teKaingaPolygon = document.getElementById("te-kainga_polygon");
-const artsPolygon = document.getElementById("arts_polygon");
-const fieldPolygon = document.getElementById("field_polygon");
-const colaPolygon = document.getElementById("cola_polygon");
-const astroPolygon = document.getElementById("astro_polygon");
 
 
-const finderInput = document.getElementById("finder_input");
+
+
 
 const listOfValidSecondCharacters = ["1", "2", ""] // check if this is the best way to do this
 let firstCharacterFinderInput = "";
 let secondCharacterFinderInput = "";
-
-
-
 
 // the perpose for of this function check the 1st digit of the input and highlight the building on the map associated with that number
 function checkForHighlights(){
@@ -155,6 +169,121 @@ function checkForHighlights(){
 
 // every time that the finder input is changed the checkForHighlights function runs
 finderInput.addEventListener("input", checkForHighlights);
+
+
+
+
+
+
+
+// layout maps
+const sanfordLayoutMap = document.getElementById("sanford_layout_map");
+const allenLayoutMap = document.getElementById("allen_layout_map");
+const bolamLayoutMap = document.getElementById("bolam_layout_map");
+const ecLayoutMap = document.getElementById("ec_layout_map");
+const teKaingaLayoutMap = document.getElementById("te-kainga_layout_map");
+const artsBlockLayoutMap = document.getElementById("arts_block_layout_map");
+
+
+// layout maps back buttons
+const sanfordLayouMapBackButton = document.getElementById("sanford_layout_map_back_button");
+const allenLayoutMapBackButton = document.getElementById("allen_layout_map_back_button");
+const bolamLayoutMapBackButton = document.getElementById("bolam_layout_map_back_button");
+const ecLayoutMapBackButton = document.getElementById("ec_layout_map_back_button");
+const teKaingaLayoutMapBackButton = document.getElementById("te-kainga_layout_map_back_button");
+const artsBlockLayoutMapBackButton = document.getElementById("arts_block_layout_map_back_button");
+
+
+// each function changes which maps is being shown.
+// it toggles between whether the areas map is showing or whether one of the layout maps is showing
+// from the areas map you can go to all the layout maps but from the layout maps you can only go to the areas map
+
+// Sanford layout map toggle hide function
+function showSanfordLayoutMap(){
+    if(map){
+        map.classList.toggle("hidden");
+    }
+    if(sanfordLayoutMap){
+        sanfordLayoutMap.classList.toggle("hidden");
+    }
+}
+sanfordPolygon.addEventListener("click", showSanfordLayoutMap);
+sanfordLayouMapBackButton.addEventListener("click", showSanfordLayoutMap);
+
+
+
+// Allen layout map toggle hide function
+function showAllenLayoutMap(){
+    if(map){
+        map.classList.toggle("hidden");
+    }
+    if(allenLayoutMap){
+        allenLayoutMap.classList.toggle("hidden");
+    }
+}
+
+
+allenPolygon.addEventListener("click", showAllenLayoutMap);
+allenLayoutMapBackButton.addEventListener("click", showAllenLayoutMap);
+
+
+// Bolam layout map toggle hide  function
+function showBolamLayoutMap(){
+    if(map){
+        map.classList.toggle("hidden");
+    }
+    if(bolamLayoutMap){
+        bolamLayoutMap.classList.toggle("hidden");
+    }
+}
+
+bolamPolygon.addEventListener("click", showBolamLayoutMap);
+bolamLayoutMapBackButton.addEventListener("click", showBolamLayoutMap);
+
+
+
+// Event Centre layout map toggle hide  function
+function showEcLayoutMap(){
+    if(map){
+        map.classList.toggle("hidden");
+    }
+    if(ecLayoutMap){
+        ecLayoutMap.classList.toggle("hidden");
+    }
+}
+
+ecPolygon.addEventListener("click", showEcLayoutMap);
+ecLayoutMapBackButton.addEventListener("click", showEcLayoutMap);
+
+
+// // Te Kainga layout map toggle hide function
+function showTeKaingaLayoutMap(){
+    if(map){
+        map.classList.toggle("hidden");
+    }
+    if(teKaingaLayoutMap){
+        teKaingaLayoutMap.classList.toggle("hidden");
+    }
+}
+
+teKaingaPolygon.addEventListener("click", showTeKaingaLayoutMap);
+teKaingaLayoutMapBackButton.addEventListener("click", showTeKaingaLayoutMap);
+
+
+// Arts Block layout map toggle hide  function
+function showArtsBlockLayoutMap(){
+    if(map){
+        map.classList.toggle("hidden");
+    }
+    if(artsBlockLayoutMap){
+        artsBlockLayoutMap.classList.toggle("hidden");
+    }
+}
+
+artsPolygon.addEventListener("click", showArtsBlockLayoutMap);
+artsBlockLayoutMapBackButton.addEventListener("click", showArtsBlockLayoutMap);
+
+
 
 
 
