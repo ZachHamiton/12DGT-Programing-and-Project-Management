@@ -9,6 +9,10 @@
 <!-- changes what the pages content is / middle is -->
 {% block content %}
     <div class = "content">
+        <div class = "spacer">
+            
+        </div>
+
         <div class = "sidebar move_right" id = "left_sidebar">
             <div class = "sidebar_content">
 
@@ -19,14 +23,17 @@
 
 
                 <!-- Finder -->
-
-                <h2>Finder</h2>
+                
+                <h2 class = "finder_text">Finder</h2>
                 <br> <!-- make sure that useing br is a good thing to do !!!!!!!!-->
 
                 <!-- When this input is typed into it highlight places on the map depending on what is typed in -->
                 <input type = "text" placeholder = "Type code here" class = "finder_input" id = "finder_input">
-                <br>
-                <br>
+
+                  
+
+                <br class = "finder_text">
+                <br class = "finder_text">
 
                 <!-- explains information about the map so that users can better understand it -->
                 <h2> Room Code Key</h2>
@@ -71,7 +78,7 @@
         
         <button id="left_sidebar_open_button" class = "hidden" ><abbr title = "Open Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></abbr></button>
 
-        <div class = "map" id = "map">
+        <div class = "map areas_map" id = "map">
             
             <!-- opens the left side pannel -->
             
@@ -186,46 +193,67 @@
 
         <!-- Sanford layout map -->
         <div class = "layout_map map hidden" id = "sanford_layout_map">
+           
+           
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/sanford_layout_map.svg') }}" alt = "Floor plan layout for Sanford building">
 
-            <button class = "back_to_areas_map_button" id = "sanford_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a>
+            <button class = "back_to_areas_map_button" id = "sanford_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+
+            <!-- <div class = "outer_marker_container">
+                <div class = "inner_marker_container" id = "sanford_inner_marker_container"> 
+
+                </div>
+
+            </div> -->
+           
+            
         </div>
 
         <!-- Allen layout map -->
         <div class = "layout_map map hidden" id = "allen_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/allen_layout_map.svg') }}" alt = "Floor plan layout for Allen building">
 
-            <button class = "back_to_areas_map_button" id = "allen_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a>
+            <button class = "back_to_areas_map_button" id = "allen_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+                
+            <!-- <div class = "outer_marker_container">
+                <div class = "inner_marker_container" id = "allen_inner_marker_container"> 
+
+                </div>
+
+            </div> -->
+        
+        
+        
+        
         </div>
 
         <!-- Bolam layout map -->
         <div class = "layout_map map hidden" id = "bolam_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/bolam_layout_map.svg') }}" alt = "Floor plan layout for Bolam building">
 
-            <button class = "back_to_areas_map_button" id = "bolam_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a>
+            <button class = "back_to_areas_map_button" id = "bolam_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
         </div>
 
         <!-- Event centre layout map -->
         <div class = "layout_map map hidden" id = "ec_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/event_centre_layout_map.svg') }}" alt = "Floor plan layout for Event centre building">
 
-            <button class = "back_to_areas_map_button" id = "ec_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a>
+            <button class = "back_to_areas_map_button" id = "ec_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
         </div>
 
         <!-- Te Kainga layout map -->
         <div class = "layout_map map hidden" id = "te-kainga_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/te-kainga_layout_map.svg') }}" alt = "Floor plan layout for Te Kainga building">
 
-            <button class = "back_to_areas_map_button" id = "te-kainga_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a>
+            <button class = "back_to_areas_map_button" id = "te-kainga_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
         </div>
 
         <!-- Arts Block layout map -->
         <div class = "layout_map map hidden" id = "arts_block_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/arts_block_layout_map.svg') }}" alt = "Floor plan layout for sanford building">
 
-            <button class = "back_to_areas_map_button" id = "arts_block_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a>
+            <button class = "back_to_areas_map_button" id = "arts_block_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
         </div>
 
     </div>
 {%endblock%}
-

@@ -123,16 +123,24 @@ abbr{
     display: flex;
     align-items: center;
     justify-content: space-between; 
+    flex-wrap: wrap;
     font-family: sans-serif;
     border-radius: 5px;
     min-height: 40px; /* make sure that the footer doesn't get smaller then 40px so it looks nice however leave room for it to grow*/
-    padding:1%;
     box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7); /* makes the footer look like its hovering above everything else*/
+    padding: 0.5% 1%;
     margin-top: auto;  /* makes the footer always go to the bottom */
-    margin-left: 0.25%;
-    margin-right: 0.25%;
-    margin-bottom: 0.25%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
+
+.footer_text{
+    padding: 1% 5px;
+    
+}
+
+
 
 /* #endregion */
 
@@ -186,6 +194,7 @@ abbr{
     border-radius: 12px;
     width: 350px;
     font-size: 20px;
+    /* position: static; */
 }
 
 #left_sidebar_close_button{
@@ -218,7 +227,7 @@ abbr{
 .table_div{
     flex: 1; /* makes the table div take up all remaining space*/ 
     overflow-y: scroll;
-    margin-top: 5%;
+    margin-top: none;
     border-radius: 12px;
 }
 
@@ -266,10 +275,21 @@ tr:nth-child(even){
     overflow-x: hidden;
     overflow-y: hidden;
     aspect-ratio: 16 / 9; /* makes the map always in scale */
-    flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
+     flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
     transition: width 0.3s ease;
     transition: transform  1s ease;
 }
+/* 
+.areas_map{
+    width: calc(100% - 240px);
+    max-width: 100%;
+    max-height: 100%;
+
+} */
+
+
+
+
 
 /* ---------------------- */
 /* #region polygons styles*/
@@ -422,8 +442,9 @@ tr:nth-child(even){
     top: 0%;
     left: 0%;
     width: 100%;
-    height: auto;
-    max-height: 80vh;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: contain; /* makes the image not stretch */
 }
 
@@ -433,6 +454,42 @@ tr:nth-child(even){
     right:1%;
     top:1%;
     z-index: 10;
+}
+
+
+
+
+
+/* the point of the outer and inner marker container is to purfectaly line up with the image of the layout map with the inner container */
+.outer_marker_container{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+
+    /* the image is centered to this is center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inner_marker_container{    
+    background-color: rgb(0,0,255,0.2);
+    height: 100%;
+
+    /* same aspect ratio as the the image */
+    
+}
+
+
+#sanford_inner_marker_container{
+    aspect-ratio: 372 / 263;
+}
+
+#allen_inner_marker_container{
+    aspect-ratio: 381 / 343.5;
 }
 
 
@@ -492,6 +549,11 @@ tr:nth-child(even){
     margin: 20px 0%;
     transform: translate(-300px);
 }
+
+
+
+
+
 
 @keyframes hidden{
 
@@ -613,8 +675,128 @@ tr:nth-child(even){
 
 
 
-@media screen and (max-width: 850px) { 
+@media screen and (max-width: 1024px) { 
+    /* makes the map and the sidebar go ontop of each other */
+    .content{  
+        flex-direction: column;
+
+    }
+
+    /* makes the sidbar go under the map and take up the whole width of the screen */
+    .sidebar{
+        width: calc(100% - 40px);
+        order: 2;
+        flex: 1;
+        box-shadow: none;
+    }
+
+    /* makes the finder input go to the top of the screen and centers it */
+    .finder_input{
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        z-index: 11;
+
+
+    }
+
+    /* Finder text isn't needed becuase the input has moved */
+    .finder_text{
+        display: none;
+    }
+
+    
+    /* makes the map take up the whole width because the sidebar is no longer next to it */
+    .map{
+        width: 100%;
+    }   
+
+
+
+    /* makes the tables fill the sidebar which is now larger */
+    .table_div{
+        width: 100%;
+        justify-self: center;
+        overflow: hidden;
+    }
+
+    table{
+        width: 100%;
+    }
+
+
+
+    /* makes the building and other labels more readable */
+    .building_label{
+        font-size: 2.8vw;
+    }
+
+
+    /* makes the bigger so they are more readable */
+    .other_label{
+        font-size: 2.5vw;
+    }
+
+
+    /* give the finder room at the top so that it does overlap the map */
+    .spacer{
+        width: 100%;
+        height: 60px;
+    }
+
+    /* ovrriders what the animations make the sidebar look like */
+    .sidebar.opening{
+        animation-name: sidebarFullWidth;
+        animation-duration: none;
+        animation-fill-mode: none;
+        animation-timing-function: none; 
+        transform: translate(0px);
+        width: calc(100% - 40px);
+        order: 2;
+        flex: 1;
+        box-shadow: none;
+        align-self: center;      
+    }
+
+
+    .sidebar.closing{
+        animation-name: sidebarWidth0;
+        animation-duration: none;
+        animation-fill-mode: none;
+        animation-timing-function: none;
+        transform: translate(0px);
+        width: calc(100% - 40px);
+        order: 2;
+        flex: 1;
+        box-shadow: none;
+        align-self: center;
+    }
+
+
+    /* since the user can't close or open the sidebar the buttons get hidden */
+    #left_sidebar_close_button{
+        display: none;
+    }
+
+    #left_sidebar_open_button{
+        display: none;
+    }
+
+
+    /* center the text in the footer */
+    .footer{
+        justify-content: center;
+        text-align: center;
+        font-size: 15px;
+    }
+
 }
+
+
+
+
+
 
 
 
