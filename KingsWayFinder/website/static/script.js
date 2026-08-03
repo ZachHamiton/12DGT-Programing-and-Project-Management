@@ -43,6 +43,9 @@ const finderOriginalParent = finderInput.parentElement;
 const finderOriginalNextSibling = finderInput.nextElementSibling;
 
 
+// Home to areas map button
+const navbarTextButton = document.getElementById("navbar_text_button")
+
 
 
 
@@ -295,6 +298,39 @@ artsBlockLayoutMapBackButton.addEventListener("click", showArtsBlockLayoutMap);
 
 
 
+// universal home button
+function showAreaMap(){
+    if(map){
+        map.classList.remove("hidden");
+    }
+    if(artsBlockLayoutMap){
+        artsBlockLayoutMap.classList.add("hidden");
+    }
+    if(teKaingaLayoutMap){
+        teKaingaLayoutMap.classList.add("hidden");
+    }
+    if(ecLayoutMap){
+        ecLayoutMap.classList.add("hidden");
+    }
+    if(bolamLayoutMap){
+        bolamLayoutMap.classList.add("hidden");
+    }
+    if(allenLayoutMap){
+        allenLayoutMap.classList.add("hidden");
+    }
+    if(sanfordLayoutMap){
+        sanfordLayoutMap.classList.add("hidden");
+    }
+        
+
+}
+
+navbarTextButton.addEventListener("click", showAreaMap);
+
+
+
+
+
 
 
 // function fo move the finder input
@@ -325,6 +361,9 @@ mediaQuery1024px.addEventListener("change", changeInputPosition);
 
 // runs it at the start so that if the screen is less then 1024px to begin with the finder is in the right place.
 changeInputPosition(mediaQuery1024px);
+
+
+
 
 
 

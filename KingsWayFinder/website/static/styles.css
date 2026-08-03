@@ -71,6 +71,7 @@ button{
     overflow: hidden;
     background-color: white;
     border: 2px solid white;
+    cursor: pointer;
 }
 
 button:hover{
@@ -117,6 +118,10 @@ abbr{
     color: white;
 }
 
+
+#navbar_text_button{
+    cursor: pointer;
+}
 
 
 .footer {
@@ -311,6 +316,7 @@ tr:nth-child(even){
     pointer-events: auto; /* makes the hover feature work because its parent has pointer-events: none; */
     transform-origin: center center; /* makes the polygon expand from the center */
     transform-box: fill-box; /* also makes the polygon expand from the center */
+    cursor: pointer;
 }
 
 /* changes the colour and size when hovered over */
