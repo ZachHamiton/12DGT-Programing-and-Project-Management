@@ -253,9 +253,10 @@ th,td{
 
 /* style table head */
 th{
-    background-color: navy;
+    background-color: rgb(0, 0, 128);
     color:white;
     font-weight: bold;
+    border-bottom: 5px solid #FFD403;
 }
 /* sytles table rows */
 tr{
@@ -321,7 +322,7 @@ tr:nth-child(even){
 
 /* changes the colour and size when hovered over */
 .polygon:hover{
-    fill: rgb(173, 216, 230, 0.5);
+    fill: rgba(15, 60, 150, 0.3); 
     transform: scale(1.03);
 }
 
@@ -338,7 +339,7 @@ tr:nth-child(even){
 
 /* makes them have the same hover effect as the .polygon's */
 .other_polygon:hover{
-    fill: rgb(173, 216, 230, 0.5);
+    fill: rgba(15, 60, 150, 0.3); 
     transform: scale(1.03);
 }
 /* #endregion polygons */
@@ -482,7 +483,8 @@ tr:nth-child(even){
 
 
 .inner_marker_container{    
-    background-color: rgb(0,0,255,0.2);
+    position: relative;
+    /* background-color: rgb(0,0,255,0.2); */
     height: 100%;
 
     /* same aspect ratio as the the image */
@@ -497,6 +499,66 @@ tr:nth-child(even){
 #allen_inner_marker_container{
     aspect-ratio: 381 / 343.5;
 }
+
+#bolam_inner_marker_container{
+    aspect-ratio: 541 / 704;
+}
+
+
+#ec_inner_marker_container{
+    aspect-ratio: 415 / 325;
+}
+
+#te-kainga_inner_marker_container{
+    aspect-ratio: 231 / 369;
+}
+
+#arts_block_inner_marker_container{
+    aspect-ratio: 928 / 764;
+}
+
+
+.outer_indecator{
+    position: absolute;
+    background-color: rgb(255, 212, 3, 0.7);
+    border-radius: 50%;
+    height: 4.5%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 0.3vw rgb(255, 212, 3, 0.7);
+    animation-name: indecatorPulse;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease; 
+    animation-iteration-count: infinite;
+
+}
+
+
+@keyframes indecatorPulse {
+    0%{
+        box-shadow: 0 0 0 0vw rgb(255, 212, 3, 0.7);
+    }
+
+    50%{
+        box-shadow: rgb(255, 212, 3, 0.5);
+    }
+
+
+    100%{
+        box-shadow: 0 0 0 1.5vw rgb(255, 212, 3, 0);
+        
+    }
+    
+}
+
+
+#s101_outer_indecator, #s101_inner_indecator{
+    top: 18%;
+    left: 5%;
+}
+
 
 
 /* #endregion */
@@ -513,11 +575,13 @@ tr:nth-child(even){
 /* everything that is given this class will highlight */
 
 .highlighted{
-    fill: rgb(154, 205, 50, 0.5);
+    /* fill: rgb(154, 205, 50, 0.5); */
+    fill: rgb(255, 212, 3, 0.5);
 }
 
 .highlighted:hover{
-    fill: rgb(154, 205, 50);
+    /* fill: rgb(154, 205, 50); */
+    fill: rgb(255, 212, 3);
 }
 
 
@@ -694,6 +758,7 @@ tr:nth-child(even){
         order: 2;
         flex: 1;
         box-shadow: none;
+        margin-top: 0px;
     }
 
     /* makes the finder input go to the top of the screen and centers it */
@@ -762,7 +827,9 @@ tr:nth-child(even){
         order: 2;
         flex: 1;
         box-shadow: none;
-        align-self: center;      
+        align-self: center;  
+        margin: 0% 25px;    
+        padding: 25px;
     }
 
 
@@ -777,6 +844,8 @@ tr:nth-child(even){
         flex: 1;
         box-shadow: none;
         align-self: center;
+        margin: 0% 25px;
+        padding: 25px;
     }
 
 

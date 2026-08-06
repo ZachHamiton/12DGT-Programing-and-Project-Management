@@ -44,10 +44,18 @@ const finderOriginalNextSibling = finderInput.nextElementSibling;
 
 
 // Home to areas map button
-const navbarTextButton = document.getElementById("navbar_text_button")
+const navbarTextButton = document.getElementById("navbar_text_button");
 
 
 
+const s101Outer = document.getElementById("s101_outer_indecator");
+const s101Inner = document.getElementById("s101_inner_indecator");
+
+const s101OuterTop = 18
+const s101OuterLeft = 5
+
+const s102OuterTop = 20
+const s102OuterLeft = 20
 
 
 
@@ -155,7 +163,29 @@ function checkForHighlights(){
             astroPolygon.classList.remove("highlighted");
         }
     }
-   
+
+    s101Inner.classList.remove("hidden");
+    s101Outer.classList.remove("hidden");
+
+    if (String(finderInputValue).toLowerCase() === "s101") {
+       s101Outer.style.top = `${s101OuterTop}%`;
+       s101Outer.style.left = `${s101OuterLeft}%`;
+       s101Inner.style.top = `${s101OuterTop}%`;
+       s101Inner.style.left = `${s101OuterLeft}%`;
+
+
+    } else if(String(finderInputValue).toLowerCase() === "s102"){
+        s101Outer.style.top = `${s102OuterTop}%`;
+        s101Outer.style.left = `${s102OuterLeft}%`;
+        s101Inner.style.top = `${s102OuterTop}%`;
+        s101Inner.style.left = `${s102OuterLeft}%`;
+
+    
+    } else {
+        s101Inner.classList.add("hidden");
+        s101Outer.classList.add("hidden");
+    }
+
 
 
 
