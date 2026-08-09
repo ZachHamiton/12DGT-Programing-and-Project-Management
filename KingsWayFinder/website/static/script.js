@@ -532,7 +532,8 @@ const innerMarkerContainers = [
     document.getElementById("allen_inner_marker_container"),
     document.getElementById("bolam_inner_marker_container"),
     document.getElementById("ec_inner_marker_container"),
-    document.getElementById("te-kainga_inner_marker_container")
+    document.getElementById("te-kainga_inner_marker_container"),
+    document.getElementById("arts_block_inner_marker_container")
 ].filter(Boolean);
 
 function logClickPercent(event) {
