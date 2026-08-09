@@ -72,6 +72,9 @@ button{
     background-color: white;
     border: 2px solid white;
     cursor: pointer;
+    box-sizing: content-box;
+    transition: background-color 0.3s ease;
+    
 }
 
 button:hover{
@@ -518,7 +521,7 @@ tr:nth-child(even){
 }
 
 
-.outer_indecator{
+.indecator{
     position: absolute;
     background-color: rgb(255, 212, 3, 0.7);
     border-radius: 50%;
@@ -553,12 +556,6 @@ tr:nth-child(even){
         
     }
     
-}
-
-
-#s101_outer_indecator{
-    top: 51%;
-    left: 36.2%;
 }
 
 
@@ -681,7 +678,7 @@ tr:nth-child(even){
 /* for development */
 .grid_box_width{
     position: absolute;
-    border: 2px solid blue;
+    border: 1px solid blue;
     top:0%;
     pointer-events: none;
 }
@@ -693,7 +690,7 @@ tr:nth-child(even){
 
 .grid_box_height{
     position: absolute;
-    border: 2px solid red;
+    border: 1px solid red;
     top:0%;
     pointer-events: none;
 }

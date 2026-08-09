@@ -26,6 +26,7 @@ const teKaingaLayoutMap = document.getElementById("te-kainga_layout_map");
 const artsBlockLayoutMap = document.getElementById("arts_block_layout_map");
 
 
+
 // layout maps back buttons
 const sanfordLayoutMapBackButton = document.getElementById("sanford_layout_map_back_button");
 const allenLayoutMapBackButton = document.getElementById("allen_layout_map_back_button");
@@ -48,9 +49,12 @@ const finderOriginalNextSibling = finderInput.nextElementSibling;
 const navbarTextButton = document.getElementById("navbar_text_button");
 
 
-
-const s101Outer = document.getElementById("s101_outer_indecator");
-
+const sanfordIndicator = document.getElementById("indecator_sanford");
+const allenIndicator = document.getElementById("indecator_allen");
+const bolamIndicator = document.getElementById("indecator_bolam");
+const ecIndicator = document.getElementById("indecator_ec");
+const teKaingaIndicator = document.getElementById("indecator_te-kainga");
+const arksBlockIndicator = document.getElementById("indecator_arts_block");
 
 let classesData = [];
 
@@ -77,53 +81,145 @@ async function loadJSON(file) {
 loadJSON("/static/classes.json");
 
 
-function checkJsonforhighlights(){
-    if (!finderInput) {
-        return;
-    }
 
+function checkJsonforhighlights(){
     // get the value of the input in lowercase with surrounding whitespace trimmed
     const finderInputValue = finderInput.value.trim().toLowerCase();
 
     // finds the object that matches the input value
     const selectedRoom = classesData.find(item => item.code === finderInputValue);
 
-    // checks which room the selectedRoom matches and highlights it
-    // also checks other ways the building can be highlighted, such as by typing its name
-    if(selectedRoom?.building === "sanford" || finderInputValue === "s" || finderInputValue === "sanford"){
+    // this function chnages which buildings are highlighted on the areas map, changes the position of the indecator and hides it if necessary. 
+
+    // Checks which building the selected room is in and highlights if
+    // also changes the positon of the indecator to go over the selected classroom
+    if(selectedRoom?.building === "sanford"){
         sanfordPolygon.classList.add("highlighted");
-    }else{
+
+        sanfordIndicator.style.top = `${selectedRoom?.top}%`;
+        sanfordIndicator.style.left = `${selectedRoom?.left}%`;
+        sanfordIndicator.classList.remove("hidden");
+
+        if (selectedRoom.top === null || selectedRoom.left === null){
+            sanfordIndicator.classList.add("hidden");
+        }
+
+        
+        // Highlights building if its name or letter is typed
+    } else if(finderInputValue === "s" || finderInputValue === "sanford"){
+        sanfordPolygon.classList.add("highlighted");
+        // hides and unhighlights if nothing in the sanford block was selected
+    } else{
         sanfordPolygon.classList.remove("highlighted");
+        sanfordIndicator.classList.add("hidden");
     }
 
-    if(selectedRoom?.building === "allen" || finderInputValue === "a" || finderInputValue === "allen"){
+    
+
+    // Allen
+    if(selectedRoom?.building === "allen"  ){
         allenPolygon.classList.add("highlighted");
-    }else{
+
+        allenIndicator.style.top = `${selectedRoom?.top}%`;
+        allenIndicator.style.left = `${selectedRoom?.left}%`;
+        allenIndicator.classList.remove("hidden");
+
+        if (selectedRoom.top === null || selectedRoom.left === null){
+            allenIndicator.classList.add("hidden");
+        }
+
+    } else if(finderInputValue === "a" || finderInputValue === "allen"){
+        allenPolygon.classList.add("highlighted");
+    }
+    
+    else{
         allenPolygon.classList.remove("highlighted");
+        allenIndicator.classList.add("hidden");
     }
 
-    if(selectedRoom?.building === "bolam" || finderInputValue === "b" || finderInputValue === "bolam"){
+    // Bolam
+    if(selectedRoom?.building === "bolam"  ){
         bolamPolygon.classList.add("highlighted");
-    }else{
+
+        bolamIndicator.style.top = `${selectedRoom?.top}%`;
+        bolamIndicator.style.left = `${selectedRoom?.left}%`;
+        bolamIndicator.classList.remove("hidden");
+
+        if (selectedRoom.top === null || selectedRoom.left === null){
+            bolamIndicator.classList.add("hidden");
+        }
+
+    } else if(finderInputValue === "b" || finderInputValue === "bolam"){
+        bolamPolygon.classList.add("highlighted");
+    }
+    
+    else{
         bolamPolygon.classList.remove("highlighted");
+        bolamIndicator.classList.add("hidden");
     }
-
-    if(selectedRoom?.building === "event centre" || finderInputValue === "g" || finderInputValue === "event centre" || finderInputValue === "event center"){
+    
+    
+    // Event Centre
+    if(selectedRoom?.building === "event centre"  ){
         ecPolygon.classList.add("highlighted");
-    }else{
+
+        ecIndicator.style.top = `${selectedRoom?.top}%`;
+        ecIndicator.style.left = `${selectedRoom?.left}%`;
+        ecIndicator.classList.remove("hidden");
+
+        if (selectedRoom.top === null || selectedRoom.left === null){
+            ecIndicator.classList.add("hidden");
+        }
+
+    } else if(finderInputValue === "g" || finderInputValue === "event centre" || finderInputValue === "event center"){
+        ecPolygon.classList.add("highlighted");
+    }
+    
+    else{
         ecPolygon.classList.remove("highlighted");
+        ecIndicator.classList.add("hidden");
     }
 
-    if(selectedRoom?.building === "te kainga" || finderInputValue === "k" || finderInputValue === "te kainga"){
+    // Te Kainga
+    if(selectedRoom?.building === "te kainga"  ){
         teKaingaPolygon.classList.add("highlighted");
-    }else{
+
+        teKaingaIndicator.style.top = `${selectedRoom?.top}%`;
+        teKaingaIndicator.style.left = `${selectedRoom?.left}%`;
+        teKaingaIndicator.classList.remove("hidden");
+
+        if (selectedRoom.top === null || selectedRoom.left === null){
+            teKaingaIndicator.classList.add("hidden");
+        }
+
+    } else if(finderInputValue === "k" || finderInputValue === "te kainga"){
+        teKaingaPolygon.classList.add("highlighted");
+    }
+    
+    else{
         teKaingaPolygon.classList.remove("highlighted");
+        teKaingaIndicator.classList.add("hidden");
     }
 
-     if(selectedRoom?.building === "arts block" || finderInputValue === "d" || finderInputValue === "arts block" || finderInputValue === "arts"){
+
+    if(selectedRoom?.building === "arts block"  ){
         artsPolygon.classList.add("highlighted");
-    }else{
+
+        arksBlockIndicator.style.top = `${selectedRoom?.top}%`;
+        arksBlockIndicator.style.left = `${selectedRoom?.left}%`;
+        arksBlockIndicator.classList.remove("hidden");
+
+        if (selectedRoom.top === null || selectedRoom.left === null){
+            arksBlockIndicator.classList.add("hidden");
+        }
+
+    } else if(finderInputValue === "d" || finderInputValue === "arts block" || finderInputValue === "arts"){
+        artsPolygon.classList.add("highlighted");
+    }
+    
+    else{
         artsPolygon.classList.remove("highlighted");
+        arksBlockIndicator.classList.add("hidden");
     }
 
 
@@ -145,10 +241,90 @@ function checkJsonforhighlights(){
     } else{
         astroPolygon.classList.remove("highlighted");
     }
+
+
+
+
+    // If the selected room isn't in the map that you are in the back buton gets highlight prompting you to zoom out to area map
+    if(selectedRoom){
+        if(selectedRoom.building !== "sanford"){
+            sanfordLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+        } else{
+            sanfordLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }else{
+        sanfordLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+
+
+    if(selectedRoom){
+        if(selectedRoom.building !== "allen"){
+            allenLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+        } else{
+            allenLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }else{
+        allenLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+
+    if(selectedRoom){
+        if(selectedRoom.building !== "bolam"){
+            bolamLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+        } else{
+            bolamLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }else{
+        bolamLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+
+    
+    if(selectedRoom){
+        if(selectedRoom.building !== "event centre"){
+            ecLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+        } else{
+            ecLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }else{
+        ecLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+
+    if(selectedRoom){
+        if(selectedRoom.building !== "te kainga"){
+            teKaingaLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+        } else{
+            teKaingaLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }else{
+        teKaingaLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+
+    if(selectedRoom){
+        if(selectedRoom.building !== "arts block"){
+            artsBlockLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+        } else{
+            artsBlockLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }else{
+        artsBlockLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+
+
+
+
 }
 
 // whenever the input is typed in/ changed the checkJsonforhighlights function runs
 finderInput.addEventListener("input", checkJsonforhighlights);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -351,7 +527,26 @@ changeInputPosition(mediaQuery1024px);
 
 
 
+const innerMarkerContainers = [
+    document.getElementById("sanford_inner_marker_container"),
+    document.getElementById("allen_inner_marker_container"),
+    document.getElementById("bolam_inner_marker_container"),
+    document.getElementById("ec_inner_marker_container"),
+    document.getElementById("te-kainga_inner_marker_container")
+].filter(Boolean);
 
+function logClickPercent(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left;
+    const offsetY = event.clientY - rect.top;
+    const percentLeft = ((offsetX / rect.width) * 100).toFixed(3);
+    const percentTop = ((offsetY / rect.height) * 100).toFixed(3);
+    console.log(`"top": ${percentTop}, "left": ${percentLeft}`);
+}
+
+innerMarkerContainers.forEach(container => {
+    container.addEventListener("click", logClickPercent);
+});
 
 
 
