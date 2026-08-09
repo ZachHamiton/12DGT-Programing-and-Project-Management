@@ -1,10 +1,10 @@
 // gets constants for closeLeftSidebar and openLeftSidebar functions
-const leftSidePannelCloseButton = document.getElementById("left_sidebar_close_button");
-const leftSidePannelOpenButton = document.getElementById("left_sidebar_open_button");
+const leftSidePanelCloseButton = document.getElementById("left_sidebar_close_button");
+const leftSidePanelOpenButton = document.getElementById("left_sidebar_open_button");
 const leftSidebar = document.getElementById("left_sidebar");
 const map = document.getElementById("map");
 
-// gets all constances needed for the checkForHighlights function
+// Polygon buildings
 const sanfordPolygon = document.getElementById("sanford_polygon");
 const allenPolygon = document.getElementById("allen_polygon");
 const bolamPolygon = document.getElementById("bolam_polygon");
@@ -27,7 +27,7 @@ const artsBlockLayoutMap = document.getElementById("arts_block_layout_map");
 
 
 // layout maps back buttons
-const sanfordLayouMapBackButton = document.getElementById("sanford_layout_map_back_button");
+const sanfordLayoutMapBackButton = document.getElementById("sanford_layout_map_back_button");
 const allenLayoutMapBackButton = document.getElementById("allen_layout_map_back_button");
 const bolamLayoutMapBackButton = document.getElementById("bolam_layout_map_back_button");
 const ecLayoutMapBackButton = document.getElementById("ec_layout_map_back_button");
@@ -35,174 +35,131 @@ const teKaingaLayoutMapBackButton = document.getElementById("te-kainga_layout_ma
 const artsBlockLayoutMapBackButton = document.getElementById("arts_block_layout_map_back_button");
 
 
-// const for changeing the positon of the finder input
+// constants for changing the position of the finder input
 const mediaQuery1024px = window.matchMedia("(max-width: 1024px)");
 const contentDiv = document.querySelector(".content");
+
 // enables the code to put back the finder input to where it started
 const finderOriginalParent = finderInput.parentElement;
 const finderOriginalNextSibling = finderInput.nextElementSibling;
 
 
-// Home to areas map button
+// button to return to the areas map
 const navbarTextButton = document.getElementById("navbar_text_button");
 
 
 
 const s101Outer = document.getElementById("s101_outer_indecator");
-const s101Inner = document.getElementById("s101_inner_indecator");
-
-const s101OuterTop = 18
-const s101OuterLeft = 5
-
-const s102OuterTop = 20
-const s102OuterLeft = 20
 
 
+let classesData = [];
 
 
+// code from async function loadJSON(file)  catch(err) {myDisplayer(err.message)} is from https://www.w3schools.com/js/js_json_server.asp
+// load the JSON file
 
+async function loadJSON(file) {
+    try {
+        const response = await fetch(file);
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+        }
+        classesData = await response.json();
 
-
-
-
-
-const listOfValidSecondCharacters = ["1", "2", ""] // check if this is the best way to do this
-let firstCharacterFinderInput = "";
-let secondCharacterFinderInput = "";
-
-// the perpose for of this function check the 1st digit of the input and highlight the building on the map associated with that number
-function checkForHighlights(){
-
-    // get the value of the input
-    const finderInputValue = finderInput.value;
-
-    // checks that there in information and set constants to the value of the first and second digits
-    if (finderInputValue.length > 0 ) {
-        firstCharacterFinderInput = String(finderInputValue[0]).toLowerCase();
-    } else{
-        firstCharacterFinderInput = ""
+        // run the function as soon as the JSON is finished so that the highlighting updates. 
+        // The rest of the code runs while the const response = await fetch(file); is running. if you type before it is finished the highlights will not update until you type again.
+        checkJsonforhighlights();
+    } catch (err) {
+        console.error(err.message);
     }
-
-    if (finderInputValue.length > 1 ) {
-        secondCharacterFinderInput = String(finderInputValue[1]);
-    }else{
-        secondCharacterFinderInput = ""
-    }
-
-    // This portion of code relates to the classroom codes and prevents people from typeing any word starting with s and the building starting with s highlighting. 
-    // When a valid letter is typed in and a valid second charater (can be nothing) is typed in then a corisponding building will highlight. 
-    if (finderInputValue.length < 6 &&  listOfValidSecondCharacters.includes(secondCharacterFinderInput)){
-        // causes the corisponding building to highlight or unhighlight. 
-        if (firstCharacterFinderInput === "s" ){
-            sanfordPolygon.classList.add("highlighted");
-        }else{
-            sanfordPolygon.classList.remove("highlighted");
-        }
-
-        if (firstCharacterFinderInput === "a"){
-            allenPolygon.classList.add("highlighted");
-        }else{
-            allenPolygon.classList.remove("highlighted");
-        }
-
-        if (firstCharacterFinderInput === "b"){
-            bolamPolygon.classList.add("highlighted");
-        }else{
-            bolamPolygon.classList.remove("highlighted");
-        }
-
-        if (firstCharacterFinderInput === "g"){
-            ecPolygon.classList.add("highlighted");
-        }else{
-            ecPolygon.classList.remove("highlighted");
-        }
-
-        if (firstCharacterFinderInput === "k"){
-            teKaingaPolygon.classList.add("highlighted");
-        }else{
-            teKaingaPolygon.classList.remove("highlighted");
-        }
-
-        if (firstCharacterFinderInput === "d"){
-            artsPolygon.classList.add("highlighted");
-        }else{
-            artsPolygon.classList.remove("highlighted");
-        }
-
-    }else{
-        // checks if the full name has been written out
-        // if so that building is highlighted
-        if(String(finderInputValue).toLowerCase() === "sanford"){
-            sanfordPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "allen"){
-            allenPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "bolam"){
-            bolamPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "event centre" || String(finderInputValue).toLowerCase() === "event center" || String(finderInputValue).toLowerCase() === "gym"){
-            ecPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "te kainga"){
-            teKaingaPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "arts" || String(finderInputValue).toLowerCase() === "arts block"){
-            artsPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "field"){
-            fieldPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "cola"){
-            colaPolygon.classList.add("highlighted");
-        }else if(String(finderInputValue).toLowerCase() === "astro" || String(finderInputValue).toLowerCase() === "bolam court"){
-            astroPolygon.classList.add("highlighted");
-        }else{
-             // if nothing has triggered any highlighting everything is unhighlighted
-            sanfordPolygon.classList.remove("highlighted");
-            allenPolygon.classList.remove("highlighted");
-            bolamPolygon.classList.remove("highlighted");
-            ecPolygon.classList.remove("highlighted");
-            teKaingaPolygon.classList.remove("highlighted");
-            artsPolygon.classList.remove("highlighted");
-            fieldPolygon.classList.remove("highlighted");
-            colaPolygon.classList.remove("highlighted");
-            astroPolygon.classList.remove("highlighted");
-        }
-    }
-
-    s101Inner.classList.remove("hidden");
-    s101Outer.classList.remove("hidden");
-
-    if (String(finderInputValue).toLowerCase() === "s101") {
-       s101Outer.style.top = `${s101OuterTop}%`;
-       s101Outer.style.left = `${s101OuterLeft}%`;
-       s101Inner.style.top = `${s101OuterTop}%`;
-       s101Inner.style.left = `${s101OuterLeft}%`;
-
-
-    } else if(String(finderInputValue).toLowerCase() === "s102"){
-        s101Outer.style.top = `${s102OuterTop}%`;
-        s101Outer.style.left = `${s102OuterLeft}%`;
-        s101Inner.style.top = `${s102OuterTop}%`;
-        s101Inner.style.left = `${s102OuterLeft}%`;
-
-    
-    } else {
-        s101Inner.classList.add("hidden");
-        s101Outer.classList.add("hidden");
-    }
-
-
-
-
-
 }
 
-// every time that the finder input is changed the checkForHighlights function runs
-finderInput.addEventListener("input", checkForHighlights);
+loadJSON("/static/classes.json");
+
+
+function checkJsonforhighlights(){
+    if (!finderInput) {
+        return;
+    }
+
+    // get the value of the input in lowercase with surrounding whitespace trimmed
+    const finderInputValue = finderInput.value.trim().toLowerCase();
+
+    // finds the object that matches the input value
+    const selectedRoom = classesData.find(item => item.code === finderInputValue);
+
+    // checks which room the selectedRoom matches and highlights it
+    // also checks other ways the building can be highlighted, such as by typing its name
+    if(selectedRoom?.building === "sanford" || finderInputValue === "s" || finderInputValue === "sanford"){
+        sanfordPolygon.classList.add("highlighted");
+    }else{
+        sanfordPolygon.classList.remove("highlighted");
+    }
+
+    if(selectedRoom?.building === "allen" || finderInputValue === "a" || finderInputValue === "allen"){
+        allenPolygon.classList.add("highlighted");
+    }else{
+        allenPolygon.classList.remove("highlighted");
+    }
+
+    if(selectedRoom?.building === "bolam" || finderInputValue === "b" || finderInputValue === "bolam"){
+        bolamPolygon.classList.add("highlighted");
+    }else{
+        bolamPolygon.classList.remove("highlighted");
+    }
+
+    if(selectedRoom?.building === "event centre" || finderInputValue === "g" || finderInputValue === "event centre" || finderInputValue === "event center"){
+        ecPolygon.classList.add("highlighted");
+    }else{
+        ecPolygon.classList.remove("highlighted");
+    }
+
+    if(selectedRoom?.building === "te kainga" || finderInputValue === "k" || finderInputValue === "te kainga"){
+        teKaingaPolygon.classList.add("highlighted");
+    }else{
+        teKaingaPolygon.classList.remove("highlighted");
+    }
+
+     if(selectedRoom?.building === "arts block" || finderInputValue === "d" || finderInputValue === "arts block" || finderInputValue === "arts"){
+        artsPolygon.classList.add("highlighted");
+    }else{
+        artsPolygon.classList.remove("highlighted");
+    }
+
+
+    // These ones are not in the JSON file and only highlight when their names are inputted
+    if(finderInputValue === "field"){
+        fieldPolygon.classList.add("highlighted");
+    }else{
+        fieldPolygon.classList.remove("highlighted");
+    }
+
+    if (finderInputValue === "cola" || finderInputValue === "covered outdoor learning area"){
+        colaPolygon.classList.add("highlighted");
+    } else{
+        colaPolygon.classList.remove("highlighted");
+    }
+
+    if (finderInputValue === "astro" || finderInputValue === "bolam court"){
+        astroPolygon.classList.add("highlighted");
+    } else{
+        astroPolygon.classList.remove("highlighted");
+    }
+}
+
+// whenever the input is typed in/ changed the checkJsonforhighlights function runs
+finderInput.addEventListener("input", checkJsonforhighlights);
 
 
 
 
-// when activeated it will close the left sidebar and make the map take up the full screen. The width of the sidebar would get smaller and it will be translated to the right
+
+
+// when activated it will close the left sidebar and make the map take up the full screen. The width of the sidebar would get smaller and it will be translated to the right
 function closeLeftSidebar() {
-    if (leftSidePannelOpenButton){
-        leftSidePannelOpenButton.classList.remove("hidden");
-        leftSidePannelOpenButton.classList.add("hidden_animation");
+    if (leftSidePanelOpenButton){
+        leftSidePanelOpenButton.classList.remove("hidden");
+        leftSidePanelOpenButton.classList.add("hidden_animation");
     }
 
     if (leftSidebar){
@@ -211,11 +168,11 @@ function closeLeftSidebar() {
     }
 }
 
-// when activeated it will open the left sidebar. the width of the sidebar will grow and it will be translated to the right
+// when activated it will open the left sidebar. the width of the sidebar will grow and it will be translated to the right
 function openLeftSidebar(){
-    if(leftSidePannelOpenButton){
-        leftSidePannelOpenButton.classList.remove("hidden_animation");
-        leftSidePannelOpenButton.classList.add("hidden");
+    if(leftSidePanelOpenButton){
+        leftSidePanelOpenButton.classList.remove("hidden_animation");
+        leftSidePanelOpenButton.classList.add("hidden");
     }
 
     if(leftSidebar){
@@ -226,19 +183,19 @@ function openLeftSidebar(){
 }
 
 
-// when the left sidebar close button it click it wil run the closeLeftSidebar which will close the leftsidebar and make the map take up the whole screen
-leftSidePannelCloseButton.addEventListener("click", closeLeftSidebar);
+// when the left sidebar close button is clicked it will run the closeLeftSidebar function, which will close the left sidebar and make the map take up the whole screen
+leftSidePanelCloseButton.addEventListener("click", closeLeftSidebar);
 
-// when the left sidebar open button it click it wil run the LeftSidebar which will open the leftsidebar
-leftSidePannelOpenButton.addEventListener("click", openLeftSidebar);
-
-
+// when the left sidebar open button is clicked it will run the openLeftSidebar function, which will open the left sidebar
+leftSidePanelOpenButton.addEventListener("click", openLeftSidebar);
 
 
 
-// each function changes which maps is being shown.
+
+
+// each function changes which maps are being shown.
 // it toggles between whether the areas map is showing or whether one of the layout maps is showing
-// from the areas map you can go to all the layout maps but from the layout maps you can only go to the areas map
+// from the areas map you can go to all the layout maps, but from the layout maps you can only go to the areas map
 
 // Sanford layout map toggle hide function
 function showSanfordLayoutMap(){
@@ -250,7 +207,7 @@ function showSanfordLayoutMap(){
     }
 }
 sanfordPolygon.addEventListener("click", showSanfordLayoutMap);
-sanfordLayouMapBackButton.addEventListener("click", showSanfordLayoutMap);
+sanfordLayoutMapBackButton.addEventListener("click", showSanfordLayoutMap);
 
 
 
@@ -391,6 +348,12 @@ mediaQuery1024px.addEventListener("change", changeInputPosition);
 
 // runs it at the start so that if the screen is less then 1024px to begin with the finder is in the right place.
 changeInputPosition(mediaQuery1024px);
+
+
+
+
+
+
 
 
 
