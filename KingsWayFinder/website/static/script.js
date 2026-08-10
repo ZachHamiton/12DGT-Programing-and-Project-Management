@@ -82,7 +82,7 @@ loadJSON("/static/classes.json");
 
 
 
-function checkJsonforhighlights(){
+function checkJsonforhighlights(event){
     // get the value of the input in lowercase with surrounding whitespace trimmed
     const finderInputValue = finderInput.value.trim().toLowerCase();
 
@@ -98,11 +98,7 @@ function checkJsonforhighlights(){
 
         sanfordIndicator.style.top = `${selectedRoom?.top}%`;
         sanfordIndicator.style.left = `${selectedRoom?.left}%`;
-        sanfordIndicator.classList.remove("hidden");
-
-        if (selectedRoom.top === null || selectedRoom.left === null){
-            sanfordIndicator.classList.add("hidden");
-        }
+        sanfordIndicator.classList.remove("hidden");        
 
         
         // Highlights building if its name or letter is typed
@@ -113,7 +109,6 @@ function checkJsonforhighlights(){
         sanfordPolygon.classList.remove("highlighted");
         sanfordIndicator.classList.add("hidden");
     }
-
     
 
     // Allen
@@ -124,10 +119,6 @@ function checkJsonforhighlights(){
         allenIndicator.style.left = `${selectedRoom?.left}%`;
         allenIndicator.classList.remove("hidden");
 
-        if (selectedRoom.top === null || selectedRoom.left === null){
-            allenIndicator.classList.add("hidden");
-        }
-
     } else if(finderInputValue === "a" || finderInputValue === "allen"){
         allenPolygon.classList.add("highlighted");
     }
@@ -137,6 +128,7 @@ function checkJsonforhighlights(){
         allenIndicator.classList.add("hidden");
     }
 
+
     // Bolam
     if(selectedRoom?.building === "bolam"  ){
         bolamPolygon.classList.add("highlighted");
@@ -145,9 +137,6 @@ function checkJsonforhighlights(){
         bolamIndicator.style.left = `${selectedRoom?.left}%`;
         bolamIndicator.classList.remove("hidden");
 
-        if (selectedRoom.top === null || selectedRoom.left === null){
-            bolamIndicator.classList.add("hidden");
-        }
 
     } else if(finderInputValue === "b" || finderInputValue === "bolam"){
         bolamPolygon.classList.add("highlighted");
@@ -167,10 +156,6 @@ function checkJsonforhighlights(){
         ecIndicator.style.left = `${selectedRoom?.left}%`;
         ecIndicator.classList.remove("hidden");
 
-        if (selectedRoom.top === null || selectedRoom.left === null){
-            ecIndicator.classList.add("hidden");
-        }
-
     } else if(finderInputValue === "g" || finderInputValue === "event centre" || finderInputValue === "event center"){
         ecPolygon.classList.add("highlighted");
     }
@@ -188,10 +173,6 @@ function checkJsonforhighlights(){
         teKaingaIndicator.style.left = `${selectedRoom?.left}%`;
         teKaingaIndicator.classList.remove("hidden");
 
-        if (selectedRoom.top === null || selectedRoom.left === null){
-            teKaingaIndicator.classList.add("hidden");
-        }
-
     } else if(finderInputValue === "k" || finderInputValue === "te kainga"){
         teKaingaPolygon.classList.add("highlighted");
     }
@@ -201,7 +182,7 @@ function checkJsonforhighlights(){
         teKaingaIndicator.classList.add("hidden");
     }
 
-
+    // Arts Block
     if(selectedRoom?.building === "arts block"  ){
         artsPolygon.classList.add("highlighted");
 
@@ -209,18 +190,24 @@ function checkJsonforhighlights(){
         arksBlockIndicator.style.left = `${selectedRoom?.left}%`;
         arksBlockIndicator.classList.remove("hidden");
 
-        if (selectedRoom.top === null || selectedRoom.left === null){
-            arksBlockIndicator.classList.add("hidden");
-        }
-
     } else if(finderInputValue === "d" || finderInputValue === "arts block" || finderInputValue === "arts"){
         artsPolygon.classList.add("highlighted");
-    }
-    
-    else{
+    } else{
         artsPolygon.classList.remove("highlighted");
         arksBlockIndicator.classList.add("hidden");
     }
+
+
+
+
+    if (selectedRoom?.top === null || selectedRoom?.left === null){
+            sanfordIndicator.classList.add("hidden");
+            allenIndicator.classList.add("hidden");
+            bolamIndicator.classList.add("hidden");
+            ecIndicator.classList.add("hidden");
+            teKaingaIndicator.classList.add("hidden");
+            arksBlockIndicator.classList.add("hidden");
+        }
 
 
     // These ones are not in the JSON file and only highlight when their names are inputted
@@ -310,21 +297,72 @@ function checkJsonforhighlights(){
 
 
 
-
+    if(selectedRoom){
+        return selectedRoom
+    }
 }
 
 // whenever the input is typed in/ changed the checkJsonforhighlights function runs
 finderInput.addEventListener("input", checkJsonforhighlights);
 
 
+function enterPressed(event){
+    if(event.code === "Enter" || event.code === "NumpadEnter"){
+        // get the value of the input in lowercase with surrounding whitespace trimmed
+        const finderInputValue = finderInput.value.trim().toLowerCase();
 
+        // finds the object that matches the input value
+        const selectedRoom = classesData.find(item => item.code === finderInputValue);
 
+        if(selectedRoom?.building === "sanford"){
+            sanfordLayoutMap.classList.remove("hidden");
+        } else if(selectedRoom?.building && selectedRoom?.building !== "sanford"){
+            sanfordLayoutMap.classList.add("hidden");
+        }
 
+        if(selectedRoom?.building === "allen"){
+            allenLayoutMap.classList.remove("hidden");
+        } else if(selectedRoom?.building && selectedRoom?.building !== "allen"){
+            allenLayoutMap.classList.add("hidden");
+        }
 
+        if(selectedRoom?.building === "bolam"){
+            bolamLayoutMap.classList.remove("hidden");
+        } else if(selectedRoom?.building && selectedRoom?.building !== "bolam"){
+            bolamLayoutMap.classList.add("hidden");
+        }
 
+        if(selectedRoom?.building === "event centre"){
+            ecLayoutMap.classList.remove("hidden");
+        } else if(selectedRoom?.building && selectedRoom?.building !== "event centre"){
+            ecLayoutMap.classList.add("hidden");
+        }
 
+        if(selectedRoom?.building === "te kainga"){
+            teKaingaLayoutMap.classList.remove("hidden");
+        } else if(selectedRoom?.building && selectedRoom?.building !== "te kainga"){
+            teKaingaLayoutMap.classList.add("hidden");
+        }
 
+        if(selectedRoom?.building === "arts block"){
+            artsBlockLayoutMap.classList.remove("hidden");
+        } else if(selectedRoom?.building && selectedRoom?.building !== "arts block"){
+            artsBlockLayoutMap.classList.add("hidden");
+        }
 
+        if(selectedRoom?.building){
+            map.classList.add("hidden");
+        }
+
+        return;
+    } else {
+        return;
+    }
+
+    
+}
+
+finderInput.addEventListener("keyup", enterPressed)
 
 
 
