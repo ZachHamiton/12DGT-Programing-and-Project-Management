@@ -49,18 +49,29 @@ const finderOriginalNextSibling = finderInput.nextElementSibling;
 const navbarTextButton = document.getElementById("navbar_text_button");
 
 
-const sanfordIndicator = document.getElementById("indecator_sanford");
-const allenIndicator = document.getElementById("indecator_allen");
-const bolamIndicator = document.getElementById("indecator_bolam");
-const ecIndicator = document.getElementById("indecator_ec");
-const teKaingaIndicator = document.getElementById("indecator_te-kainga");
-const arksBlockIndicator = document.getElementById("indecator_arts_block");
+const sanfordIndecator = document.getElementById("indecator_sanford");
+const allenIndecator = document.getElementById("indecator_allen");
+const bolamIndecator = document.getElementById("indecator_bolam");
+const ecIndecator = document.getElementById("indecator_ec");
+const teKaingaIndecator = document.getElementById("indecator_te-kainga");
+const arksBlockIndecator = document.getElementById("indecator_arts_block");
+
+// use in for loops
+const buildingInfo = [
+    {name: "sanford", layoutMap: sanfordLayoutMap, backButton: sanfordLayoutMapBackButton, polygon: sanfordPolygon, indecator: sanfordIndecator},
+    {name: "allen", layoutMap: allenLayoutMap, backButton: allenLayoutMapBackButton, polygon: allenPolygon, indecator:allenIndecator},
+    {name: "bolam", layoutMap: bolamLayoutMap, backButton: bolamLayoutMapBackButton, polygon: bolamPolygon, indecator:bolamIndecator},
+    {name: "event centre", layoutMap: ecLayoutMap, backButton: ecLayoutMapBackButton, polygon: ecPolygon, indecator: ecIndecator},
+    {name: "te kainga", layoutMap: teKaingaLayoutMap, backButton: teKaingaLayoutMapBackButton, polygon: teKaingaPolygon, indecator:teKaingaIndecator},
+    {name: "arts block", layoutMap: artsBlockLayoutMap, backButton: artsBlockLayoutMapBackButton, polygon: artsPolygon, indecator: arksBlockIndecator}
+]
+
 
 let classesData = [];
 
 
 // code from async function loadJSON(file)  catch(err) {myDisplayer(err.message)} is from https://www.w3schools.com/js/js_json_server.asp
-// load the JSON file
+// load the JSON file and saves it as classesData
 
 async function loadJSON(file) {
     try {
@@ -77,137 +88,53 @@ async function loadJSON(file) {
         console.error(err.message);
     }
 }
-
 loadJSON("/static/classes.json");
 
 
 
-function checkJsonforhighlights(event){
+function checkJsonforhighlights(){
     // get the value of the input in lowercase with surrounding whitespace trimmed
     const finderInputValue = finderInput.value.trim().toLowerCase();
 
     // finds the object that matches the input value
     const selectedRoom = classesData.find(item => item.code === finderInputValue);
 
-    // this function chnages which buildings are highlighted on the areas map, changes the position of the indecator and hides it if necessary. 
 
-    // Checks which building the selected room is in and highlights if
-    // also changes the positon of the indecator to go over the selected classroom
-    if(selectedRoom?.building === "sanford"){
-        sanfordPolygon.classList.add("highlighted");
+    // changes the areas map polygons to highlighted if the selectedRooms building is !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-        sanfordIndicator.style.top = `${selectedRoom?.top}%`;
-        sanfordIndicator.style.left = `${selectedRoom?.left}%`;
-        sanfordIndicator.classList.remove("hidden");        
+    for (const building of buildingInfo){
 
-        
-        // Highlights building if its name or letter is typed
-    } else if(finderInputValue === "s" || finderInputValue === "sanford"){
-        sanfordPolygon.classList.add("highlighted");
-        // hides and unhighlights if nothing in the sanford block was selected
-    } else{
-        sanfordPolygon.classList.remove("highlighted");
-        sanfordIndicator.classList.add("hidden");
-    }
-    
+        if(selectedRoom?.building === building.name){
+            building.polygon.classList.add("highlighted");
 
-    // Allen
-    if(selectedRoom?.building === "allen"  ){
-        allenPolygon.classList.add("highlighted");
+            building.indecator.style.top = `${selectedRoom?.top}%`;
+            building.indecator.style.left = `${selectedRoom?.left}%`;
+            building.indecator.classList.remove("hidden");
 
-        allenIndicator.style.top = `${selectedRoom?.top}%`;
-        allenIndicator.style.left = `${selectedRoom?.left}%`;
-        allenIndicator.classList.remove("hidden");
-
-    } else if(finderInputValue === "a" || finderInputValue === "allen"){
-        allenPolygon.classList.add("highlighted");
-    }
-    
-    else{
-        allenPolygon.classList.remove("highlighted");
-        allenIndicator.classList.add("hidden");
-    }
-
-
-    // Bolam
-    if(selectedRoom?.building === "bolam"  ){
-        bolamPolygon.classList.add("highlighted");
-
-        bolamIndicator.style.top = `${selectedRoom?.top}%`;
-        bolamIndicator.style.left = `${selectedRoom?.left}%`;
-        bolamIndicator.classList.remove("hidden");
-
-
-    } else if(finderInputValue === "b" || finderInputValue === "bolam"){
-        bolamPolygon.classList.add("highlighted");
-    }
-    
-    else{
-        bolamPolygon.classList.remove("highlighted");
-        bolamIndicator.classList.add("hidden");
-    }
-    
-    
-    // Event Centre
-    if(selectedRoom?.building === "event centre"  ){
-        ecPolygon.classList.add("highlighted");
-
-        ecIndicator.style.top = `${selectedRoom?.top}%`;
-        ecIndicator.style.left = `${selectedRoom?.left}%`;
-        ecIndicator.classList.remove("hidden");
-
-    } else if(finderInputValue === "g" || finderInputValue === "event centre" || finderInputValue === "event center"){
-        ecPolygon.classList.add("highlighted");
-    }
-    
-    else{
-        ecPolygon.classList.remove("highlighted");
-        ecIndicator.classList.add("hidden");
-    }
-
-    // Te Kainga
-    if(selectedRoom?.building === "te kainga"  ){
-        teKaingaPolygon.classList.add("highlighted");
-
-        teKaingaIndicator.style.top = `${selectedRoom?.top}%`;
-        teKaingaIndicator.style.left = `${selectedRoom?.left}%`;
-        teKaingaIndicator.classList.remove("hidden");
-
-    } else if(finderInputValue === "k" || finderInputValue === "te kainga"){
-        teKaingaPolygon.classList.add("highlighted");
-    }
-    
-    else{
-        teKaingaPolygon.classList.remove("highlighted");
-        teKaingaIndicator.classList.add("hidden");
-    }
-
-    // Arts Block
-    if(selectedRoom?.building === "arts block"  ){
-        artsPolygon.classList.add("highlighted");
-
-        arksBlockIndicator.style.top = `${selectedRoom?.top}%`;
-        arksBlockIndicator.style.left = `${selectedRoom?.left}%`;
-        arksBlockIndicator.classList.remove("hidden");
-
-    } else if(finderInputValue === "d" || finderInputValue === "arts block" || finderInputValue === "arts"){
-        artsPolygon.classList.add("highlighted");
-    } else{
-        artsPolygon.classList.remove("highlighted");
-        arksBlockIndicator.classList.add("hidden");
-    }
-
-
-
-
-    if (selectedRoom?.top === null || selectedRoom?.left === null){
-            sanfordIndicator.classList.add("hidden");
-            allenIndicator.classList.add("hidden");
-            bolamIndicator.classList.add("hidden");
-            ecIndicator.classList.add("hidden");
-            teKaingaIndicator.classList.add("hidden");
-            arksBlockIndicator.classList.add("hidden");
+        } else{
+            building.polygon.classList.remove("highlighted");
+            building.indecator.classList.add("hidden");
         }
+
+
+        if(selectedRoom){
+            if(selectedRoom.building !== building.name){
+                building.backButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
+            } else{
+                building.backButton.style.backgroundColor = "rgb(255, 255, 255)";
+            }
+        }else{
+            building.backButton.style.backgroundColor = "rgb(255, 255, 255)";
+        }
+    }
+
+
+    for (const building of buildingInfo){
+        
+        if (selectedRoom?.top === null || selectedRoom?.left === null){
+            building.indecator.classList.add("hidden");
+        }
+    }
 
 
     // These ones are not in the JSON file and only highlight when their names are inputted
@@ -229,81 +156,10 @@ function checkJsonforhighlights(event){
         astroPolygon.classList.remove("highlighted");
     }
 
+} 
 
+finderInput.addEventListener("input", checkJsonforhighlights)
 
-
-    // If the selected room isn't in the map that you are in the back buton gets highlight prompting you to zoom out to area map
-    if(selectedRoom){
-        if(selectedRoom.building !== "sanford"){
-            sanfordLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
-        } else{
-            sanfordLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-        }
-    }else{
-        sanfordLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-    }
-
-
-    if(selectedRoom){
-        if(selectedRoom.building !== "allen"){
-            allenLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
-        } else{
-            allenLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-        }
-    }else{
-        allenLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-    }
-
-    if(selectedRoom){
-        if(selectedRoom.building !== "bolam"){
-            bolamLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
-        } else{
-            bolamLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-        }
-    }else{
-        bolamLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-    }
-
-    
-    if(selectedRoom){
-        if(selectedRoom.building !== "event centre"){
-            ecLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
-        } else{
-            ecLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-        }
-    }else{
-        ecLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-    }
-
-    if(selectedRoom){
-        if(selectedRoom.building !== "te kainga"){
-            teKaingaLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
-        } else{
-            teKaingaLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-        }
-    }else{
-        teKaingaLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-    }
-
-    if(selectedRoom){
-        if(selectedRoom.building !== "arts block"){
-            artsBlockLayoutMapBackButton.style.backgroundColor = "rgb(255, 212, 3, 0.5)";
-        } else{
-            artsBlockLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-        }
-    }else{
-        artsBlockLayoutMapBackButton.style.backgroundColor = "rgb(255, 255, 255)";
-    }
-
-
-
-    if(selectedRoom){
-        return selectedRoom
-    }
-}
-
-// whenever the input is typed in/ changed the checkJsonforhighlights function runs
-finderInput.addEventListener("input", checkJsonforhighlights);
 
 
 function enterPressed(event){
@@ -314,59 +170,22 @@ function enterPressed(event){
         // finds the object that matches the input value
         const selectedRoom = classesData.find(item => item.code === finderInputValue);
 
-        if(selectedRoom?.building === "sanford"){
-            sanfordLayoutMap.classList.remove("hidden");
-        } else if(selectedRoom?.building && selectedRoom?.building !== "sanford"){
-            sanfordLayoutMap.classList.add("hidden");
-        }
-
-        if(selectedRoom?.building === "allen"){
-            allenLayoutMap.classList.remove("hidden");
-        } else if(selectedRoom?.building && selectedRoom?.building !== "allen"){
-            allenLayoutMap.classList.add("hidden");
-        }
-
-        if(selectedRoom?.building === "bolam"){
-            bolamLayoutMap.classList.remove("hidden");
-        } else if(selectedRoom?.building && selectedRoom?.building !== "bolam"){
-            bolamLayoutMap.classList.add("hidden");
-        }
-
-        if(selectedRoom?.building === "event centre"){
-            ecLayoutMap.classList.remove("hidden");
-        } else if(selectedRoom?.building && selectedRoom?.building !== "event centre"){
-            ecLayoutMap.classList.add("hidden");
-        }
-
-        if(selectedRoom?.building === "te kainga"){
-            teKaingaLayoutMap.classList.remove("hidden");
-        } else if(selectedRoom?.building && selectedRoom?.building !== "te kainga"){
-            teKaingaLayoutMap.classList.add("hidden");
-        }
-
-        if(selectedRoom?.building === "arts block"){
-            artsBlockLayoutMap.classList.remove("hidden");
-        } else if(selectedRoom?.building && selectedRoom?.building !== "arts block"){
-            artsBlockLayoutMap.classList.add("hidden");
+        for (const building of buildingInfo){
+                if(selectedRoom?.building === building.name){
+                    building.layoutMap.classList.remove("hidden");
+                } else if(selectedRoom?.building && selectedRoom?.building !== building.name){
+                    building.layoutMap.classList.add("hidden");
+                }
         }
 
         if(selectedRoom?.building){
             map.classList.add("hidden");
         }
 
-        return;
-    } else {
-        return;
     }
-
-    
 }
 
 finderInput.addEventListener("keyup", enterPressed)
-
-
-
-
 
 
 // when activated it will close the left sidebar and make the map take up the full screen. The width of the sidebar would get smaller and it will be translated to the right
@@ -407,122 +226,35 @@ leftSidePanelOpenButton.addEventListener("click", openLeftSidebar);
 
 
 
-// each function changes which maps are being shown.
-// it toggles between whether the areas map is showing or whether one of the layout maps is showing
-// from the areas map you can go to all the layout maps, but from the layout maps you can only go to the areas map
-
-// Sanford layout map toggle hide function
-function showSanfordLayoutMap(){
-    if(map){
+// By pressing any building polygon or backbutton the map that you see will change according to what you clicked
+function changeMap(layoutMap){
+    if (map){
         map.classList.toggle("hidden");
     }
-    if(sanfordLayoutMap){
-        sanfordLayoutMap.classList.toggle("hidden");
-    }
-}
-sanfordPolygon.addEventListener("click", showSanfordLayoutMap);
-sanfordLayoutMapBackButton.addEventListener("click", showSanfordLayoutMap);
-
-
-
-// Allen layout map toggle hide function
-function showAllenLayoutMap(){
-    if(map){
-        map.classList.toggle("hidden");
-    }
-    if(allenLayoutMap){
-        allenLayoutMap.classList.toggle("hidden");
+    if (layoutMap){
+        layoutMap.classList.toggle("hidden");
     }
 }
 
-
-allenPolygon.addEventListener("click", showAllenLayoutMap);
-allenLayoutMapBackButton.addEventListener("click", showAllenLayoutMap);
-
-
-// Bolam layout map toggle hide  function
-function showBolamLayoutMap(){
-    if(map){
-        map.classList.toggle("hidden");
-    }
-    if(bolamLayoutMap){
-        bolamLayoutMap.classList.toggle("hidden");
-    }
+for (const building of buildingInfo){
+    building.polygon.addEventListener("click", () => changeMap( building.layoutMap));
+    building.backButton.addEventListener("click", () => changeMap( building.layoutMap));
 }
 
-bolamPolygon.addEventListener("click", showBolamLayoutMap);
-bolamLayoutMapBackButton.addEventListener("click", showBolamLayoutMap);
 
 
-
-// Event Centre layout map toggle hide  function
-function showEcLayoutMap(){
-    if(map){
-        map.classList.toggle("hidden");
-    }
-    if(ecLayoutMap){
-        ecLayoutMap.classList.toggle("hidden");
-    }
-}
-
-ecPolygon.addEventListener("click", showEcLayoutMap);
-ecLayoutMapBackButton.addEventListener("click", showEcLayoutMap);
-
-
-// // Te Kainga layout map toggle hide function
-function showTeKaingaLayoutMap(){
-    if(map){
-        map.classList.toggle("hidden");
-    }
-    if(teKaingaLayoutMap){
-        teKaingaLayoutMap.classList.toggle("hidden");
-    }
-}
-
-teKaingaPolygon.addEventListener("click", showTeKaingaLayoutMap);
-teKaingaLayoutMapBackButton.addEventListener("click", showTeKaingaLayoutMap);
-
-
-// Arts Block layout map toggle hide  function
-function showArtsBlockLayoutMap(){
-    if(map){
-        map.classList.toggle("hidden");
-    }
-    if(artsBlockLayoutMap){
-        artsBlockLayoutMap.classList.toggle("hidden");
-    }
-}
-
-artsPolygon.addEventListener("click", showArtsBlockLayoutMap);
-artsBlockLayoutMapBackButton.addEventListener("click", showArtsBlockLayoutMap);
-
-
-
-
-// universal home button
+// Hides the layout maps and shows the areas map
 function showAreaMap(){
+    // removes hidden from the areas map classlist
     if(map){
         map.classList.remove("hidden");
     }
-    if(artsBlockLayoutMap){
-        artsBlockLayoutMap.classList.add("hidden");
-    }
-    if(teKaingaLayoutMap){
-        teKaingaLayoutMap.classList.add("hidden");
-    }
-    if(ecLayoutMap){
-        ecLayoutMap.classList.add("hidden");
-    }
-    if(bolamLayoutMap){
-        bolamLayoutMap.classList.add("hidden");
-    }
-    if(allenLayoutMap){
-        allenLayoutMap.classList.add("hidden");
-    }
-    if(sanfordLayoutMap){
-        sanfordLayoutMap.classList.add("hidden");
-    }
-        
+
+    // hides all the layout maps by giveing them the hidden class
+    for (const building of buildingInfo){
+        building.layoutMap.classList.add("hidden");
+
+    }       
 
 }
 
@@ -534,7 +266,7 @@ navbarTextButton.addEventListener("click", showAreaMap);
 
 
 
-// function fo move the finder input
+// function to move the finder input
 
 function changeInputPosition(screenwidth) {
   
@@ -562,6 +294,8 @@ mediaQuery1024px.addEventListener("change", changeInputPosition);
 
 // runs it at the start so that if the screen is less then 1024px to begin with the finder is in the right place.
 changeInputPosition(mediaQuery1024px);
+
+
 
 
 

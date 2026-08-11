@@ -25,9 +25,9 @@
     --cola_label_top          :   8.23%;  --cola_label_left         :  60.50%;
     --astro_label_top         :  62.71%;  --astro_label_left        :  49.42%;
     --allen_quad_label_top    :  42.13%;  --allen_quad_label_left   :  25.21%;
-    --office_label_top        :  84.49%;  --office_label_left       :  28.84%;
+    --office_label_top        :  81.49%;  --office_label_left       :  28.84%;
     --main_entrance_label_top :  85.38%;  --main_entrance_label_left:  86.16%;
-    --back_gate_label_top     :  51.81%;  --back_gate_label_left    :   1.00%;
+    --back_gate_label_top     :  48.00%;  --back_gate_label_left    :   1.00%;
 
 
     /* other polgons top and left variables*/
@@ -74,7 +74,6 @@ button{
     cursor: pointer;
     box-sizing: content-box;
     transition: background-color 0.3s ease;
-    
 }
 
 button:hover{
