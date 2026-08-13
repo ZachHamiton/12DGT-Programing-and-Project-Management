@@ -2,9 +2,11 @@
 /* root    */
 /* #region */
 
-/* place to add variables */
+
 :root{
-    /* the top and left positions of all the buildings in the zoomed out map */
+    /* the top and left positions of all the elements in the areas map */
+
+    /* sets the polygons which outlines the shapes of the buildings */
     --sanford_polygon_top     :   3.86%;  --sanford_polygon_left    :  -1.65%;
     --allen_polygon_top       :  48.78%;  --allen_polygon_left      :  12.50%;
     --bolam_polygon_top       :  51.76%;  --bolam_polygon_left      :  30.05%;
@@ -12,7 +14,7 @@
     --te-kainga_polygon_top   :  47.57%;  --te-kainga_polygon_left  :  57.43%;
     --arts_polygon_top        :   1.34%;  --arts_polygon_left       :  73.98%;
 
-    /* buildings labels top and left variables */
+    /* sets the buildigs labels */
     --sanford_label_top       :  23.36%;  --sanford_label_left      :  25.82%;
     --allen_label_top         :  62.71%;  --allen_label_left        :  16.13%;
     --bolam_label_top         :  72.39%;  --bolam_label_left        :  35.11%;
@@ -20,7 +22,7 @@
     --te-kainga_label_top     :  66.34%;  --te-kainga_label_left    :  59.71%;
     --arts_label_top          :   1.00%;  --arts_label_left         :  80.29%;
 
-    /* other labels top and left variables*/
+    /* Sets that other labels which aren't names of buildings*/
     --field_label_top         :   5.00%;  --field_label_left        :  32.00%;
     --cola_label_top          :   8.23%;  --cola_label_left         :  60.50%;
     --astro_label_top         :  62.71%;  --astro_label_left        :  49.42%;
@@ -30,15 +32,14 @@
     --back_gate_label_top     :  48.00%;  --back_gate_label_left    :   1.00%;
 
 
-    /* other polgons top and left variables*/
+    /* sets non-buildings polygons postions  */
     --field_polygon_top      :   0.00%;  --field_polygon_left      :   13.50%;
     --cola_polygon_top       :   0.00%;   --cola_polygon_left      :   51.00%;
     --astro_polygon_top      :  48.00%;   --astro_polygon_left     :   46.50%;
 }
 /* #endregion */
 
-
-
+/* styles every element on the page */
 * {
     box-sizing: border-box; /* fixes problem with padding where it extended the block more than 100%*/
     overflow-x: hidden; /* makes there be no unwanted scroll bars*/
@@ -47,23 +48,14 @@
     padding:0;
 }
 
-.test{
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    background-color: red;
-    z-index: 1000;
-    width: 20px;
-    height: 20px;
-}
-
+/* Sets display and minimum dimensions of the html body */
 body{
     display: flex; 
     min-height: 100vh; /*helps the footer always be at the bottom*/
     flex-direction: column; /*makes the three main sections (nav bar, content, and footer go on top of each other rather then beside each other )*/
 }
 
-
+/* sets how all buttons will look throughout the webapp's dimensions colour and transitions */
 button{
     width:50px;
     aspect-ratio: 1 / 1;
@@ -72,21 +64,22 @@ button{
     background-color: white;
     border: 2px solid white;
     cursor: pointer;
-    box-sizing: content-box;
+    box-sizing: content-box; /* makes padding go on the outside rather than inside */
     transition: background-color 0.3s ease;
 }
 
+/* then a button is hovered over it will gain a black outline */
 button:hover{
     border: 2px solid black;
 }
 
-
-
+/* makes the button image take up most of the buttons area */
 button img{
     width: 90%;
 }
 
 
+/* makes the abbr take up the whole button so that you can hover over anywhere on the button and it will tell you the funtion of the button */
 abbr{
     width: 100%;
     height: 100%;
@@ -103,6 +96,8 @@ abbr{
 /* Nav bar and footer */
 /* #region----------- */
 
+
+/* sets its position. states its parameters and colours */
 .nav{
     display: flex;
     align-items: center;
@@ -114,18 +109,19 @@ abbr{
 }
 
 
-
+/* Make that navbar have colour and font which makes it readable against the navy blue background */
 .nav_text{
     font-family: sans-serif;
     color: white;
 }
 
-
+/* Makes the pointer a curser because when clicked it runs a js function that takes you back to the areas map */
 #navbar_text_button{
     cursor: pointer;
 }
 
-
+/* displayed at the bottom of the screen. Colours and aesthetics are meant to make it not stand out. */
+/* It has a dynamic layout that reorders its items */
 .footer {
     display: flex;
     align-items: center;
@@ -142,11 +138,10 @@ abbr{
     margin-bottom: 5px;
 }
 
+/* makes the text not go right up against each other before it resizes with flex-wrap: */
 .footer_text{
     padding: 1% 5px;
-    
 }
-
 
 
 /* #endregion */
@@ -156,9 +151,11 @@ abbr{
 /* content */
 /* ------- */
 
+/* content is everything between the nav bar and footer */
+/* Sets how the content displays */
 .content{
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     width: 100%;
     flex: 1;
     align-items: flex-start;
@@ -169,31 +166,28 @@ abbr{
 /* Sidebar */
 /* #region */
 
+/* sets the dimensions of the sidebar and its text font */
 .sidebar{
     width: 400px;
     border-radius: 24px;
     height: 80vh;
     margin: 20px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7); /* makes the sidebar look like its hovering above everything else*/
+    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7);
     padding: 25px;
     min-height: 500px; 
     font-family: sans-serif;
 }
 
-.sidebar h2{
-   
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-
+/* makes the sidebar content display on top of each other rather then beside each other. also makes it take up the whole height of the sidebar */
 .sidebar_content {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
+
+/* sets the size and colour of the finder input */
 .finder_input{
     outline: none;
     border: 2px solid black;
@@ -204,13 +198,15 @@ abbr{
     /* position: static; */
 }
 
+
+/* Makes the close button go to the right side. */
 #left_sidebar_close_button{
     align-self:flex-end;
 }
 
 
 
-
+/* sets the postion of the left sidebar open button */
 #left_sidebar_open_button{
     position: absolute;
     top: 120px;
@@ -223,14 +219,12 @@ abbr{
 
 
 
-/* ------------------ */
-/* Classroom code Key */
-/* #region------------*/
+/* -------------------------- */
+/* Classroom code Key / tables*/
+/* #region--------------------*/
 
 
-
-
-
+/* Makes the table_div take up all the room it can without increasing the size of the sidebar */
 .table_div{
     flex: 1; /* makes the table div take up all remaining space*/ 
     overflow-y: scroll;
@@ -239,6 +233,7 @@ abbr{
 }
 
 /* followed example table from https://www.youtube.com/watch?v=lXxEm9thbiQ */
+
 table{
     width:336px;
     border-radius: 12px;
@@ -247,20 +242,20 @@ table{
     margin-top: 5%;
 }
 
-/* styles each individual cell */
+/* styles each individual cell width and move the text from the center to the left */
 th,td{
     padding:5%;
     text-align: left;
 }
 
-/* style table head */
+/* style table heads colour and text*/
 th{
     background-color: rgb(0, 0, 128);
     color:white;
     font-weight: bold;
     border-bottom: 5px solid #FFD403;
 }
-/* sytles table rows */
+/* sytles table rows background colour */
 tr{
     background-color: #f3f3f3;
 }
@@ -278,57 +273,51 @@ tr:nth-child(even){
 /* #region ----------------------------------- */
 
 
+/* sets the dimensions and transitions of the maps */
 .map{
-    position: relative; /* enables absolute positioning inside the map*/
+    position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
     aspect-ratio: 16 / 9; /* makes the map always in scale */
-     flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
+    flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
     transition: width 0.3s ease;
     transition: transform  1s ease;
 }
-/* 
-.areas_map{
-    width: calc(100% - 240px);
-    max-width: 100%;
-    max-height: 100%;
-
-} */
-
-
-
 
 
 /* ---------------------- */
 /* #region polygons styles*/
+
+/* Sets up for the polygons to be displayed correctly */
 .polygon_container{
     position: absolute;
     width: 57.5%; 
-    aspect-ratio: 1 / 1; /* makes sure the the polygon containers stay a square to keep the shape of the buildings */
-    overflow: visible; /* make the border visable */ 
+    aspect-ratio: 1 / 1; /* makes sure the polygon containers stay a square to keep the shape of the buildings */
     pointer-events: none; /* makes the hover feature on the buildings work better because the polygon container is very large and goes over other elements */
+    overflow: visible; /* makes polygons not clip when they increase in size */
 }
 
+/* sets the dimension and aesthetic of the polygons and makes sure that they transform right */
 .polygon{
     width: 100%; 
     height: 100%;
-    fill: white; /* background-color but for polygons */
-    stroke: black;  /* border for polygons */
-    stroke-width: 0.3%;  /* border width for polygons */
-    transition: transform 0.3s ease, fill 0.3s ease; /* makes the transition smooth */
-    pointer-events: auto; /* makes the hover feature work because its parent has pointer-events: none; */
-    transform-origin: center center; /* makes the polygon expand from the center */
-    transform-box: fill-box; /* also makes the polygon expand from the center */
+    fill: white;
+    stroke: black;
+    stroke-width: 0.3%;
+    transition: transform 0.3s ease, fill 0.3s ease; 
+    pointer-events: auto; /* makes the hover work because its parent has pointer-events: none; */
+    transform-origin: center center; 
+    transform-box: fill-box; 
     cursor: pointer;
 }
 
 /* changes the colour and size when hovered over */
 .polygon:hover{
-    fill: rgba(15, 60, 150, 0.3); 
+    fill: rgba(15, 60, 150, 0.3);
     transform: scale(1.03);
 }
 
-/* formates the shapes that aren't buildings */
+/* formats the polygons that aren't buildings, just without the outline and change in cursor */
 .other_polygon{
     width: 100%;
     height: 100%;
@@ -339,7 +328,7 @@ tr:nth-child(even){
     transform-box: fill-box;
 }
 
-/* makes them have the same hover effect as the .polygon's */
+/* makes the other polygons have the same hover effect as the .polygon's */
 .other_polygon:hover{
     fill: rgba(15, 60, 150, 0.3); 
     transform: scale(1.03);
@@ -349,15 +338,15 @@ tr:nth-child(even){
 
 /* -------------------- */
 /* #region label styles */
-/* styles that labels for the building */
+/* styles for labels of the building */
 .building_label{
     position: absolute;
-    font-size: 1.8vw; /* sets the label so that they change height based of screen width so that they remain the same scale compaired with the buildings*/
+    font-size: 1.8vw; /* sets the label so that they change height based on screen width so that they remain the same scale compared with the buildings */
     font-family: sans-serif;
     pointer-events: none;
 }
 
-/* styles the other labels */
+/* styles the labels not on buildings */
 .other_label{
     position: absolute;
     font-size: 1.5vw;
@@ -366,24 +355,15 @@ tr:nth-child(even){
     pointer-events: none;
 }
 
-#field_label{
+/* makes the labels that have highlightable polygons different from the other labels */
+#field_label, #cola_label, #astro_label {
     color: black;
     font-family: sans-serif;
 }
 
-#cola_label{
-    color: black;
-    font-family: sans-serif;
-}
-
-#astro_label{
-    color: black;
-    font-family: sans-serif;
-}
-
-/* makes the label always 2 lines instead of somtimes changing to 4 */ 
+/* makes the label always 2 lines instead of sometimes changing to 4 */ 
 .main_entrance_label{
-    font-size: 1.185vw; 
+    font-size: 1.2vw;
 }
 
 /* #endregion */
@@ -399,14 +379,14 @@ tr:nth-child(even){
 .te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: var(--te-kainga_polygon_left);}
 .arts_polygon_contianer      { top: var(--arts_polygon_top);      left: var(--arts_polygon_left);}
 
-/* other polygons positions */
+/* set the positions of the other polygons */
 .field_polygon_contianer     { top: var(--field_polygon_top);      left: var(--field_polygon_left); }
 .cola_polygon_contianer      { top: var(--cola_polygon_top);       left: var(--cola_polygon_left);}
 .astro_polygon_contianer     { top: var(--astro_polygon_top);      left: var(--astro_polygon_left);}
 
 
 
-/* sets the positions of the labels */
+/* sets the positions of the labels so that they are over the polygons */
 .sanford_label   { top: var(--sanford_label_top);   left: var(--sanford_label_left); }
 .allen_label     { top: var(--allen_label_top);     left: var(--allen_label_left); }
 .bolam_label     { top: var(--bolam_label_top);     left: var(--bolam_label_left); }
@@ -434,18 +414,17 @@ tr:nth-child(even){
 /* #region */
 
 
-
 .layout_map{
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
     flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
-    aspect-ratio: 372 / 263;
     max-height: calc(80vh);
     transition: width 0.3s ease;
     transition: transform  1s ease;
 }
 
+/* sets the image so that it resized properly while taking up as much room as it can */
 .layout_map_image{
     position: absolute;
     top: 0%;
@@ -457,7 +436,7 @@ tr:nth-child(even){
     object-fit: contain; /* makes the image not stretch */
 }
 
-
+/* sets the position back buttons */
 .back_to_areas_map_button{
     position: absolute;
     right:1%;
@@ -469,7 +448,7 @@ tr:nth-child(even){
 
 
 
-/* the point of the outer and inner marker container is to purfectaly line up with the image of the layout map with the inner container */
+/* the point of the outer and inner marker container is to perfectly line up with the image of the layout map with the inner container */
 .outer_marker_container{
     position: absolute;
     top: 0%;
@@ -477,23 +456,19 @@ tr:nth-child(even){
     width: 100%;
     height: 100%;
 
-    /* the image is centered to this is center */
+    /* the image is centered so the outer container is too */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
+/* makes the inner marker take up the whole height of the outer indicator */
 .inner_marker_container{    
     position: relative;
-    /* background-color: rgb(0,0,255,0.2); */
     height: 100%;
-
-    /* same aspect ratio as the the image */
-    
 }
 
-
+/* makes all the images the right aspect-ratio so that they don't get distorted */
 #sanford_inner_marker_container{
     aspect-ratio: 372 / 263;
 }
@@ -520,7 +495,8 @@ tr:nth-child(even){
 }
 
 
-.indecator{
+/* makes the indicator a small yellow circle with a pulsing animation */
+.indicator{
     position: absolute;
     background-color: rgb(255, 212, 3, 0.7);
     border-radius: 50%;
@@ -529,18 +505,17 @@ tr:nth-child(even){
     overflow: hidden;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 0 0.3vw rgb(255, 212, 3, 0.7);
-    animation-name: indecatorPulse;
+    animation-name: indicatorPulse;
     animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-timing-function: ease; 
     animation-iteration-count: infinite;
-
 }
 
 
 
-
-@keyframes indecatorPulse {
+/* set keyframes for the indicators to give it the pulsing animation */
+@keyframes indicatorPulse {
     0%{
         box-shadow: 0 0 0 0vw rgb(255, 212, 3, 0.7);
     }
@@ -549,15 +524,11 @@ tr:nth-child(even){
         box-shadow: rgb(255, 212, 3, 0.5);
     }
 
-
     100%{
         box-shadow: 0 0 0 1.5vw rgb(255, 212, 3, 0);
-        
     }
     
 }
-
-
 
 /* #endregion */
 
@@ -569,34 +540,42 @@ tr:nth-child(even){
 /* JS toggleable classes */
 /* #region============== */
 
-/* everything with the hidden class will not be visable or clickable */
-/* everything that is given this class will highlight */
 
+/* fills the element with a yellow background (use with things that use fill instead of background-colour) */
 .highlighted{
-    /* fill: rgb(154, 205, 50, 0.5); */
     fill: rgb(255, 212, 3, 0.5);
 }
-
+/* change the colour then hovered. to give the user feedback */
 .highlighted:hover{
-    /* fill: rgb(154, 205, 50); */
     fill: rgb(255, 212, 3);
 }
 
+/* sets the background to yellow (use with things that use background color instead of fill) */
+.highlighted_background{
+    background-color: rgb(255, 212, 3, 0.5);
+    transition: background-color 0s;
+}
 
+/* change the colour then hovered. to give the user feedback */
+.highlighted_background:hover{
+    background-color: rgb(255, 212, 3);
+}
+
+/* hides things by setting there display to none */
 .hidden{
     display: none;
 }
-.hidden_animation {
-    animation-name: hidden;
+
+
+/* Gives the sidebar open button the properties needed to have an animation */
+.appear_animation {
+    animation-name: openButtonAppear;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     transform: translate(-300px) ;
 }
 
-
-
-
-
+/* Gives the sidebar the properties needed to have an animation */
 .sidebar.closing{
     animation-name: sidebarWidth0;
     animation-duration: 0.5s;
@@ -604,9 +583,7 @@ tr:nth-child(even){
     animation-timing-function: ease;
 }
 
-
-
-
+/* animation that make the closing of the sidebar look smooth */
 .sidebar.opening{
     animation-name: sidebarFullWidth;
     animation-duration: 0.5s;
@@ -618,24 +595,18 @@ tr:nth-child(even){
     transform: translate(-300px);
 }
 
-
-
-
-
-
-@keyframes hidden{
+/* animation to make the sidebars open button slid into frame once the left sidebar has been closed */
+@keyframes openButtonAppear{
 
     100%{
         transform: translate(0px)
     }
 }
 
+
+/* Animation that plays when the sidebar is closed */
+/* it makes the sidebar translate to the left while its width is reducing */
 @keyframes sidebarWidth0{
-
-    0%{
-        transform: translate(0px);
-    }
-
 
     100%{
         width: 0;
@@ -645,8 +616,11 @@ tr:nth-child(even){
     }
 }
 
-@keyframes sidebarFullWidth{
 
+
+/* Animation that plays when the sidebar is opened */
+/* increase the width while translating it to the left */
+@keyframes sidebarFullWidth{
 
     100%{
         width: 400px;
@@ -660,208 +634,14 @@ tr:nth-child(even){
 
 
 
-
-
-
-
-
-
-/* #endregion */
-
-
-
-/* -------- */
-/* grid_box */
-/* #region */
-
-/* for development */
-.grid_box_width{
-    position: absolute;
-    border: 1px solid blue;
-    top:0%;
-    pointer-events: none;
-}
-
-.grid_box_W_text{
-    position: absolute;
-    color: blue;
-}
-
-.grid_box_height{
-    position: absolute;
-    border: 1px solid red;
-    top:0%;
-    pointer-events: none;
-}
-
-.grid_box_H_text{
-    position: absolute;
-    color: red;
-}
-
-.grid_box_10_W { width: 10%; height: 100%; }
-.grid_box_20_W { width: 20%; height: 100%; }
-.grid_box_30_W { width: 30%; height: 100%; }
-.grid_box_40_W { width: 40%; height: 100%; }
-.grid_box_50_W { width: 50%; height: 100%; }
-.grid_box_60_W { width: 60%; height: 100%; }
-.grid_box_70_W { width: 70%; height: 100%; }
-.grid_box_80_W { width: 80%; height: 100%; }
-.grid_box_90_W { width: 90%; height: 100%; }
-
-.grid_box_10_H { width: 100%; height: 10%; }
-.grid_box_20_H { width: 100%; height: 20%; }
-.grid_box_30_H { width: 100%; height: 30%; }
-.grid_box_40_H { width: 100%; height: 40%; }
-.grid_box_50_H { width: 100%; height: 50%; }
-.grid_box_60_H { width: 100%; height: 60%; }
-.grid_box_70_H { width: 100%; height: 70%; }
-.grid_box_80_H { width: 100%; height: 80%; }
-.grid_box_90_H { width: 100%; height: 90%; }
-
-.grid_box_10_W_text { top: 1%; left: 11%; }
-.grid_box_20_W_text { top: 1%; left: 21%; }
-.grid_box_30_W_text { top: 1%; left: 31%; }
-.grid_box_40_W_text { top: 1%; left: 41%; }
-.grid_box_50_W_text { top: 1%; left: 51%; }
-.grid_box_60_W_text { top: 1%; left: 61%; }
-.grid_box_70_W_text { top: 1%; left: 71%; }
-.grid_box_80_W_text { top: 1%; left: 81%; }
-.grid_box_90_W_text { top: 1%; left: 91%; }
-
-.grid_box_10_H_text { top: 11%; left: 1%; }
-.grid_box_20_H_text { top: 21%; left: 1%; }
-.grid_box_30_H_text { top: 31%; left: 1%; }
-.grid_box_40_H_text { top: 41%; left: 1%; }
-.grid_box_50_H_text { top: 51%; left: 1%; }
-.grid_box_60_H_text { top: 61%; left: 1%; }
-.grid_box_70_H_text { top: 71%; left: 1%; }
-.grid_box_80_H_text { top: 81%; left: 1%; }
-.grid_box_90_H_text { top: 91%; left: 1%; }
-
-
-
-/* Widths - 5% increments */
-.grid_box_5_W { width: 5%; height: 100%; }
-.grid_box_15_W { width: 15%; height: 100%; }
-.grid_box_25_W { width: 25%; height: 100%; }
-.grid_box_35_W { width: 35%; height: 100%; }
-.grid_box_45_W { width: 45%; height: 100%; }
-.grid_box_55_W { width: 55%; height: 100%; }
-.grid_box_65_W { width: 65%; height: 100%; }
-.grid_box_75_W { width: 75%; height: 100%; }
-.grid_box_85_W { width: 85%; height: 100%; }
-.grid_box_95_W { width: 95%; height: 100%; }
-
-/* Heights - 5% increments */
-.grid_box_5_H { width: 100%; height: 5%; }
-.grid_box_15_H { width: 100%; height: 15%; }
-.grid_box_25_H { width: 100%; height: 25%; }
-.grid_box_35_H { width: 100%; height: 35%; }
-.grid_box_45_H { width: 100%; height: 45%; }
-.grid_box_55_H { width: 100%; height: 55%; }
-.grid_box_65_H { width: 100%; height: 65%; }
-.grid_box_75_H { width: 100%; height: 75%; }
-.grid_box_85_H { width: 100%; height: 85%; }
-.grid_box_95_H { width: 100%; height: 95%; }
-
-/* Width Text Positions - 5% increments */
-.grid_box_5_W_text { top: 1%; left: 6%; }
-.grid_box_15_W_text { top: 1%; left: 16%; }
-.grid_box_25_W_text { top: 1%; left: 26%; }
-.grid_box_35_W_text { top: 1%; left: 36%; }
-.grid_box_45_W_text { top: 1%; left: 46%; }
-.grid_box_55_W_text { top: 1%; left: 56%; }
-.grid_box_65_W_text { top: 1%; left: 66%; }
-.grid_box_75_W_text { top: 1%; left: 76%; }
-.grid_box_85_W_text { top: 1%; left: 86%; }
-.grid_box_95_W_text { top: 1%; left: 96%; }
-
-/* Height Text Positions - 5% increments */
-.grid_box_5_H_text { top: 6%; left: 1%; }
-.grid_box_15_H_text { top: 16%; left: 1%; }
-.grid_box_25_H_text { top: 26%; left: 1%; }
-.grid_box_35_H_text { top: 36%; left: 1%; }
-.grid_box_45_H_text { top: 46%; left: 1%; }
-.grid_box_55_H_text { top: 56%; left: 1%; }
-.grid_box_65_H_text { top: 66%; left: 1%; }
-.grid_box_75_H_text { top: 76%; left: 1%; }
-.grid_box_85_H_text { top: 86%; left: 1%; }
-.grid_box_95_H_text { top: 96%; left: 1%; }
-
-
-
-/* Base Classes for thinner, lighter lines */
-.grid_box_width_light {
-    position: absolute;
-    border: 1px solid #99ccff; /* Lighter blue */
-    top: 0%;
-    pointer-events: none;
-}
-
-.grid_box_height_light {
-    position: absolute;
-    border: 1px solid #ff9999; /* Lighter red */
-    top: 0%;
-    pointer-events: none;
-}
-
-/* Widths - 2.5% increments */
-.grid_box_2_5_W { width: 2.5%; height: 100%; }
-.grid_box_7_5_W { width: 7.5%; height: 100%; }
-.grid_box_12_5_W { width: 12.5%; height: 100%; }
-.grid_box_17_5_W { width: 17.5%; height: 100%; }
-.grid_box_22_5_W { width: 22.5%; height: 100%; }
-.grid_box_27_5_W { width: 27.5%; height: 100%; }
-.grid_box_32_5_W { width: 32.5%; height: 100%; }
-.grid_box_37_5_W { width: 37.5%; height: 100%; }
-.grid_box_42_5_W { width: 42.5%; height: 100%; }
-.grid_box_47_5_W { width: 47.5%; height: 100%; }
-.grid_box_52_5_W { width: 52.5%; height: 100%; }
-.grid_box_57_5_W { width: 57.5%; height: 100%; }
-.grid_box_62_5_W { width: 62.5%; height: 100%; }
-.grid_box_67_5_W { width: 67.5%; height: 100%; }
-.grid_box_72_5_W { width: 72.5%; height: 100%; }
-.grid_box_77_5_W { width: 77.5%; height: 100%; }
-.grid_box_82_5_W { width: 82.5%; height: 100%; }
-.grid_box_87_5_W { width: 87.5%; height: 100%; }
-.grid_box_92_5_W { width: 92.5%; height: 100%; }
-.grid_box_97_5_W { width: 97.5%; height: 100%; }
-
-/* Heights - 2.5% increments */
-.grid_box_2_5_H { width: 100%; height: 2.5%; }
-.grid_box_7_5_H { width: 100%; height: 7.5%; }
-.grid_box_12_5_H { width: 100%; height: 12.5%; }
-.grid_box_17_5_H { width: 100%; height: 17.5%; }
-.grid_box_22_5_H { width: 100%; height: 22.5%; }
-.grid_box_27_5_H { width: 100%; height: 27.5%; }
-.grid_box_32_5_H { width: 100%; height: 32.5%; }
-.grid_box_37_5_H { width: 100%; height: 37.5%; }
-.grid_box_42_5_H { width: 100%; height: 42.5%; }
-.grid_box_47_5_H { width: 100%; height: 47.5%; }
-.grid_box_52_5_H { width: 100%; height: 52.5%; }
-.grid_box_57_5_H { width: 100%; height: 57.5%; }
-.grid_box_62_5_H { width: 100%; height: 62.5%; }
-.grid_box_67_5_H { width: 100%; height: 67.5%; }
-.grid_box_72_5_H { width: 100%; height: 72.5%; }
-.grid_box_77_5_H { width: 100%; height: 77.5%; }
-.grid_box_82_5_H { width: 100%; height: 82.5%; }
-.grid_box_87_5_H { width: 100%; height: 87.5%; }
-.grid_box_92_5_H { width: 100%; height: 92.5%; }
-.grid_box_97_5_H { width: 100%; height: 97.5%; }
-
-/* #endregion */
-
-
-
 @media screen and (max-width: 1024px) { 
-    /* makes the map and the sidebar go ontop of each other */
+    /* makes the map and the sidebar go on top of each other */
     .content{  
         flex-direction: column;
 
     }
 
-    /* makes the sidbar go under the map and take up the whole width of the screen */
+    /* makes the sidebar take up the whole width of the screen */
     .sidebar{
         width: calc(100% - 40px);
         order: 2;
@@ -871,17 +651,16 @@ tr:nth-child(even){
     }
 
     /* makes the finder input go to the top of the screen and centers it */
+    /* The JS move the finder_input to the top of the page */
     .finder_input{
         position: absolute;
         top: 80px;
         left: 50%;
         transform: translate(-50%, 0%);
         z-index: 11;
-
-
     }
 
-    /* Finder text isn't needed becuase the input has moved */
+    /* Finder text isn't needed because the input has moved */
     .finder_text{
         display: none;
     }
@@ -894,7 +673,7 @@ tr:nth-child(even){
 
 
 
-    /* makes the tables fill the sidebar which is now larger */
+    /* makes the tables fill the sidebar which now takes up the whole width */
     .table_div{
         width: 100%;
         justify-self: center;
@@ -905,19 +684,18 @@ tr:nth-child(even){
         width: 100%;
     }
 
-
-
     /* makes the building and other labels more readable */
     .building_label{
         font-size: 2.8vw;
     }
-
-
-    /* makes the bigger so they are more readable */
     .other_label{
         font-size: 2.5vw;
     }
 
+    /* makes the main_entrance_label always be 2 lines instead of increasing to four when the text would wrap */
+    .main_entrance_label{
+        font-size: 2vw;
+    }
 
     /* give the finder room at the top so that it does overlap the map */
     .spacer{
@@ -925,7 +703,7 @@ tr:nth-child(even){
         height: 60px;
     }
 
-    /* ovrriders what the animations make the sidebar look like */
+    /* ovrriders the styles that the animations give the sidebar for closeing and opening so that is display correctaly at the bottom of the page */
     .sidebar.opening{
         animation-name: sidebarFullWidth;
         animation-duration: none;
@@ -968,7 +746,7 @@ tr:nth-child(even){
     }
 
 
-    /* center the text in the footer */
+    /* centers the text in the footer */
     .footer{
         justify-content: center;
         text-align: center;
@@ -976,54 +754,3 @@ tr:nth-child(even){
     }
 
 }
-
-
-
-
-
-
-
-
-/* makes the sidebar and map go ontop of each other */
-/* .content{   */
-    /* flex-direction:column; */
-/* } */
-
-/* since the map is the only thing horizonally it should take up the whole screen */
-/* .map{ */
-    /* width: 100%; is 125% because the left side of the map is white space and size the screen is small it is good to maximise the map area */
-/* } */
-
-
-
-
-
-
-/* makes the sidebar take up the whole width of the bottom of the screen */
-/* .sidebar{ */
-    /* order: 2; makes the sidebar under the map */
-    /* width: 97%;  */
-    /* height: auto; */
-/* } */
-
-/* #left_sidebar_open_button{ */
-    /* position: absolute; */
-    /* top:75%; */
-    /* z-index: 5; */
-/* } */
-
-
-
-
-/* makes the building and other labels more readable */
-/* .building_label{ */
-    /* font-size: 2.8vw; */
-/* } */
-
-/* .other_label{ */
-    /* font-size: 2.5vw; */
-/* } */
-
-/* .left_sidebar_button_image{ */
-    /* transform: rotate(-90deg) */
-/* } */
