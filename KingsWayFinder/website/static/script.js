@@ -55,7 +55,7 @@ const finderOriginalNextSibling = finderInput?.nextElementSibling;
 
 // Text in the nav bar that returns the user to the areas map
 const navbarTextButton = document.getElementById("navbar_text_button");
-
+const navbarlogoButton = document.getElementById("nav_logo");
 
 // const needed to move the Indicator around the map
 // The indecator shows where the seleced classroom is
@@ -256,7 +256,7 @@ function showAreaMap(){
 
 // the showAreaMap will run then the navbarTextButton is clickeed
 navbarTextButton?.addEventListener("click", showAreaMap);
-
+navbarlogoButton?.addEventListener("click", showAreaMap);
 
 
 // function to move the finder input to resize the page properly

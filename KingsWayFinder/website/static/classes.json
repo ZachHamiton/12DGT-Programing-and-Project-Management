@@ -11,6 +11,7 @@
   {"code": "bolam",       "building": "bolam",        "top": null, "left": null},
   {"code": "event centre","building": "event centre", "top": null, "left": null},
   {"code": "te kainga",   "building": "te kainga",    "top": null, "left": null},
+  {"code": "te kāinga",   "building": "te kainga",    "top": null, "left": null},
   {"code": "arts block",  "building": "arts block",   "top": null, "left": null},
   {"code": "science",     "building": "allen",        "top": null, "left": null},
 
