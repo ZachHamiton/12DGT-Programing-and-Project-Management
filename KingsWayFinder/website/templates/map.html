@@ -13,7 +13,7 @@
             
         </div>
 
-        <div class = "sidebar move_right" id = "left_sidebar">
+        <div class = "sidebar" id = "left_sidebar">
             <div class = "sidebar_content">
 
 
@@ -84,63 +84,65 @@
             
 
             <!-- creates the differant shapes for the buildings by making an svg and puting a polygon insided it with speicfic points to make differant points -->
-            <svg class="polygon_container sanford_polygon_contianer" viewBox="0 0 100 100">
+            <svg class="polygon_container" id="sanford_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="sanford_polygon" points="5,34 28,2 75,23 80,16 94,22 83,41 35,20 27,30 30,32 21,44"></polygon>
             </svg>
 
-            <svg class="polygon_container allen_polygon_contianer" viewBox="0 0 100 100" >
+            <svg class="polygon_container" id="allen_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="allen_polygon" points="7,1 14,1 14,4 22,4 22,24 16,24 16,29 3,29 3,20 1,20 1,11 2,11 2,4 7,4"></polygon>
             </svg>
 
-            <svg class="polygon_container bolam_polygon_contianer" viewBox="0 0 100 100" >
+            <svg class="polygon_container" id="bolam_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="bolam_polygon" points="13,1 27,1 27,26 23,26 23,29 5,29 7,27 4,25 2,27 0,25 13,15"></polygon>
             </svg>
 
-            <svg class="polygon_container ec_polygon_contianer" viewBox="0 0 100 100" >
+            <svg class="polygon_container" id="ec_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="ec_polygon" points="11,1 46,1 46,6 49,6 49,9 51,9 50,18 46,18 46,24 9,22 9,19 1,16 7,5 8,5 9,2 11,2"></polygon>
             </svg>
 
-            <svg class="polygon_container te-kainga_polygon_contianer" viewBox="0 0 100 100" >
+            <svg class="polygon_container" id="te-kainga_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="te-kainga_polygon" points="34,2 33,14 40,15 43,22 47,25 49,29 49,37 44,44 39,42 33,38 27,35 19,32 9,31 1,31 1,28 3,26 3,23 1,21 1,18 3,16 3,13 1,11 1,8 3,6 3,3 1,1 1,0"></polygon>
             </svg>
 
-            <svg class="polygon_container arts_polygon_contianer" viewBox="0 0 100 100">
+            <svg class="polygon_container" id="arts_polygon_contianer" viewBox="0 0 100 100">
                 <polygon class="polygon" id="arts_polygon" points="30,20 27,25 24,23 22,26 18,23 19,22 7,13 1,13 1,4 4,1"></polygon>
             </svg>
 
-            <svg class="polygon_container field_polygon_contianer" viewBox="0 0 100 100">
-                <polygon class = "other_polygon" id = "field_polygon" points= "7, 0 4, 4 48, 23 63, 0"></polygon>
+            <svg class="polygon_container" id="field_polygon_contianer" viewBox="0 0 100 100">
+                <polygon class="other_polygon" id="field_polygon" points="7,0 4,4 48,23 63,0"></polygon>
             </svg>
 
-            <svg class="polygon_container cola_polygon_contianer" viewBox="0 0 100 100">
-                <polygon class="other_polygon" id="cola_polygon" points= "39, 0 0, 0 0, 21 39, 21"></polygon>
+            <svg class="polygon_container" id="cola_polygon_contianer" viewBox="0 0 100 100">
+                <polygon class="other_polygon" id="cola_polygon" points="39,0 0,0 0,21 39,21"></polygon>
             </svg>
 
-            <svg class="polygon_container astro_polygon_contianer" viewBox="0 0 100 100">
-                <polygon class="other_polygon" id="astro_polygon" points= "19, 0 0, 0 0, 31 19, 31"></polygon>
+            <svg class="polygon_container" id="astro_polygon_contianer" viewBox="0 0 100 100">
+                <polygon class="other_polygon" id="astro_polygon" points="19,0 0,0 0,31 19,31"></polygon>
             </svg>
+
             
             
-            
+            <img src="{{ url_for('static', filename='/images/stairs_icon.svg') }}" alt="Staircase" class = "areas_map_staircase" id = "sanford_bottom_right_staircase">
+            <img src="{{ url_for('static', filename='/images/stairs_icon.svg') }}" alt="Staircase" class = "areas_map_staircase" id = "sanford_bottom_left_staircase">    
+            <img src="{{ url_for('static', filename='/images/stairs_icon.svg') }}" alt="Staircase" class = "areas_map_staircase" id = "sanford_top_right_staircase">
+
             <!-- labels for the buildings -->
              
-            <h1 class = "building_label sanford_label">Sanford</h1>
-            <h1 class = "building_label allen_label">Allen</h1>
-            <h1 class = "building_label bolam_label">Bolam</h1>
-            <h1 class = "building_label ec_label ">Event Centre</h1>
-            <h1 class = "building_label te-kainga_label ">Te Kāinga (Area)</h1>
-            <h1 class = "building_label arts_label">Arts Block</h1>
-
+            <h1 class="building_label" id="sanford_label">Sanford</h1>
+            <h1 class="building_label" id="allen_label">Allen</h1>
+            <h1 class="building_label" id="bolam_label">Bolam</h1>
+            <h1 class="building_label" id="ec_label">Event Centre</h1>
+            <h1 class="building_label" id="te-kainga_label">Te Kāinga (Area)</h1>
+            <h1 class="building_label" id="arts_label">Arts Block</h1>
 
             <!-- labels for other things on the map that aren't buildings-->
-            <h2 class="other_label field_label" id = "field_label">Field</h2>
-            <h2 class="other_label cola_label" id = "cola_label">Cola</h2>
-            <h2 class="other_label astro_label" id = "astro_label">Astro</h2>
-            <h2 class="other_label allen_quad_label">Allen Quad</h2>
-            <h2 class="other_label office_label">Reception</h2>
-            <h2 class="other_label main_entrance_label">Main Entrance<br>100 Jelas Road</h2>
-            <h2 class="other_label back_gate_label">Back Gate</h2>
-
+            <h2 class="other_label" id="field_label">Field</h2>
+            <h2 class="other_label" id="cola_label">Cola</h2>
+            <h2 class="other_label" id="astro_label">Astro</h2>
+            <h2 class="other_label" id="allen_quad_label">Allen Quad</h2>
+            <h2 class="other_label" id="office_label">Reception</h2>
+            <h2 class="other_label" id="main_entrance_label">Main Entrance<br>100 Jelas Road</h2>
+            <h2 class="other_label" id="back_gate_label">Back Gate</h2>
         </div>
 
 
@@ -152,7 +154,7 @@
            
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/sanford_layout_map.svg') }}" alt = "Floor plan layout for Sanford building">
 
-            <button class = "back_to_areas_map_button" id = "sanford_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+            <button class = "back_to_areas_map_button" id = "sanford_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
 
 
             
@@ -176,7 +178,7 @@
         <div class = "layout_map map hidden" id = "allen_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/allen_layout_map.svg') }}" alt = "Floor plan layout for Allen building">
 
-            <button class = "back_to_areas_map_button" id = "allen_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+            <button class = "back_to_areas_map_button" id = "allen_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
                 
             <div class = "outer_marker_container">
                 <div class = "inner_marker_container" id = "allen_inner_marker_container">
@@ -190,7 +192,7 @@
         <div class = "layout_map map hidden" id = "bolam_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/bolam_layout_map.svg') }}" alt = "Floor plan layout for Bolam building">
 
-            <button class = "back_to_areas_map_button" id = "bolam_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+            <button class = "back_to_areas_map_button" id = "bolam_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
             
             <div class = "outer_marker_container">
                 <div class = "inner_marker_container" id = "bolam_inner_marker_container"> 
@@ -204,7 +206,7 @@
         <div class = "layout_map map hidden" id = "ec_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/event_centre_layout_map.svg') }}" alt = "Floor plan layout for Event centre building">
 
-            <button class = "back_to_areas_map_button" id = "ec_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+            <button class = "back_to_areas_map_button" id = "ec_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
             
             <div class = "outer_marker_container">
                 <div class = "inner_marker_container" id = "ec_inner_marker_container"> 
@@ -218,7 +220,7 @@
         <div class = "layout_map map hidden" id = "te-kainga_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/te-kainga_layout_map.svg') }}" alt = "Floor plan layout for Te Kainga building">
 
-            <button class = "back_to_areas_map_button" id = "te-kainga_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+            <button class = "back_to_areas_map_button" id = "te-kainga_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
         
             <div class = "outer_marker_container">
                 <div class = "inner_marker_container" id = "te-kainga_inner_marker_container"> 
@@ -232,7 +234,7 @@
         <div class = "layout_map map hidden" id = "arts_block_layout_map">
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/arts_block_layout_map.svg') }}" alt = "Floor plan layout for sanford building">
 
-            <button class = "back_to_areas_map_button" id = "arts_block_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></a></button>
+            <button class = "back_to_areas_map_button" id = "arts_block_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
         
             <div class = "outer_marker_container">
                 <div class = "inner_marker_container" id = "arts_block_inner_marker_container"> 

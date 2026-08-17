@@ -1,43 +1,4 @@
-/* ------- */
-/* root    */
-/* #region */
 
-
-:root{
-    /* the top and left positions of all the elements in the areas map */
-
-    /* sets the polygons which outlines the shapes of the buildings */
-    --sanford_polygon_top     :   3.86%;  --sanford_polygon_left    :  -1.65%;
-    --allen_polygon_top       :  48.78%;  --allen_polygon_left      :  12.50%;
-    --bolam_polygon_top       :  51.76%;  --bolam_polygon_left      :  30.05%;
-    --ec_polygon_top          :  22.35%;  --ec_polygon_left         :  52.70%;
-    --te-kainga_polygon_top   :  47.57%;  --te-kainga_polygon_left  :  57.43%;
-    --arts_polygon_top        :   1.34%;  --arts_polygon_left       :  73.98%;
-
-    /* sets the buildigs labels */
-    --sanford_label_top       :  23.36%;  --sanford_label_left      :  25.82%;
-    --allen_label_top         :  62.71%;  --allen_label_left        :  16.13%;
-    --bolam_label_top         :  72.39%;  --bolam_label_left        :  35.11%;
-    --ec_label_top            :  32.44%;  --ec_label_left           :  60.92%;
-    --te-kainga_label_top     :  66.34%;  --te-kainga_label_left    :  59.71%;
-    --arts_label_top          :   1.00%;  --arts_label_left         :  80.29%;
-
-    /* Sets that other labels which aren't names of buildings*/
-    --field_label_top         :   5.00%;  --field_label_left        :  32.00%;
-    --cola_label_top          :   8.23%;  --cola_label_left         :  60.50%;
-    --astro_label_top         :  62.71%;  --astro_label_left        :  48.50%;
-    --allen_quad_label_top    :  42.13%;  --allen_quad_label_left   :  25.21%;
-    --office_label_top        :  81.49%;  --office_label_left       :  28.84%;
-    --main_entrance_label_top :  85.38%;  --main_entrance_label_left:  86.16%;
-    --back_gate_label_top     :  48.00%;  --back_gate_label_left    :   1.00%;
-
-
-    /* sets non-buildings polygons postions  */
-    --field_polygon_top      :   0.00%;  --field_polygon_left      :   13.50%;
-    --cola_polygon_top       :   0.00%;   --cola_polygon_left      :   51.00%;
-    --astro_polygon_top      :  48.00%;   --astro_polygon_left     :   46.50%;
-}
-/* #endregion */
 
 /* styles every element on the page */
 * {
@@ -294,7 +255,6 @@ tr:nth-child(even){
     transition: transform  1s ease;
 }
 
-
 /* ---------------------- */
 /* #region polygons styles*/
 
@@ -373,47 +333,12 @@ tr:nth-child(even){
     font-size: 1.2vw;
 }
 
-/* #endregion */
+.areas_map_staircase{
+    position: absolute;
+    height: 5%;
+}
 
 
-/* ---------------------------------- */
-/* #region polygon and label position */
-/* sets the positions of the buildings in the areas map */
-.sanford_polygon_contianer   { top: var(--sanford_polygon_top);   left: var(--sanford_polygon_left);}
-.allen_polygon_contianer     { top: var(--allen_polygon_top);     left: var(--allen_polygon_left);}
-.bolam_polygon_contianer     { top: var(--bolam_polygon_top);     left: var(--bolam_polygon_left);}
-.ec_polygon_contianer        { top: var(--ec_polygon_top);        left: var(--ec_polygon_left);}
-.te-kainga_polygon_contianer { top: var(--te-kainga_polygon_top); left: var(--te-kainga_polygon_left);}
-.arts_polygon_contianer      { top: var(--arts_polygon_top);      left: var(--arts_polygon_left);}
-
-/* set the positions of the other polygons */
-.field_polygon_contianer     { top: var(--field_polygon_top);      left: var(--field_polygon_left); }
-.cola_polygon_contianer      { top: var(--cola_polygon_top);       left: var(--cola_polygon_left);}
-.astro_polygon_contianer     { top: var(--astro_polygon_top);      left: var(--astro_polygon_left);}
-
-
-
-/* sets the positions of the labels so that they are over the polygons */
-.sanford_label   { top: var(--sanford_label_top);   left: var(--sanford_label_left); }
-.allen_label     { top: var(--allen_label_top);     left: var(--allen_label_left); }
-.bolam_label     { top: var(--bolam_label_top);     left: var(--bolam_label_left); }
-.ec_label        { top: var(--ec_label_top);        left: var(--ec_label_left); }
-.te-kainga_label { top: var(--te-kainga_label_top); left: var(--te-kainga_label_left); }
-.arts_label      { top: var(--arts_label_top);      left: var(--arts_label_left); }
-
-
-/* sets the positions of the labels */
-.field_label          { top: var(--field_label_top);          left: var(--field_label_left); }
-.cola_label           { top: var(--cola_label_top);           left: var(--cola_label_left); }
-.astro_label          { top: var(--astro_label_top);          left: var(--astro_label_left); }
-.allen_quad_label     { top: var(--allen_quad_label_top);     left: var(--allen_quad_label_left); }
-.office_label         { top: var(--office_label_top);         left: var(--office_label_left); }
-.main_entrance_label  { top: var(--main_entrance_label_top);  left: var(--main_entrance_label_left); }
-.back_gate_label      { top: var(--back_gate_label_top);      left: var(--back_gate_label_left); }
-
-/* #endregion */
-
-/* #endregion */
 
 
 /* ----------- */

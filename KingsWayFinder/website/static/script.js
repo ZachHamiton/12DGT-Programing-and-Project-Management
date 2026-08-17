@@ -67,6 +67,37 @@ const teKaingaIndicator = document.getElementById("indicator_te-kainga");
 const artsBlockIndicator = document.getElementById("indicator_arts_block");
 
 
+
+// This array holds the postion infomation about the elements on the areas map.
+const positionsAreasMap = [
+{id: "sanford_polygon_contianer",      top_pos: 3.86,  left_pos: -1.65},
+{id: "allen_polygon_contianer",        top_pos: 48.78, left_pos: 12.50},
+{id: "bolam_polygon_contianer",        top_pos: 51.76, left_pos: 30.05},
+{id: "ec_polygon_contianer",           top_pos: 22.35, left_pos: 52.70},
+{id: "te-kainga_polygon_contianer",    top_pos: 47.57, left_pos: 57.43},
+{id: "arts_polygon_contianer",         top_pos: 1.34,  left_pos: 73.98},
+{id: "field_polygon_contianer",        top_pos: 0.00,  left_pos: 13.50},
+{id: "cola_polygon_contianer",         top_pos: 0.00,  left_pos: 51.00},
+{id: "astro_polygon_contianer",        top_pos: 48.00, left_pos: 46.50},
+{id: "sanford_label",                  top_pos: 23.36, left_pos: 25.82},
+{id: "allen_label",                    top_pos: 62.71, left_pos: 16.13},
+{id: "bolam_label",                    top_pos: 72.39, left_pos: 35.11},
+{id: "ec_label",                       top_pos: 32.44, left_pos: 60.92},
+{id: "te-kainga_label",                top_pos: 66.34, left_pos: 59.71},
+{id: "arts_label",                     top_pos: 1.00,  left_pos: 80.29},
+{id: "field_label",                    top_pos: 5.00,  left_pos: 32.00},
+{id: "cola_label",                     top_pos: 8.23,  left_pos: 60.50},
+{id: "astro_label",                    top_pos: 62.71, left_pos: 49.42},
+{id: "allen_quad_label",               top_pos: 42.13, left_pos: 25.21},
+{id: "office_label",                   top_pos: 81.49, left_pos: 28.84},
+{id: "main_entrance_label",            top_pos: 85.38, left_pos: 86.16},
+{id: "back_gate_label",                top_pos: 48.00, left_pos: 1.00},
+{id: "sanford_bottom_right_staircase", top_pos: 41.62, left_pos: 39.11, rotation: 205},
+{id: "sanford_bottom_left_staircase",  top_pos: 28.88, left_pos: 22.66, rotation: 205},
+{id: "sanford_top_right_staircase",    top_pos: 20.2, left_pos: 38.430, rotation: 25}
+]
+
+
 // the array allows the code to use for loops so that i don't have to repeat large section of code for however many buildings or places there are.
 const buildingInfo = [
     {name: "sanford", layoutMap: sanfordLayoutMap, backButton: sanfordLayoutMapBackButton, polygon: sanfordPolygon, indicator: sanfordIndicator},
@@ -89,12 +120,30 @@ const otherPlacesInfo = [
 let classesData = [];
 
 
+
+
+// This function gives all elements in the areas map their top and left positions.
+function positionAreasMap(){
+    for(const location of positionsAreasMap){
+        const locationElement = document.getElementById(`${location.id}`)
+        if(locationElement){
+            locationElement.style.top = `${location.top_pos}%`;
+            locationElement.style.left = `${location.left_pos}%`;
+            if(location.rotation){
+                locationElement.style.rotate = `${location.rotation}deg`;
+            }
+        }
+    }
+}
+positionAreasMap()
+
+
 // code from async function loadJSON(file)  catch(err) {myDisplayer(err.message)} is from https://www.w3schools.com/js/js_json_server.asp
 // load the JSON file and saves it as classesData
 async function loadJSON(file) {
     try {
         const response = await fetch(file);
-        if (!response.ok) {9
+        if (!response.ok) {
             throw new Error("HTTP error " + response.status);
         }
         classesData = await response.json();
@@ -121,7 +170,7 @@ function checkJsonforhighlights(){
         // changes the areas map polygons to highlighted if the selectedRooms building equals is the same as the buildings name
         // changes the position of the indicator. Hides the indicator if there is no selected room.
         if(selectedRoom?.building === building.name){
-            building.polygon?.classList.add("highlighted");
+            building.polygon.classList.add("highlighted");
 
             if (building.indicator){
                 building.indicator.style.top = `${selectedRoom?.top}%`;
@@ -130,39 +179,44 @@ function checkJsonforhighlights(){
             }
 
         } else{
-            building.polygon?.classList.remove("highlighted");
-            building.indicator?.classList.add("hidden");
+            building.polygon.classList.remove("highlighted");
+            building.indicator.classList.add("hidden");
         }
 
         // If the selected room isn't in the layout map the back button is highlighted yellow
         if(selectedRoom){
             if(selectedRoom.building !== building.name){
-                building.backButton?.classList.add("highlighted_background");
+                building.backButton.classList.add("highlighted_background");
             } else{
-                building.backButton?.classList.remove("highlighted_background");
+                building.backButton.classList.remove("highlighted_background");
             }
         } else{
-            building.backButton?.classList.remove("highlighted_background");
+            building.backButton.classList.remove("highlighted_background");
         }
         
         // if the selectedRoom does not have a indicator postion the indicator is hidden
         if (selectedRoom?.top == null || selectedRoom?.left == null){
-            building.indicator?.classList.add("hidden");
+            building.indicator.classList.add("hidden");
         }
     }
 
     // These place are not in the JSON file so they need there own highlighting code
     for(const place of otherPlacesInfo){
         if(finderInputValue === place.name){
-            place.polygon?.classList.add("highlighted");
+            place.polygon.classList.add("highlighted");
         } else{
-            place.polygon?.classList.remove("highlighted");
+            place.polygon.classList.remove("highlighted");
         }
     }
 } 
 
 // add an event listener that runs checkJsonforhighlights every times the finder inputs text is changed
 finderInput?.addEventListener("input", checkJsonforhighlights)
+
+
+
+
+
 
 
 
@@ -177,9 +231,9 @@ function enterPressed(event){
         if(selectedRoom?.building){
             for (const building of buildingInfo){
                 if(selectedRoom.building === building.name){
-                    building.layoutMap?.classList.remove("hidden");
+                    building.layoutMap.classList.remove("hidden");
                 } else if(selectedRoom.building && selectedRoom.building !== building.name){
-                    building.layoutMap?.classList.add("hidden");
+                    building.layoutMap.classList.add("hidden");
                 }
             }
 
@@ -236,9 +290,9 @@ function changeMap(layoutMap){
 // sets event listener to all the building.polygon and building.backButt
 for (const building of buildingInfo){
     // the building.polygon open the layout maps and closes the areas map
-    building.polygon?.addEventListener("click", () => changeMap( building.layoutMap));
+    building.polygon.addEventListener("click", () => changeMap( building.layoutMap));
     // the building.backButton open the aresa map and closes the layout maps
-    building.backButton?.addEventListener("click", () => changeMap( building.layoutMap));
+    building.backButton.addEventListener("click", () => changeMap( building.layoutMap));
 }
 
 
@@ -250,7 +304,7 @@ function showAreaMap(){
 
     // hides all the layout maps
     for (const building of buildingInfo){
-        building.layoutMap?.classList.add("hidden");
+        building.layoutMap.classList.add("hidden");
     }       
 }
 
@@ -313,3 +367,16 @@ function logClickPercent(event) {
 innerMarkerContainers.forEach(container => {
     container.addEventListener("click", logClickPercent);
 });
+
+
+// this code is not to be marked and should be removed before handing in — dev tool to help find the position of things on the areas map.
+function logAreasMapClickPercent(event) {
+    const rect = areasMap.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left;
+    const offsetY = event.clientY - rect.top;
+    const percentLeft = ((offsetX / rect.width) * 100).toFixed(3);
+    const percentTop = ((offsetY / rect.height) * 100).toFixed(3);
+    console.log(`top_pos: ${percentTop}, left_pos: ${percentLeft}`);
+}
+
+areasMap?.addEventListener("click", logAreasMapClickPercent);

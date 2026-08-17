@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487 683" width="487" height="683">
+  <g fill="none" stroke="#000" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- outer frame -->
+    <path d="M41 55 H447 V650 H41 Z"/>
+
+    <!-- inner U-shaped path -->
+    <path d="M131 650 V145 H359 V650"/>
+
+    <!-- central channel -->
+    <path d="M220 650 V236 H268 V650"/>
+
+    <!-- horizontal rungs -->
+    <path d="M41 236 H220"/>
+    <path d="M268 236 H447"/>
+    <path d="M41 282 H220"/>
+    <path d="M268 282 H447"/>
+    <path d="M41 327 H220"/>
+    <path d="M268 327 H447"/>
+    <path d="M41 373 H220"/>
+    <path d="M268 373 H447"/>
+    <path d="M41 419 H220"/>
+    <path d="M268 419 H447"/>
+    <path d="M41 465 H220"/>
+    <path d="M268 465 H447"/>
+    <path d="M41 512 H220"/>
+    <path d="M268 512 H447"/>
+    <path d="M41 558 H220"/>
+    <path d="M268 558 H447"/>
+    <path d="M41 604 H220"/>
+    <path d="M268 604 H447"/>
+
+    <!-- final bottom horizontal segments -->
+    <path d="M41 650 H220"/>
+    <path d="M268 650 H447"/>
+  </g>
+
+  <!-- start dot -->
+  <circle cx="131" cy="650" r="10" fill="#000"/>
+
+  <!-- downward arrow -->
+  <path d="M339 575 L359 650 L379 575 Z" fill="#000"/>
+</svg>
