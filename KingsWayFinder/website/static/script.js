@@ -92,9 +92,17 @@ const positionsAreasMap = [
 {id: "office_label",                   top_pos: 81.49, left_pos: 28.84},
 {id: "main_entrance_label",            top_pos: 85.38, left_pos: 86.16},
 {id: "back_gate_label",                top_pos: 48.00, left_pos: 1.00},
-{id: "sanford_bottom_right_staircase", top_pos: 41.62, left_pos: 39.11, rotation: 205},
-{id: "sanford_bottom_left_staircase",  top_pos: 28.88, left_pos: 22.66, rotation: 205},
-{id: "sanford_top_right_staircase",    top_pos: 20.2, left_pos: 38.430, rotation: 25}
+{id: "sanford_far_left_staircase",     top_pos: 42.138, left_pos: 0.683},
+{id: "sanford_bottom_right_staircase", top_pos: 40.288, left_pos: 36.800},
+{id: "sanford_bottom_left_staircase",  top_pos: 28.517, left_pos: 21.433},
+{id: "sanford_top_right_staircase",    top_pos: 20.1,  left_pos: 38.43},
+{id: "sanford_far_right",              top_pos: 41.50, left_pos: 46.90},
+{id: "bolam_back_staircase",           top_pos: 47.5, left_pos: 42.184},
+{id: "arts_block_right_staircase",     top_pos: 23.178, left_pos: 89.500},
+{id: "ec_left_staircase",              top_pos: 42, left_pos: 53.106},
+{id: "sanford_elevator",               top_pos: 28.30, left_pos: 19.454},
+{id: "allen_elevator",                 top_pos: 65.650, left_pos: 25.100},
+{id: "compass",                        top_pos: 3.276, left_pos: 95.085, rotation: 15}
 ]
 
 
@@ -122,14 +130,14 @@ let classesData = [];
 
 
 
-// This function gives all elements in the areas map their top and left positions.
+// This function gives all elements in the areas map their top and left positions and rotates them if necessary.
 function positionAreasMap(){
     for(const location of positionsAreasMap){
         const locationElement = document.getElementById(`${location.id}`)
         if(locationElement){
             locationElement.style.top = `${location.top_pos}%`;
             locationElement.style.left = `${location.left_pos}%`;
-            if(location.rotation){
+            if(location.rotation !== undefined){
                 locationElement.style.rotate = `${location.rotation}deg`;
             }
         }

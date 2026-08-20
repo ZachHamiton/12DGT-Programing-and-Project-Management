@@ -40,11 +40,50 @@
 
                 <div class = "table_div">
 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Icon</th>
+                                <th> Meaning</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <svg class = "key_polygon_container" id="key_sanford_polygon_contianer" viewBox="0 0 100 100">
+                                        <polygon class="key_polygon" id="key_sanford_polygon" points="1.50,61.99 26.56,27.11 77.79,50.00 83.24,42.37 98.50,48.91 86.51,69.32 34.20,46.73 25.48,57.63 28.75,59.81 18.94,72.89"></polygon>
+                                    </svg>
+                                </td>
+                                <td>Buildings</td>
+                            </tr>
+                            <tr><td><img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "table_img" id = "key_stairs_icon"></td><td>External Staircase</td></tr>
+                            <tr><td><img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Elevator" class = "table_img" id = "key_elevator_icon"></td><td>Elevator</td></tr>
+                            <tr>
+                                <td>
+                                    <svg class = "key_polygon_container" id="key_astro_polygon_contianer" viewBox="0 0 100 100">
+                                        <polygon class="key_other_polygon" id="key_astro_polygon" points="80.65,3 19.35,3 19.35,97 80.65,97"></polygon>
+                                    </svg>
+                                </td>
+                                <td>Sports Area</td>
+                            </tr>
+                            <tr><td><img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass" class = "table_img" id = "key_compass_icon"></td><td>Compass</td></tr>
+
+                        </tbody>
+
+                    </table>
+
+
+
+
                     <!-- table explaining which letters correspond to each building -->
                     <table>
                         <thead>
-                            <th> Building</th>
-                            <th> Start Finder With the Letter</th>
+                            <tr>
+                                <th> Building</th>
+                                <th> Start Finder With the Letter</th>
+                            </tr>
                         </thead>
 
                         <tbody>
@@ -61,8 +100,10 @@
                     <!-- table that explains the conpanants of the room code -->
                     <table>
                         <thead>
-                            <th>Part of code</th>
-                            <th>Meaning</th>
+                            <tr>
+                                <th>Part of code</th>
+                                <th>Meaning</th>
+                            </tr>
                         </thead>
 
                         <tbody>
@@ -121,52 +162,58 @@
             </svg>
 
             
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "sanford_far_left_staircase">
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "sanford_bottom_right_staircase">
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "sanford_bottom_left_staircase">    
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "sanford_top_right_staircase">
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "sanford_far_right">
+
             
-            <img src="{{ url_for('static', filename='/images/stairs_icon.svg') }}" alt="Staircase" class = "areas_map_staircase" id = "sanford_bottom_right_staircase">
-            <img src="{{ url_for('static', filename='/images/stairs_icon.svg') }}" alt="Staircase" class = "areas_map_staircase" id = "sanford_bottom_left_staircase">    
-            <img src="{{ url_for('static', filename='/images/stairs_icon.svg') }}" alt="Staircase" class = "areas_map_staircase" id = "sanford_top_right_staircase">
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "bolam_back_staircase">
+
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "arts_block_right_staircase">
+
+            <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "areas_map_icon" id = "ec_left_staircase">
+
+            <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Elevator" class = "areas_map_icon" id = "sanford_elevator">
+            <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Elevator" class = "areas_map_icon" id = "allen_elevator">
+
+            <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Map Compass faceing nearly straight towards the top of the screen" id = "compass">
+
+
 
             <!-- labels for the buildings -->
-             
-            <h1 class="building_label" id="sanford_label">Sanford</h1>
-            <h1 class="building_label" id="allen_label">Allen</h1>
-            <h1 class="building_label" id="bolam_label">Bolam</h1>
-            <h1 class="building_label" id="ec_label">Event Centre</h1>
-            <h1 class="building_label" id="te-kainga_label">Te Kāinga (Area)</h1>
-            <h1 class="building_label" id="arts_label">Arts Block</h1>
+            <h2 class="building_label" id="sanford_label">Sanford</h2>
+            <h2 class="building_label" id="allen_label">Allen</h2>
+            <h2 class="building_label" id="bolam_label">Bolam</h2>
+            <h2 class="building_label" id="ec_label">Event Centre</h2>
+            <h2 class="building_label" id="te-kainga_label">Te Kāinga (Area)</h2>
+            <h2 class="building_label" id="arts_label">Arts Block</h2>
 
             <!-- labels for other things on the map that aren't buildings-->
-            <h2 class="other_label" id="field_label">Field</h2>
-            <h2 class="other_label" id="cola_label">Cola</h2>
-            <h2 class="other_label" id="astro_label">Astro</h2>
-            <h2 class="other_label" id="allen_quad_label">Allen Quad</h2>
-            <h2 class="other_label" id="office_label">Reception</h2>
-            <h2 class="other_label" id="main_entrance_label">Main Entrance<br>100 Jelas Road</h2>
-            <h2 class="other_label" id="back_gate_label">Back Gate</h2>
+            <h3 class="other_label" id="field_label">Field</h3>
+            <h3 class="other_label" id="cola_label">Cola</h3>
+            <h3 class="other_label" id="astro_label">Astro</h3>
+            <h3 class="other_label" id="allen_quad_label">Allen Quad</h3>
+            <h3 class="other_label" id="office_label">Reception</h3>
+            <h3 class="other_label" id="main_entrance_label">Main Entrance<br>100 Jelas Road</h3>
+            <h3 class="other_label" id="back_gate_label">Back Gate</h3>
         </div>
 
 
         <!-- Sanford layout map -->
         <div class = "layout_map map hidden" id = "sanford_layout_map">
-
-            <h1 class = "nav_text">back to home</h1>
            
            
             <img class = "layout_map_image" src="{{ url_for('static', filename='images/sanford_layout_map.svg') }}" alt = "Floor plan layout for Sanford building">
 
             <button class = "back_to_areas_map_button" id = "sanford_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
 
-
             
             <div class = "outer_marker_container">
                 <div class = "inner_marker_container" id = "sanford_inner_marker_container"> 
                     <div class = "indicator hidden" id = "indicator_sanford"></div>
                 </div>
-
-
-                
-
-
 
             </div> 
            
@@ -232,7 +279,7 @@
 
         <!-- Arts Block layout map -->
         <div class = "layout_map map hidden" id = "arts_block_layout_map">
-            <img class = "layout_map_image" src="{{ url_for('static', filename='images/arts_block_layout_map.svg') }}" alt = "Floor plan layout for sanford building">
+            <img class = "layout_map_image" src="{{ url_for('static', filename='images/arts_block_layout_map.svg') }}" alt = "Floor plan layout for Arts Block">
 
             <button class = "back_to_areas_map_button" id = "arts_block_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
         

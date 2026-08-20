@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <g fill="none" stroke="#000" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <!-- staircase -->
+    <path d="M120 500 H250 V390 H380 V280 H510 V170 H640"/>
+    <!-- two-way diagonal arrow -->
+    <path d="M455 430 L600 285"/>
+    <path d="M455 430 V390 M455 430 H495"/>
+    <path d="M600 285 V325 M600 285 H560"/>
+  </g>
+</svg>

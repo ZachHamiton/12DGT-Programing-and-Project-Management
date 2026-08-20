@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700">
+  <g fill="none" stroke="#000" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <!-- up arrow -->
+    <path d="M210 145 V65 M210 65 L170 105 M210 65 L250 105"/>
+    <!-- down arrow -->
+    <path d="M390 65 V145 M390 145 L350 105 M390 145 L430 105"/>
+
+    <!-- elevator frame -->
+    <rect x="110" y="190" width="380" height="430" rx="24"/>
+    <rect x="145" y="275" width="310" height="310" rx="8"/>
+    <!-- doors -->
+    <path d="M300 275 V585"/>
+  </g>
+
+  <!-- indicator -->
+  <rect x="245" y="220" width="110" height="32" rx="16" fill="#000"/>
+
+  <!-- simple person symbols -->
+  <g fill="#000">
+    <circle cx="220" cy="365" r="28"/>
+    <path d="M175 415 Q220 380 265 415 L265 510 Q265 530 245 530 H195 Q175 530 175 510 Z"/>
+    <rect x="190" y="505" width="24" height="65" rx="12"/>
+    <rect x="226" y="505" width="24" height="65" rx="12"/>
+
+    <circle cx="380" cy="365" r="28"/>
+    <path d="M335 415 Q380 380 425 415 L425 510 Q425 530 405 530 H355 Q335 530 335 510 Z"/>
+    <rect x="350" y="505" width="24" height="65" rx="12"/>
+    <rect x="386" y="505" width="24" height="65" rx="12"/>
+  </g>
+</svg>

@@ -13,7 +13,7 @@
 body{
     display: flex; 
     min-height: 100vh; /*helps the footer always be at the bottom*/
-    flex-direction: column; /*makes the three main sections (nav bar, content, and footer go on top of each other rather then beside each other )*/
+    flex-direction: column; /*makes the three main sections (nav bar, content, and footer go on top of each other rther then beside each other )*/
 }
 
 /* sets how all buttons will look throughout the webapp's dimensions colour and transitions */
@@ -26,12 +26,13 @@ button{
     border: 2px solid white;
     cursor: pointer;
     box-sizing: content-box; /* makes padding go on the outside rather than inside */
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* then a button is hovered over it will gain a black outline */
 button:hover{
     border: 2px solid black;
+    background-color: rgba(15, 60, 150, 0.3);
 }
 
 /* makes the button image take up most of the buttons area */
@@ -74,14 +75,15 @@ abbr{
 .nav_text{
     font-family: sans-serif;
     color: white;
+    padding: 0px 10px;
 }
 
 /* makes the image the right size in the nav bar */
 
 #nav_logo{
     height: 60px;
-    width: 60px;
     cursor: pointer;
+    padding: 0px 10px;
 }
 
 
@@ -236,6 +238,37 @@ tr:nth-child(even){
     background-color: #e9e9e9;
 
 }
+
+/* sets the images in the tables to the right size */
+.table_img{
+    height:75px;
+}
+
+/* sets the height and width of the polygons in the tables */
+.key_polygon_container{
+    width: 75px; 
+    aspect-ratio: 1 / 1;
+}
+
+/* sets the colour of the building polygons in the table */
+.key_polygon{
+    width: 100%; 
+    height: 100%;
+    fill: white;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+/* sets the colours for the other polygon in the table */
+.key_other_polygon{
+    width: 100%; 
+    height: 100%;
+    fill: white;
+    stroke: gray;
+    stroke-width: 3px;
+    vector-effect: non-scaling-stroke;
+}
+
 /* #endregion */
 
 
@@ -329,16 +362,20 @@ tr:nth-child(even){
 }
 
 /* makes the label always 2 lines instead of sometimes changing to 4 */ 
-.main_entrance_label{
+#main_entrance_label{
     font-size: 1.2vw;
 }
 
-.areas_map_staircase{
+/* sets the size and postion behavours for staricases and elevators */
+.areas_map_icon{
     position: absolute;
     height: 5%;
 }
 
-
+#compass{
+    position: absolute;
+    height: 7.5%;
+}
 
 
 /* ----------- */
@@ -485,7 +522,6 @@ tr:nth-child(even){
 /* sets the background to yellow (use with things that use background color instead of fill) */
 .highlighted_background{
     background-color: rgb(255, 212, 3, 0.5);
-    transition: background-color 0s;
 }
 
 /* change the colour then hovered. to give the user feedback */
@@ -576,6 +612,7 @@ tr:nth-child(even){
     /* makes the sidebar take up the whole width of the screen */
     .sidebar{
         width: calc(100% - 40px);
+        height: auto;
         order: 2;
         flex: 1;
         box-shadow: none;
@@ -625,8 +662,8 @@ tr:nth-child(even){
     }
 
     /* makes the main_entrance_label always be 2 lines instead of increasing to four when the text would wrap */
-    .main_entrance_label{
-        font-size: 2vw;
+    #main_entrance_label{
+        font-size: 1.8vw;
     }
 
     /* give the finder room at the top so that it does overlap the map */
