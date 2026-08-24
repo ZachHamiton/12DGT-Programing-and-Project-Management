@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
-        <link rel="icon" href="{{ url_for('static', filename='/images/kingsway_logo_square.svg') }}">
+        <!-- <link rel="icon" href="{{ url_for('static', filename='/images/kingsway_logo_square.svg') }}"> -->
 
         <!-- Blank space for the title to be filled in my the templates-->
         {% block title %}<title>Base.html</title>{% endblock %}
@@ -15,12 +15,16 @@
     </head>
     <body>
         <!-- Navbar section -->
+        <!-- Contains the apps logo and name. They act as a button to get back to the areas map -->
         <div class = "nav">
-            <img src="{{ url_for('static', filename='/images/kingsway-school-logo.svg') }}" alt="Kingsway logo" id = "nav_logo">
+            <img src="{{ url_for('static', filename='/images/offical_kingsway_school_logo.svg') }}" alt="Kingsway logo" id = "nav_logo">
             <h1 class = "nav_text" id = "navbar_text_button">KingsWayFinder</h1>
         </div>
 
+
         <!-- content section -->
+        <!-- This is where the majourity of the html is located -->
+        <!-- It contains all the maps and the sidebar-->
         <div class = "content">
             {% block content %}
             {%endblock%}
@@ -30,19 +34,18 @@
 
 
         <!-- Footer section -->
+         <!-- This is at the bottom of the screen and hold information about the app like who created it. -->
         <div class = "footer">
             <div class = "contact_details">
                 <p class = "footer_text">If you run into any problems or have any suggestions, please contact the webmaster at zach.hamilton@kingsway.school.nz</p>
             </div>
-            
-
 
             <div>
                 <p class = "footer_text">Copyright © 2026 &nbsp; &nbsp; &nbsp;Created By Zachary Hamilton</p>
             </div>
         </div>
 
-
+        <!-- links to Java Script -->
         <script src="{{ url_for('static', filename='script.js') }}"></script>
     </body>
 </html>

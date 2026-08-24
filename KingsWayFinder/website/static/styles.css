@@ -372,7 +372,7 @@ tr:nth-child(even){
     height: 5%;
 }
 
-#compass{
+.compass{
     position: absolute;
     height: 7.5%;
 }
