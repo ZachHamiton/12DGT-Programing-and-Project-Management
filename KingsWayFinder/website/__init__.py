@@ -5,15 +5,15 @@ from flask import Flask
 
 
 
-# this function runs in the main.py and sets up the flask app
+# This function runs in main.py and sets up the Flask app.
 def create_app():
     app = Flask(__name__)
-    # for encription
-    app.config['SECRET_KEY'] = '1234567'
+    # for encryption
+    app.config['SECRET_KEY'] = '07509182374'
 
-    # importing the blueprints from views which make the route work
+    # Importing the blueprints from views, which makes the routes work.
     from .views import views
-    app.register_blueprint(views, url_prefix = '/')
+    app.register_blueprint(views, url_prefix='/')
 
     return app
 

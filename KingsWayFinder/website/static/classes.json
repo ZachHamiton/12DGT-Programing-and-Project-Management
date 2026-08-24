@@ -4,11 +4,10 @@
   {"code": "library",             "building": "sanford",      "top": 89.397, "left": 87.382},
   {"code": "it",                  "building": "sanford",      "top": 69.784, "left": 82.744},
   {"code": "student hub",         "building": "sanford",      "top": 22.122, "left": 9.374},
-  {"code": "elevator",            "building": "sanford",      "top": 39.418, "left": 28.584},
 
   {"code": "a",                   "building": "allen",        "top": null,   "left": null},
   {"code": "allen",               "building": "allen",        "top": null,   "left": null},
-  {"code": "science block",             "building": "allen",        "top": null,   "left": null},
+  {"code": "science block",        "building": "allen",       "top": null,   "left": null},
 
   {"code": "b",                   "building": "bolam",        "top": null,   "left": null},
   {"code": "bolam",               "building": "bolam",        "top": null,   "left": null},

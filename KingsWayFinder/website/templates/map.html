@@ -1,24 +1,24 @@
-<!-- base.html has block that can be overridden by putting differant html into blocks with the same name-->
+<!-- base.html has a block that can be overridden by putting different HTML into blocks with the same name -->
 {% extends "base.html" %} 
 
-<!-- changes the title -->
+<!-- Changes the title -->
 {% block title %}<title>KingsWayFinder</title>{% endblock %}
 
 
-<!-- fills the content block in the base.html with new html-->
+<!-- Fills the content block in the base.html with new HTML -->
 {% block content %}
     
-    <!-- makes space for the finder input to more to the top of the page then it jumps -->
+    <!-- Makes space for the finder input to move to the top of the page then it jumps -->
     <div class = "spacer"></div>
 
     <!-- Sidebar -->
-    <!-- The sidebar holds the finder input (until screen size is below 1024px) and the maps key -->
+    <!-- The sidebar holds the finder input (until screen size is below 1024px) and the map key -->
     <div class = "sidebar" id = "left_sidebar">
         <div class = "sidebar_content">
 
 
-            <!-- button that hides the sidebar when pressed -->
-            <button id = "left_sidebar_close_button" ><abbr title = "Close Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/collapse_side_panal_left.svg') }}" alt = "Collapse left sidebar icon"></abbr></button>
+            <!-- Button that hides the sidebar when pressed -->
+            <button id = "left_sidebar_close_button" ><abbr title = "Close Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='/images/collapse_side_panel_left.svg') }}" alt = "Collapse left sidebar icon"></abbr></button>
             
 
 
@@ -27,22 +27,22 @@
             <h2 class = "finder_text">Finder</h2>
             <br>
 
-            <!-- When this input is typed into it highlight places on the map depending on what is typed in -->
+            <!-- When this input is typed into, it highlights places on the map depending on what is typed in -->
             <input type = "text" placeholder = "Type code here" class = "finder_input" id = "finder_input">
 
                 
-            <!-- give space between the input and the next element -->
+            <!-- Gives space between the input and the next element -->
             <br class = "finder_text">
             <br class = "finder_text">
 
-            <!-- The Key gives the user useful information on the map like what the icons mean and which letters to  type in the input so that it highlighs buildings-->
+            <!-- The key gives the user useful information on the map like what the icons mean and which letters to type in the input so that it highlights buildings -->
             <h2>Key</h2>
 
-            <!-- hold the inforation about the map in tables -->
+            <!-- Holds the information about the map in tables -->
             <div class = "table_div">
 
                 <!-- Icon table -->
-                <!-- Shows differant icons that the maps has and there meanings -->
+                <!-- Shows different icons that the map has and their meanings -->
                 <table>
                     <thead>
                         <tr>
@@ -55,7 +55,7 @@
 
                         <tr>
                             <td>
-                                <svg class = "key_polygon_container" id="key_sanford_polygon_contianer" viewBox="0 0 100 100">
+                                <svg class = "key_polygon_container" id="key_sanford_polygon_container" viewBox="0 0 100 100">
                                     <polygon class="key_polygon" id="key_sanford_polygon" points="1.50,61.99 26.56,27.11 77.79,50.00 83.24,42.37 98.50,48.91 86.51,69.32 34.20,46.73 25.48,57.63 28.75,59.81 18.94,72.89"></polygon>
                                 </svg>
                             </td>
@@ -65,7 +65,7 @@
                         <tr><td><img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Elevator" class = "table_img" id = "key_elevator_icon"></td><td>Elevator</td></tr>
                         <tr>
                             <td>
-                                <svg class = "key_polygon_container" id="key_astro_polygon_contianer" viewBox="0 0 100 100">
+                                <svg class = "key_polygon_container" id="key_astro_polygon_container" viewBox="0 0 100 100">
                                     <polygon class="key_other_polygon" id="key_astro_polygon" points="80.65,3 19.35,3 19.35,97 80.65,97"></polygon>
                                 </svg>
                             </td>
@@ -78,7 +78,7 @@
                 </table>
 
                 <!-- Buildings Letter Table -->
-                <!-- explains which letters correspond to each building -->
+                <!-- Explains which letters correspond to each building -->
                 <table>
                     <thead>
                         <tr>
@@ -99,7 +99,7 @@
                 </table>
 
                 <!-- Code table -->
-                <!-- explains the parts of the room codes -->
+                <!-- Explains the parts of the room codes -->
                 <table>
                     <thead>
                         <tr>
@@ -117,7 +117,7 @@
                 </table>
 
                 <!-- Valid input table -->
-                <!-- Give examples of valid inputs -->
+                <!-- Gives examples of valid inputs -->
                 <table>
                     <thead>
                         <tr>
@@ -141,18 +141,17 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Named Rooms</th>
+                            <th>Named Rooms and Buildings</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr><td>S</td></tr>
-                        <tr><td>Elevator</td></tr>
                         <tr><td>IT</td></tr>
                         <tr><td>Library</td></tr>
                         <tr><td>Sanford</td></tr>
                         <tr><td>Student hub</td></tr>
-                        <!-- leaves a gap between buildings to make it more readable -->
+                        <!-- Leaves a gap between buildings to make it more readable -->
                         <tr><td></td></tr>
 
                         <tr><td>A</td></tr>
@@ -204,60 +203,60 @@
         </div>   
     </div>
 
-    <!-- opens the left side pannel when pressed -->
-    <button id="left_sidebar_open_button" class = "hidden" ><abbr title = "Open Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panal_left.svg') }}" alt = "Open left side pannal icon"></abbr></button>
+    <!-- Opens the left side panel when pressed -->
+    <button id="left_sidebar_open_button" class = "hidden" ><abbr title = "Open Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='/images/open_side_panel_left.svg') }}" alt = "Open left side panel icon"></abbr></button>
 
     <!-- Areas map -->
-    <!-- This is the part that shows the zoomed out map that shows all the differant areas -->
-    <!-- The components are all positioned throughout the map using Java Script when it does this it removes the class of hidden from the elements-->
-    <!-- Most elements are given the class hidden becuase otherwise there are a flash of unsytled code before the javascript gave them their position-->
+    <!-- This is the part that shows the zoomed-out map that shows all the different areas -->
+    <!-- The components are all positioned throughout the map using JavaScript; when it does this, it removes the class of hidden from the elements -->
+    <!-- Most elements are given the class hidden because otherwise there is a flash of unstyled code before the JavaScript gives them their position -->
     
     <div class = "map" id = "areas_map">
 
-        <!-- polygons -->
-        <!-- creates the differant shapes for the buildings by making an svg polygon -->
-        <!-- When clicked the polygons change which map you are looking at. If you click the Sanford polygon the sanford layout map will appear -->
-        <svg class="polygon_container hidden" id="sanford_polygon_contianer" viewBox="0 0 100 100">
+        <!-- Polygons -->
+        <!-- Creates the different shapes for the buildings by making an SVG polygon -->
+        <!-- When clicked, the polygons change which map you are looking at. If you click the Sanford polygon, the Sanford layout map will appear -->
+        <svg class="polygon_container hidden" id="sanford_polygon_container" viewBox="0 0 100 100">
             <polygon class="polygon" id="sanford_polygon" points="5,34 28,2 75,23 80,16 94,22 83,41 35,20 27,30 30,32 21,44"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="allen_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="allen_polygon_container" viewBox="0 0 100 100">
             <polygon class="polygon" id="allen_polygon" points="7,1 14,1 14,4 22,4 22,24 16,24 16,29 3,29 3,20 1,20 1,11 2,11 2,4 7,4"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="bolam_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="bolam_polygon_container" viewBox="0 0 100 100">
             <polygon class="polygon" id="bolam_polygon" points="13,1 27,1 27,26 23,26 23,29 5,29 7,27 4,25 2,27 0,25 13,15"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="ec_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="ec_polygon_container" viewBox="0 0 100 100">
             <polygon class="polygon" id="ec_polygon" points="11,1 46,1 46,6 49,6 49,9 51,9 50,18 46,18 46,24 9,22 9,19 1,16 7,5 8,5 9,2 11,2"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="te-kainga_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="te-kainga_polygon_container" viewBox="0 0 100 100">
             <polygon class="polygon" id="te-kainga_polygon" points="34,2 33,14 40,15 43,22 47,25 49,29 49,37 44,44 39,42 33,38 27,35 19,32 9,31 1,31 1,28 3,26 3,23 1,21 1,18 3,16 3,13 1,11 1,8 3,6 3,3 1,1 1,0"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="arts_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="arts_polygon_container" viewBox="0 0 100 100">
             <polygon class="polygon" id="arts_polygon" points="30,20 27,25 24,23 22,26 18,23 19,22 7,13 1,13 1,4 4,1"></polygon>
         </svg>
 
         
-        <!-- Other polygons are polygons that aren't buildings. -->
-        <svg class="polygon_container hidden" id="field_polygon_contianer" viewBox="0 0 100 100">
+        <!-- Other polygons are polygons that aren't buildings -->
+        <svg class="polygon_container hidden" id="field_polygon_container" viewBox="0 0 100 100">
             <polygon class="other_polygon" id="field_polygon" points="7,0 4,4 48,23 63,0"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="cola_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="cola_polygon_container" viewBox="0 0 100 100">
             <polygon class="other_polygon" id="cola_polygon" points="39,0 0,0 0,21 39,21"></polygon>
         </svg>
 
-        <svg class="polygon_container hidden" id="astro_polygon_contianer" viewBox="0 0 100 100">
+        <svg class="polygon_container hidden" id="astro_polygon_container" viewBox="0 0 100 100">
             <polygon class="other_polygon" id="astro_polygon" points="19,0 0,0 0,31 19,31"></polygon>
         </svg>
 
         
         <!-- Icons -->
-        <!-- These icons show where differant things are throughout the map like stairs or elevators -->
+        <!-- These icons show where different things are throughout the map like stairs or elevators -->
         <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford Back Gate Staircase" class="areas_map_icon hidden" id="sanford_back_gate_staircase">
         <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford East Staircase Facing the Allen Quad" class="areas_map_icon hidden" id="sanford_east_staircase_facing_the_allen_quad">
         <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford West Staircase Facing Allen Quad" class="areas_map_icon hidden" id="sanford_west_staircase_facing_allen_quad">    
@@ -272,7 +271,7 @@
         <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing the field" class="areas_map_icon hidden" id="event_centre_staircase_facing_the_field">
         <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing the arts block" class="areas_map_icon hidden" id="event_centre_staircase_facing_arts_block">
 
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Te Kāinga Staircase Facing then Uniform Shop" class="areas_map_icon hidden" id="te-Kainga_staircase_facing_the_uniform_shop">
+        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Te Kāinga Staircase Facing the Uniform Shop" class="areas_map_icon hidden" id="te-Kainga_staircase_facing_the_uniform_shop">
 
         <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Sanford Elevator" class="areas_map_icon hidden" id="sanford_elevator">
         <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Allen Elevator" class="areas_map_icon hidden" id="allen_elevator">
@@ -280,14 +279,14 @@
 
 
         <!-- Compass -->
-        <!-- There are 7 compasses in the html. The areas map and each layout map have one. Since each map is from a differant angle the javascript rotates them acordingly -->
-        <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Map Compass facing to the top of the screen" id="areas_compass" class="compass hidden">
+        <!-- There are 7 compasses in the HTML. The areas map and each layout map have one. Since each map is from a different angle, JavaScript rotates them accordingly -->
+        <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Map Compass facing the top of the screen" id="areas_compass" class="compass hidden">
 
 
         <!-- Labels -->
-        <!-- Labels are positioned over the thing that they are nameing -->
+        <!-- Labels are positioned over the thing that they are naming -->
 
-        <!-- labels for the buildings -->
+        <!-- Labels for the buildings -->
         <h2 class="building_label hidden" id="sanford_label">Sanford</h2>
         <h2 class="building_label hidden" id="allen_label">Allen</h2>
         <h2 class="building_label hidden" id="bolam_label">Bolam</h2>
@@ -295,7 +294,7 @@
         <h2 class="building_label hidden" id="te-kainga_label">Te Kāinga (Area)</h2>
         <h2 class="building_label hidden" id="arts_label">Arts Block</h2>
 
-        <!-- labels for other things on the map that aren't buildings-->
+        <!-- Labels for other things on the map that aren't buildings -->
         <h3 class="other_label hidden" id="field_label">Field</h3>
         <h3 class="other_label hidden" id="cola_label">Cola</h3>
         <h3 class="other_label hidden" id="astro_label">Astro</h3>
@@ -307,7 +306,7 @@
     </div>
 
     <!-- Layout Maps -->
-    <!-- Layout maps are zoomed in maps that look at the interior layout of buildings -->
+    <!-- Layout maps are zoomed-in maps that look at the interior layout of buildings -->
 
     <!-- Sanford layout map -->
     <div class = "layout_map map hidden" id = "sanford_layout_map">
@@ -399,8 +398,8 @@
                 <div class = "indicator hidden" id = "indicator_arts_block"></div>
                 <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing towards the top of the screen" id="arts_block_compass" class="compass hidden">
             </div>
-            
         </div>
+        
     </div>
 
     

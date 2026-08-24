@@ -1,11 +1,11 @@
-// const needed to make the sidebar open and close
+// Constants needed to make the sidebar open and close
 const leftSideBarCloseButton = document.getElementById("left_sidebar_close_button");
 const leftSideBarOpenButton = document.getElementById("left_sidebar_open_button");
 const leftSidebar = document.getElementById("left_sidebar");
 
 
-// const needed to highlight the differant buildings 
-// the polygons make the shape of the building on the map
+// Constants needed to highlight the different buildings. 
+// The polygons make the shape of the building on the map.
 const sanfordPolygon = document.getElementById("sanford_polygon");
 const allenPolygon = document.getElementById("allen_polygon");
 const bolamPolygon = document.getElementById("bolam_polygon");
@@ -13,19 +13,19 @@ const ecPolygon = document.getElementById("ec_polygon");
 const teKaingaPolygon = document.getElementById("te-kainga_polygon");
 const artsPolygon = document.getElementById("arts_polygon");
 
-// const needed to highlight the places that aren't buildings.
-// the polygons make the shape of the palces on the map
+// Constants needed to highlight the places that aren't buildings.
+// The polygons make the shape of the places on the map.
 const fieldPolygon = document.getElementById("field_polygon");
 const colaPolygon = document.getElementById("cola_polygon");
 const astroPolygon = document.getElementById("astro_polygon");
 
-// The finder input is the place where the user seraches for the differant classrooms
+// The finder input is where the user searches for the different classrooms
 const finderInput = document.getElementById("finder_input");
 
 
 
-// const needed to change between differant map
-// the layout maps show the floor plans of the buildings
+// Constants needed to change between different maps.
+// The layout maps show the floor plans of the buildings.
 const sanfordLayoutMap = document.getElementById("sanford_layout_map");
 const allenLayoutMap = document.getElementById("allen_layout_map");
 const bolamLayoutMap = document.getElementById("bolam_layout_map");
@@ -34,7 +34,7 @@ const teKaingaLayoutMap = document.getElementById("te-kainga_layout_map");
 const artsBlockLayoutMap = document.getElementById("arts_block_layout_map");
 const areasMap = document.getElementById("areas_map");
 
-// These const are back buttons to return the user to the areas map
+// These constants are back buttons to return the user to the areas map
 const sanfordLayoutMapBackButton = document.getElementById("sanford_layout_map_back_button");
 const allenLayoutMapBackButton = document.getElementById("allen_layout_map_back_button");
 const bolamLayoutMapBackButton = document.getElementById("bolam_layout_map_back_button");
@@ -43,11 +43,11 @@ const teKaingaLayoutMapBackButton = document.getElementById("te-kainga_layout_ma
 const artsBlockLayoutMapBackButton = document.getElementById("arts_block_layout_map_back_button");
 
 
-// constants for changing the position of the finder input
+// Constants for changing the position of the finder input
 const mediaQuery1024px = window.matchMedia("(max-width: 1024px)");
 const contentDiv = document.querySelector(".content");
 
-// captures the position of the finder input then the page loads so finder input can be put back to where it started if moved.
+// Captures the position of the finder input when the page loads so the finder input can be put back to where it started if moved.
 const finderOriginalParent = finderInput?.parentElement;
 const finderOriginalNextSibling = finderInput?.nextElementSibling;
 
@@ -57,8 +57,8 @@ const finderOriginalNextSibling = finderInput?.nextElementSibling;
 const navbarTextButton = document.getElementById("navbar_text_button");
 const navbarlogoButton = document.getElementById("nav_logo");
 
-// const needed to move the Indicator around the map
-// The indecator shows where the seleced classroom is
+// Constants needed to move the indicator around the map.
+// The indicator shows where the selected classroom is.
 const sanfordIndicator = document.getElementById("indicator_sanford");
 const allenIndicator = document.getElementById("indicator_allen");
 const bolamIndicator = document.getElementById("indicator_bolam");
@@ -68,17 +68,20 @@ const artsBlockIndicator = document.getElementById("indicator_arts_block");
 
 
 
-// This array holds the postion infomation about the elements on the areas map.
+// This array holds the position information about the elements on the areas map. 
+// Values are percentages relative to their container height used in absolute positioning.
+// Rotation is how many degrees the element will rotate clockwise
+
 const positionsAreasMap = [
-{id: "sanford_polygon_contianer",                    top_pos: 3.86,   left_pos: -1.65},
-{id: "allen_polygon_contianer",                      top_pos: 48.78,  left_pos: 12.50},
-{id: "bolam_polygon_contianer",                      top_pos: 51.76,  left_pos: 30.05}, 
-{id: "ec_polygon_contianer",                         top_pos: 22.35,  left_pos: 52.70},
-{id: "te-kainga_polygon_contianer",                  top_pos: 47.57,  left_pos: 57.43},
-{id: "arts_polygon_contianer",                       top_pos: 1.34,   left_pos: 73.98},
-{id: "field_polygon_contianer",                      top_pos: 0.00,   left_pos: 13.50},
-{id: "cola_polygon_contianer",                       top_pos: 0.00,   left_pos: 51.00},
-{id: "astro_polygon_contianer",                      top_pos: 48.00,  left_pos: 46.50},
+{id: "sanford_polygon_container",                    top_pos: 3.86,   left_pos: -1.65},
+{id: "allen_polygon_container",                      top_pos: 48.78,  left_pos: 12.50},
+{id: "bolam_polygon_container",                      top_pos: 51.76,  left_pos: 30.05}, 
+{id: "ec_polygon_container",                         top_pos: 22.35,  left_pos: 52.70},
+{id: "te-kainga_polygon_container",                  top_pos: 47.57,  left_pos: 57.43},
+{id: "arts_polygon_container",                       top_pos: 1.34,   left_pos: 73.98},
+{id: "field_polygon_container",                      top_pos: 0.00,   left_pos: 13.50},
+{id: "cola_polygon_container",                       top_pos: 0.00,   left_pos: 51.00},
+{id: "astro_polygon_container",                      top_pos: 48.00,  left_pos: 46.50},
 {id: "sanford_label",                                top_pos: 23.36,  left_pos: 25.82},
 {id: "allen_label",                                  top_pos: 62.71,  left_pos: 16.13},
 {id: "bolam_label",                                  top_pos: 72.39,  left_pos: 35.11},
@@ -117,7 +120,7 @@ const positionsAreasMap = [
 ]
 
 
-// the array allows the code to use for loops so that i don't have to repeat large section of code for however many buildings or places there are.
+// This array allows the code to use for loops so that I don't have to repeat a large section of code for however many buildings or places there are.
 const buildingInfo = [
     {name: "sanford", layoutMap: sanfordLayoutMap, backButton: sanfordLayoutMapBackButton, polygon: sanfordPolygon, indicator: sanfordIndicator},
     {name: "allen", layoutMap: allenLayoutMap, backButton: allenLayoutMapBackButton, polygon: allenPolygon, indicator:allenIndicator},
@@ -134,8 +137,8 @@ const otherPlacesInfo = [
 ]
 
 
-// set the variable before getting filled
-// this will hold the information in the classes.json file
+// Set the variable before getting filled.
+// This will hold the information in the classes.json file.
 let classesData = [];
 
 
@@ -158,8 +161,8 @@ function positionAreasMap(){
 positionAreasMap()
 
 
-// code from async function loadJSON(file)  catch(err) {myDisplayer(err.message)} is from https://www.w3schools.com/js/js_json_server.asp
-// load the JSON file and saves it as classesData
+// Code from async function loadJSON(file) to console.error(err.message) is from https://www.w3schools.com/js/js_json_server.asp
+// Loads the JSON file and saves it as classesData.
 async function loadJSON(file) {
     try {
         const response = await fetch(file);
@@ -177,18 +180,18 @@ async function loadJSON(file) {
 loadJSON("/static/classes.json");
 
 
-// the checkJsonforhighlights funtion changes what is highlighed and indecated based on what is typed in the finder input
-// It changes the backgrounds of the building polygons, places polygons, and back buttons; moves the indecator and hides it if necessary.
+// The checkJsonforhighlights function changes what is highlighted and indicated based on what is typed in the finder input.
+// It changes the backgrounds of the building polygons, places polygons, and back buttons; moves the indicator and hides it if necessary.
 
 function checkJsonforhighlights(){
     const finderInputValue = finderInput?.value?.trim().toLowerCase() || ""; 
     const selectedRoom = classesData.find(item => item.code === finderInputValue);
     
-    // runs for every building
+    // Runs for every building
     for (const building of buildingInfo){
 
-        // changes the areas map polygons to highlighted if the selectedRooms building equals is the same as the buildings name
-        // changes the position of the indicator. Hides the indicator if there is no selected room.
+        // Changes the areas map polygons to highlighted if the selectedRoom's building is the same as the building's name.
+        // Changes the position of the indicator. Hides the indicator if there is no selected room.
         if(selectedRoom?.building === building.name){
             building.polygon.classList.add("highlighted");
 
@@ -203,7 +206,7 @@ function checkJsonforhighlights(){
             building.indicator.classList.add("hidden");
         }
 
-        // If the selected room isn't in the layout map the back button is highlighted yellow
+        // If the selected room isn't in the layout map, the back button is highlighted yellow
         if(selectedRoom){
             if(selectedRoom.building !== building.name){
                 building.backButton.classList.add("highlighted_background");
@@ -214,13 +217,13 @@ function checkJsonforhighlights(){
             building.backButton.classList.remove("highlighted_background");
         }
         
-        // if the selectedRoom does not have a indicator postion the indicator is hidden
+        // If the selectedRoom does not have an indicator position, the indicator is hidden
         if (selectedRoom?.top == null || selectedRoom?.left == null){
             building.indicator.classList.add("hidden");
         }
     }
 
-    // These place are not in the JSON file so they need there own highlighting code
+    // These places are not in the JSON file so they need their own highlighting code
     for(const place of otherPlacesInfo){
         if(finderInputValue === place.name){
             place.polygon.classList.add("highlighted");
@@ -230,7 +233,7 @@ function checkJsonforhighlights(){
     }
 } 
 
-// add an event listener that runs checkJsonforhighlights every times the finder inputs text is changed
+// Add an event listener that runs checkJsonforhighlights every time the finder input's text is changed
 finderInput?.addEventListener("input", checkJsonforhighlights)
 
 
@@ -240,14 +243,14 @@ finderInput?.addEventListener("input", checkJsonforhighlights)
 
 
 
-// function that changes which map is displaed when the user clicks enter
+// Function that changes which map is displayed when the user presses Enter
 function enterPressed(event){
-    // Only runs when the use presses enter
+    // Only runs when the user presses Enter
     if(event.code === "Enter" || event.code === "NumpadEnter"){
         const finderInputValue = finderInput?.value?.trim().toLowerCase() || "";
         const selectedRoom = classesData.find(item => item.code === finderInputValue);
 
-        // If there is a selected room the map it is located in will display and all the other will be hidden
+        // If there is a selected room, the map it is located in will display and all others will be hidden
         if(selectedRoom?.building){
             for (const building of buildingInfo){
                 if(selectedRoom.building === building.name){
@@ -257,7 +260,7 @@ function enterPressed(event){
                 }
             }
 
-            // hides the areas map if another room is displayed
+            // Hides the areas map if another room is displayed
             if(selectedRoom.building){
                 areasMap?.classList.add("hidden");
             }
@@ -265,14 +268,14 @@ function enterPressed(event){
     }
 }
 
-// Runs enterPressed when the use presses down on there keyboard
+// Runs enterPressed when the user presses down on their keyboard
 finderInput?.addEventListener("keydown", enterPressed)
 
 
 
 
 
-// when activated it will close the left sidebar but adding classes to the sidebars elements to make the sidebar do an animation that moves it off the screen.
+// When activated, it will close the left sidebar by adding classes to the sidebar's elements to make the sidebar do an animation that moves it off the screen.
 function closeLeftSidebar() {
     leftSideBarOpenButton?.classList.remove("hidden");
     leftSideBarOpenButton?.classList.add("appear_animation");
@@ -281,11 +284,11 @@ function closeLeftSidebar() {
     leftSidebar?.classList.add("closing");
 }
 
-// closeLeftSidebar will run went the left Sidebar Close Button is clicked
+// closeLeftSidebar will run when the left Sidebar Close Button is clicked
 leftSideBarCloseButton?.addEventListener("click", closeLeftSidebar);
 
 
-// when activated it will open the left sidebar by adding classes to the sidebars elements to make the sidebar move it onto the screen.
+// When activated, it will open the left sidebar by adding classes to the sidebar's elements to make the sidebar move onto the screen.
 function openLeftSidebar(){
     
     leftSideBarOpenButton?.classList.remove("appear_animation");
@@ -296,22 +299,22 @@ function openLeftSidebar(){
 }
 
 
-// closeLeftSidebar will run when the left Sidebar open Button is clicked
+// openLeftSidebar will run when the left Sidebar Open Button is clicked
 leftSideBarOpenButton?.addEventListener("click", openLeftSidebar);
 
 
 
-// By pressing any building polygon the map will change to the building the user clicked
+// By clicking any building polygon, the map will change to the building the user clicked
 function changeMap(layoutMap){
     areasMap?.classList.toggle("hidden");
     layoutMap?.classList.toggle("hidden");
 }
 
-// sets event listener to all the building.polygon and building.backButt
+// Sets event listeners to all building.polygon and building.backButton elements
 for (const building of buildingInfo){
-    // the building.polygon open the layout maps and closes the areas map
+    // building.polygon opens the layout maps and closes the areas map
     building.polygon.addEventListener("click", () => changeMap( building.layoutMap));
-    // the building.backButton open the aresa map and closes the layout maps
+    // building.backButton opens the areas map and closes the layout maps
     building.backButton.addEventListener("click", () => changeMap( building.layoutMap));
 }
 
@@ -319,53 +322,53 @@ for (const building of buildingInfo){
 
 // Hides the layout maps and shows the areas map
 function showAreaMap(){
-    // unhides the areas map
+    // Unhides the areas map
     areasMap?.classList.remove("hidden");
 
-    // hides all the layout maps
+    // Hides all the layout maps
     for (const building of buildingInfo){
         building.layoutMap.classList.add("hidden");
     }       
 }
 
-// the showAreaMap will run then the navbarTextButton is clickeed
+// showAreaMap will run when the navbarTextButton or navbarlogoButton is clicked
 navbarTextButton?.addEventListener("click", showAreaMap);
 navbarlogoButton?.addEventListener("click", showAreaMap);
 
 
-// function to move the finder input to resize the page properly
-function changeInputPosition(screenwidth) {
+// Function to move the finder input to resize the page properly
+function changeInputPosition(screenWidth) {
 
     if (!finderInput) return;
     
-    // if the screen is 1024 pc or less tis runs
-    if (screenwidth.matches) {
+    // If the screen is 1024px or less, this runs
+    if (screenWidth.matches) {
         
-        // move the finder input to the top of the page
+        // Move the finder input to the top of the page
         contentDiv?.prepend(finderInput);
 
-    } else { // if the screen is larger than 1024px then the input goes back to its original position
+    } else { // If the screen is larger than 1024px, the input goes back to its original position
         if (finderOriginalNextSibling && finderOriginalParent){
 
             finderOriginalParent.insertBefore( finderInput, finderOriginalNextSibling );
         } else{
-            // fail safe in case there isn't in element behind the finder input
+            // Failsafe in case there isn't an element behind the finder input
             finderOriginalParent?.append(finderInput);
         }
     }
 }
 
 
-// if the screen changegs size the changeInputPosition function is run
+// If the screen changes size, the changeInputPosition function is run
 mediaQuery1024px.addEventListener("change", changeInputPosition);
 
-// runs it at the start so that if the screen is less then 1024px to begin with the finder is in the right place.
+// Runs it at the start so that if the screen is less than 1024px to begin with, the finder is in the right place.
 changeInputPosition(mediaQuery1024px);
 
 
 
 
-// this code is not to be marked and should be removed before handing in because it was made by ai as a tool to help find the postion of things on the map.
+// This code is not to be marked and should be removed before handing in because it was made by AI as a tool to help find the position of things on the map.
 const innerMarkerContainers = [
     document.getElementById("sanford_inner_marker_container"),
     document.getElementById("allen_inner_marker_container"),
@@ -389,7 +392,7 @@ innerMarkerContainers.forEach(container => {
 });
 
 
-// this code is not to be marked and should be removed before handing in — dev tool to help find the position of things on the areas map.
+// This code is not to be marked and should be removed before handing in — dev tool to help find the position of things on the areas map.
 function logAreasMapClickPercent(event) {
     const rect = areasMap.getBoundingClientRect();
     const offsetX = event.clientX - rect.left;

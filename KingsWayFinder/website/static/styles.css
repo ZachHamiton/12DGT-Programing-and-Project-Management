@@ -1,48 +1,46 @@
-
-
-/* styles every element on the page */
+/* Styles every element on the page */
 * {
-    box-sizing: border-box; /* fixes problem with padding where it extended the block more than 100%*/
-    overflow-x: hidden; /* makes there be no unwanted scroll bars*/
-    /* give createor full control over margins and paddings */
+    box-sizing: border-box; /* Fixes problem with padding where it extended the block more than 100% */
+    overflow-x: hidden; /* Makes there be no unwanted scroll bars */
+    /* Give creator full control over margins and paddings */
     margin: 0;
-    padding:0;
+    padding: 0;
 }
 
-/* Sets display and minimum dimensions of the html body */
-body{
+/* Sets display and minimum dimensions of the HTML body */
+body {
     display: flex; 
-    min-height: 100vh; /*helps the footer always be at the bottom*/
-    flex-direction: column; /*makes the three main sections (nav bar, content, and footer go on top of each other rther then beside each other )*/
+    min-height: 100vh; /* Helps the footer always be at the bottom */
+    flex-direction: column; /* Makes the three main sections (nav bar, content, and footer) go on top of each other rather than beside each other */
 }
 
-/* sets how all buttons will look throughout the webapp's dimensions colour and transitions */
-button{
-    width:50px;
+/* Sets how all buttons will look throughout the web app's dimensions, color, and transitions */
+button {
+    width: 50px;
     aspect-ratio: 1 / 1;
     border-radius: 40%;
     overflow: hidden;
     background-color: white;
     border: 2px solid white;
     cursor: pointer;
-    box-sizing: content-box; /* makes padding go on the outside rather than inside */
+    box-sizing: content-box; /* Makes padding go on the outside rather than inside */
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* then a button is hovered over it will gain a black outline */
-button:hover{
+/* When a button is hovered over, it will gain a black outline */
+button:hover {
     border: 2px solid black;
     background-color: rgba(15, 60, 150, 0.3);
 }
 
-/* makes the button image take up most of the buttons area */
-button img{
+/* Makes the button image take up most of the button's area */
+button img {
     width: 90%;
 }
 
 
-/* makes the abbr take up the whole button so that you can hover over anywhere on the button and it will tell you the funtion of the button */
-abbr{
+/* Makes the abbr take up the whole button so that you can hover over anywhere on the button and it will tell you the function of the button */
+abbr {
     width: 100%;
     height: 100%;
     border-radius: 40%;
@@ -59,8 +57,8 @@ abbr{
 /* #region----------- */
 
 
-/* sets its position. states its parameters and colours */
-.nav{
+/* Sets its position, states its parameters, and colors */
+.nav {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -71,16 +69,16 @@ abbr{
 }
 
 
-/* Make that navbar have colour and font which makes it readable against the navy blue background */
-.nav_text{
+/* Make that navbar have color and font which makes it readable against the navy blue background */
+.nav_text {
     font-family: sans-serif;
     color: white;
     padding: 0px 10px;
 }
 
-/* makes the image the right size in the nav bar */
+/* Makes the image the right size in the nav bar */
 
-#nav_logo{
+#nav_logo {
     height: 60px;
     cursor: pointer;
     padding: 0px 10px;
@@ -88,12 +86,12 @@ abbr{
 
 
 
-/* Makes the pointer a curser because when clicked it runs a js function that takes you back to the areas map */
-#navbar_text_button{
+/* Makes the pointer a cursor because when clicked it runs a JS function that takes you back to the areas map */
+#navbar_text_button {
     cursor: pointer;
 }
 
-/* displayed at the bottom of the screen. Colours and aesthetics are meant to make it not stand out. */
+/* Displayed at the bottom of the screen. Colors and aesthetics are meant to make it not stand out. */
 /* It has a dynamic layout that reorders its items */
 .footer {
     display: flex;
@@ -102,17 +100,17 @@ abbr{
     flex-wrap: wrap;
     font-family: sans-serif;
     border-radius: 5px;
-    min-height: 40px; /* make sure that the footer doesn't get smaller then 40px so it looks nice however leave room for it to grow*/
-    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7); /* makes the footer look like its hovering above everything else*/
+    min-height: 40px; /* Make sure that the footer doesn't get smaller than 40px so it looks nice, however leave room for it to grow */
+    box-shadow: 0px 2px 5px rgba(0, 0, 128, 0.7); /* Makes the footer look like it's hovering above everything else */
     padding: 0.5% 1%;
-    margin-top: auto;  /* makes the footer always go to the bottom */
+    margin-top: auto;  /* Makes the footer always go to the bottom */
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
 }
 
-/* makes the text not go right up against each other before it resizes with flex-wrap: */
-.footer_text{
+/* Makes the text not go right up against each other before it resizes with flex-wrap */
+.footer_text {
     padding: 1% 5px;
 }
 
@@ -124,9 +122,9 @@ abbr{
 /* content */
 /* ------- */
 
-/* content is everything between the nav bar and footer */
+/* Content is everything between the nav bar and footer */
 /* Sets how the content displays */
-.content{
+.content {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -139,8 +137,8 @@ abbr{
 /* Sidebar */
 /* #region */
 
-/* sets the dimensions of the sidebar and its text font */
-.sidebar{
+/* Sets the dimensions of the sidebar and its text font */
+.sidebar {
     width: 400px;
     border-radius: 24px;
     height: 80vh;
@@ -152,16 +150,17 @@ abbr{
 }
 
 
-/* makes the sidebar content display on top of each other rather then beside each other. also makes it take up the whole height of the sidebar */
+/* Makes the sidebar content display on top of each other rather than beside each other. Also makes it take up the whole height of the sidebar */
 .sidebar_content {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow: visible;
 }
 
 
-/* sets the size and colour of the finder input */
-.finder_input{
+/* Sets the size and color of the finder input */
+.finder_input {
     outline: none;
     border: 2px solid black;
     padding: 8px;
@@ -172,15 +171,20 @@ abbr{
 }
 
 
-/* Makes the close button go to the right side. */
-#left_sidebar_close_button{
-    align-self:flex-end;
+.finder_input:focus {
+    border: 2px solid navy;
+    box-shadow: 0 0 4px navy;
+}
+
+/* Makes the close button go to the right side */
+#left_sidebar_close_button {
+    align-self: flex-end;
 }
 
 
 
-/* sets the postion of the left sidebar open button */
-#left_sidebar_open_button{
+/* Sets the position of the left sidebar open button */
+#left_sidebar_open_button {
     position: absolute;
     top: 120px;
     left: 1%;
@@ -198,60 +202,60 @@ abbr{
 
 
 /* Makes the table_div take up all the room it can without increasing the size of the sidebar */
-.table_div{
-    flex: 1; /* makes the table div take up all remaining space*/ 
+.table_div {
+    flex: 1; /* Makes the table div take up all remaining space */ 
     overflow-y: scroll;
     margin-top: none;
     border-radius: 12px;
 }
 
-/* followed example table from https://www.youtube.com/watch?v=lXxEm9thbiQ */
+/* Followed example table from https://www.youtube.com/watch?v=lXxEm9thbiQ */
 
-table{
-    width:336px;
+table {
+    width: 336px;
     border-radius: 12px;
     overflow: hidden;
     border-collapse: collapse;
     margin-top: 5%;
 }
 
-/* styles each individual cell width and move the text from the center to the left */
-th,td{
-    padding:5%;
+/* Styles each individual cell width and moves the text from the center to the left */
+th, td {
+    padding: 5%;
     text-align: left;
 }
 
-/* style table heads colour and text*/
-th{
+/* Styles table head's color and text */
+th {
     background-color: rgb(0, 0, 128);
-    color:white;
+    color: white;
     font-weight: bold;
     border-bottom: 5px solid #FFD403;
 }
-/* sytles table rows background colour */
-tr{
+/* Styles table rows' background color */
+tr {
     background-color: #f3f3f3;
 }
 
-/* gets every second row and changes its background colour to a darker gray so that the table is more readable */
-tr:nth-child(even){
+/* Gets every second row and changes its background color to a darker gray so that the table is more readable */
+tr:nth-child(even) {
     background-color: #e9e9e9;
 
 }
 
-/* sets the images in the tables to the right size */
-.table_img{
-    height:75px;
+/* Sets the images in the tables to the right size */
+.table_img {
+    height: 75px;
 }
 
-/* sets the height and width of the polygons in the tables */
-.key_polygon_container{
+/* Sets the height and width of the polygons in the tables */
+.key_polygon_container {
     width: 75px; 
     aspect-ratio: 1 / 1;
 }
 
-/* sets the colour of the building polygons in the table */
-.key_polygon{
+/* Sets the color of the building polygons in the table */
+.key_polygon {
     width: 100%; 
     height: 100%;
     fill: white;
@@ -259,8 +263,8 @@ tr:nth-child(even){
     stroke-width: 2px;
 }
 
-/* sets the colours for the other polygon in the table */
-.key_other_polygon{
+/* Sets the colors for the other polygon in the table */
+.key_other_polygon {
     width: 100%; 
     height: 100%;
     fill: white;
@@ -277,51 +281,51 @@ tr:nth-child(even){
 /* #region ----------------------------------- */
 
 
-/* sets the dimensions and transitions of the maps */
-.map{
+/* Sets the dimensions and transitions of the maps */
+.map {
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
-    aspect-ratio: 16 / 9; /* makes the map always in scale */
-    flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
+    aspect-ratio: 16 / 9; /* Makes the map always in scale */
+    flex: 1 0 auto; /* Sets the width to fill the full flexbox content div, however makes the height unaffected */
     transition: width 0.3s ease;
-    transition: transform  1s ease;
+    transition: transform 1s ease;
 }
 
 /* ---------------------- */
 /* #region polygons styles*/
 
 /* Sets up for the polygons to be displayed correctly */
-.polygon_container{
+.polygon_container {
     position: absolute;
     width: 57.5%; 
-    aspect-ratio: 1 / 1; /* makes sure the polygon containers stay a square to keep the shape of the buildings */
-    pointer-events: none; /* makes the hover feature on the buildings work better because the polygon container is very large and goes over other elements */
-    overflow: visible; /* makes polygons not clip when they increase in size */
+    aspect-ratio: 1 / 1; /* Makes sure the polygon containers stay a square to keep the shape of the buildings */
+    pointer-events: none; /* Makes the hover feature on the buildings work better because the polygon container is very large and goes over other elements */
+    overflow: visible; /* Makes polygons not clip when they increase in size */
 }
 
-/* sets the dimension and aesthetic of the polygons and makes sure that they transform right */
-.polygon{
+/* Sets the dimension and aesthetic of the polygons and makes sure that they transform right */
+.polygon {
     width: 100%; 
     height: 100%;
     fill: white;
     stroke: black;
     stroke-width: 0.3%;
     transition: transform 0.3s ease, fill 0.3s ease; 
-    pointer-events: auto; /* makes the hover work because its parent has pointer-events: none; */
+    pointer-events: auto; /* Makes the hover work because its parent has pointer-events: none */
     transform-origin: center center; 
     transform-box: fill-box; 
     cursor: pointer;
 }
 
-/* changes the colour and size when hovered over */
-.polygon:hover{
+/* Changes the color and size when hovered over */
+.polygon:hover {
     fill: rgba(15, 60, 150, 0.3);
     transform: scale(1.03);
 }
 
-/* formats the polygons that aren't buildings, just without the outline and change in cursor */
-.other_polygon{
+/* Formats the polygons that aren't buildings, just without the outline and change in cursor */
+.other_polygon {
     width: 100%;
     height: 100%;
     fill: white;
@@ -338,16 +342,16 @@ tr:nth-child(even){
 
 /* -------------------- */
 /* #region label styles */
-/* styles for labels of the building */
-.building_label{
+/* Styles for labels of the building */
+.building_label {
     position: absolute;
-    font-size: 1.8vw; /* sets the label so that they change height based on screen width so that they remain the same scale compared with the buildings */
+    font-size: 1.8vw; /* Sets the label so that they change height based on screen width so that they remain the same scale compared with the buildings */
     font-family: sans-serif;
     pointer-events: none;
 }
 
-/* styles the labels not on buildings */
-.other_label{
+/* Styles the labels not on buildings */
+.other_label {
     position: absolute;
     font-size: 1.5vw;
     font-family: serif;
@@ -355,24 +359,24 @@ tr:nth-child(even){
     pointer-events: none;
 }
 
-/* makes the labels that have highlightable polygons different from the other labels */
+/* Makes the labels that have highlightable polygons different from the other labels */
 #field_label, #cola_label, #astro_label {
     color: black;
     font-family: sans-serif;
 }
 
-/* makes the label always 2 lines instead of sometimes changing to 4 */ 
-#main_entrance_label{
+/* Makes the label always 2 lines instead of sometimes changing to 4 */ 
+#main_entrance_label {
     font-size: 1.2vw;
 }
 
-/* sets the size and postion behavours for staricases and elevators */
-.areas_map_icon{
+/* Sets the size and position behaviors for staircases and elevators */
+.areas_map_icon {
     position: absolute;
     height: 5%;
 }
 
-.compass{
+.compass {
     position: absolute;
     height: 7.5%;
 }
@@ -383,18 +387,18 @@ tr:nth-child(even){
 /* #region */
 
 
-.layout_map{
+.layout_map {
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
-    flex: 1 0 auto; /* sets the width to fill full the flexbox content div however makes the height uneffected */
+    flex: 1 0 auto; /* Sets the width to fill the full flexbox content div, however makes the height unaffected */
     max-height: calc(80vh);
     transition: width 0.3s ease;
-    transition: transform  1s ease;
+    transition: transform 1s ease;
 }
 
-/* sets the image so that it resized properly while taking up as much room as it can */
-.layout_map_image{
+/* Sets the image so that it resizes properly while taking up as much room as it can */
+.layout_map_image {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -402,14 +406,14 @@ tr:nth-child(even){
     height: 100%;
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain; /* makes the image not stretch */
+    object-fit: contain; /* Makes the image not stretch */
 }
 
-/* sets the position back buttons */
-.back_to_areas_map_button{
+/* Sets the position back buttons */
+.back_to_areas_map_button {
     position: absolute;
-    right:1%;
-    top:1%;
+    right: 1%;
+    top: 1%;
     z-index: 10;
 }
 
@@ -417,60 +421,60 @@ tr:nth-child(even){
 
 
 
-/* the point of the outer and inner marker container is to perfectly line up with the image of the layout map with the inner container */
-.outer_marker_container{
+/* The point of the outer and inner marker container is to perfectly line up with the image of the layout map with the inner container */
+.outer_marker_container {
     position: absolute;
     top: 0%;
     left: 0%;
     width: 100%;
     height: 100%;
 
-    /* the image is centered so the outer container is too */
+    /* The image is centered so the outer container is too */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* makes the inner marker take up the whole height of the outer indicator */
-.inner_marker_container{    
+/* Makes the inner marker take up the whole height of the outer indicator */
+.inner_marker_container {    
     position: relative;
     height: 100%;
 }
 
-/* makes all the images the right aspect-ratio so that they don't get distorted */
-#sanford_inner_marker_container{
+/* Makes all the images the right aspect-ratio so that they don't get distorted */
+#sanford_inner_marker_container {
     aspect-ratio: 372 / 263;
 }
 
-#allen_inner_marker_container{
+#allen_inner_marker_container {
     aspect-ratio: 381 / 343.5;
 }
 
-#bolam_inner_marker_container{
+#bolam_inner_marker_container {
     aspect-ratio: 541 / 704;
 }
 
 
-#ec_inner_marker_container{
+#ec_inner_marker_container {
     aspect-ratio: 415 / 325;
 }
 
-#te-kainga_inner_marker_container{
+#te-kainga_inner_marker_container {
     aspect-ratio: 231 / 369;
 }
 
-#arts_block_inner_marker_container{
+#arts_block_inner_marker_container {
     aspect-ratio: 928 / 764;
 }
 
 
-/* makes the indicator a small yellow circle with a pulsing animation */
-.indicator{
+/* Makes the indicator a small yellow circle with a pulsing animation */
+.indicator {
     position: absolute;
     background-color: rgb(255, 212, 3, 0.7);
     border-radius: 50%;
     height: 4.5%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 0 0.3vw rgb(255, 212, 3, 0.7);
@@ -483,17 +487,17 @@ tr:nth-child(even){
 
 
 
-/* set keyframes for the indicators to give it the pulsing animation */
+/* Set keyframes for the indicators to give it the pulsing animation */
 @keyframes indicatorPulse {
-    0%{
+    0% {
         box-shadow: 0 0 0 0vw rgb(255, 212, 3, 0.7);
     }
 
-    50%{
+    50% {
         box-shadow: rgb(255, 212, 3, 0.5);
     }
 
-    100%{
+    100% {
         box-shadow: 0 0 0 1.5vw rgb(255, 212, 3, 0);
     }
     
@@ -510,27 +514,27 @@ tr:nth-child(even){
 /* #region============== */
 
 
-/* fills the element with a yellow background (use with things that use fill instead of background-colour) */
-.highlighted{
+/* Fills the element with a yellow background (use with things that use fill instead of background-color) */
+.highlighted {
     fill: rgb(255, 212, 3, 0.5);
 }
-/* change the colour then hovered. to give the user feedback */
-.highlighted:hover{
+/* Change the color when hovered to give the user feedback */
+.highlighted:hover {
     fill: rgb(255, 212, 3);
 }
 
-/* sets the background to yellow (use with things that use background color instead of fill) */
-.highlighted_background{
+/* Sets the background to yellow (use with things that use background color instead of fill) */
+.highlighted_background {
     background-color: rgb(255, 212, 3, 0.5);
 }
 
-/* change the colour then hovered. to give the user feedback */
-.highlighted_background:hover{
+/* Change the color when hovered to give the user feedback */
+.highlighted_background:hover {
     background-color: rgb(255, 212, 3);
 }
 
-/* hides things by setting there display to none */
-.hidden{
+/* Hides things by setting their display to none */
+.hidden {
     display: none;
 }
 
@@ -540,19 +544,19 @@ tr:nth-child(even){
     animation-name: openButtonAppear;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    transform: translate(-300px) ;
+    transform: translate(-300px);
 }
 
 /* Gives the sidebar the properties needed to have an animation */
-.sidebar.closing{
+.sidebar.closing {
     animation-name: sidebarWidth0;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease;
 }
 
-/* animation that make the closing of the sidebar look smooth */
-.sidebar.opening{
+/* Animation that makes the closing of the sidebar look smooth */
+.sidebar.opening {
     animation-name: sidebarFullWidth;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -563,23 +567,23 @@ tr:nth-child(even){
     transform: translate(-300px);
 }
 
-/* animation to make the sidebars open button slid into frame once the left sidebar has been closed */
-@keyframes openButtonAppear{
+/* Animation to make the sidebar's open button slide into frame once the left sidebar has been closed */
+@keyframes openButtonAppear {
 
-    100%{
-        transform: translate(0px)
+    100% {
+        transform: translate(0px);
     }
 }
 
 
 /* Animation that plays when the sidebar is closed */
-/* it makes the sidebar translate to the left while its width is reducing */
-@keyframes sidebarWidth0{
+/* It makes the sidebar translate to the left while its width is reducing */
+@keyframes sidebarWidth0 {
 
-    100%{
+    100% {
         width: 0;
         padding: 25px 0%;
-        margin:20px 0%;
+        margin: 20px 0%;
         transform: translate(-300px);
     }
 }
@@ -587,13 +591,13 @@ tr:nth-child(even){
 
 
 /* Animation that plays when the sidebar is opened */
-/* increase the width while translating it to the left */
-@keyframes sidebarFullWidth{
+/* Increases the width while translating it to the left */
+@keyframes sidebarFullWidth {
 
-    100%{
+    100% {
         width: 400px;
         padding: 25px;
-        margin:20px;
+        margin: 20px;
         transform: translate(0px);
     }
 }
@@ -603,14 +607,14 @@ tr:nth-child(even){
 
 
 @media screen and (max-width: 1024px) { 
-    /* makes the map and the sidebar go on top of each other */
-    .content{  
+    /* Makes the map and the sidebar go on top of each other */
+    .content {  
         flex-direction: column;
 
     }
 
-    /* makes the sidebar take up the whole width of the screen */
-    .sidebar{
+    /* Makes the sidebar take up the whole width of the screen */
+    .sidebar {
         width: calc(100% - 40px);
         height: auto;
         order: 2;
@@ -619,9 +623,9 @@ tr:nth-child(even){
         margin-top: 0px;
     }
 
-    /* makes the finder input go to the top of the screen and centers it */
-    /* The JS move the finder_input to the top of the page */
-    .finder_input{
+    /* Makes the finder input go to the top of the screen and centers it */
+    /* The JS moves the finder_input to the top of the page */
+    .finder_input {
         position: absolute;
         top: 80px;
         left: 50%;
@@ -630,50 +634,50 @@ tr:nth-child(even){
     }
 
     /* Finder text isn't needed because the input has moved */
-    .finder_text{
+    .finder_text {
         display: none;
     }
 
     
-    /* makes the map take up the whole width because the sidebar is no longer next to it */
-    .map{
+    /* Makes the map take up the whole width because the sidebar is no longer next to it */
+    .map {
         width: 100%;
     }   
 
 
 
-    /* makes the tables fill the sidebar which now takes up the whole width */
-    .table_div{
+    /* Makes the tables fill the sidebar, which now takes up the whole width */
+    .table_div {
         width: 100%;
         justify-self: center;
         overflow: hidden;
     }
 
-    table{
+    table {
         width: 100%;
     }
 
-    /* makes the building and other labels more readable */
-    .building_label{
+    /* Makes the building and other labels more readable */
+    .building_label {
         font-size: 2.8vw;
     }
-    .other_label{
+    .other_label {
         font-size: 2.5vw;
     }
 
-    /* makes the main_entrance_label always be 2 lines instead of increasing to four when the text would wrap */
-    #main_entrance_label{
+    /* Makes the main_entrance_label always be 2 lines instead of increasing to four when the text would wrap */
+    #main_entrance_label {
         font-size: 1.8vw;
     }
 
-    /* give the finder room at the top so that it does overlap the map */
-    .spacer{
+    /* Gives the finder room at the top so that it does not overlap the map */
+    .spacer {
         width: 100%;
         height: 60px;
     }
 
-    /* ovrriders the styles that the animations give the sidebar for closeing and opening so that is display correctaly at the bottom of the page */
-    .sidebar.opening{
+    /* Overrides the styles that the animations give the sidebar for closing and opening so that it displays correctly at the bottom of the page */
+    .sidebar.opening {
         animation-name: sidebarFullWidth;
         animation-duration: none;
         animation-fill-mode: none;
@@ -689,7 +693,7 @@ tr:nth-child(even){
     }
 
 
-    .sidebar.closing{
+    .sidebar.closing {
         animation-name: sidebarWidth0;
         animation-duration: none;
         animation-fill-mode: none;
@@ -705,18 +709,18 @@ tr:nth-child(even){
     }
 
 
-    /* since the user can't close or open the sidebar the buttons get hidden */
-    #left_sidebar_close_button{
+    /* Since the user can't close or open the sidebar, the buttons get hidden */
+    #left_sidebar_close_button {
         display: none;
     }
 
-    #left_sidebar_open_button{
+    #left_sidebar_open_button {
         display: none;
     }
 
 
-    /* centers the text in the footer */
-    .footer{
+    /* Centers the text in the footer */
+    .footer {
         justify-content: center;
         text-align: center;
         font-size: 15px;
