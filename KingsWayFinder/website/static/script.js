@@ -61,8 +61,8 @@ const teKaingaIndicator = document.getElementById("indicator_te-kainga");
 const artsBlockIndicator = document.getElementById("indicator_arts_block");
 
 
-// const for error message box that will be unhidden if the json file fails to load
-const errorMessageBox = document.getElementById("error_message_box")
+// const for error message that will be unhidden if the json file fails to load
+const errorMessageBox = document.getElementById("error_message");
 
 
 
@@ -168,7 +168,7 @@ async function loadJSON(file) {
   } catch (err) {
     // displays error messages
     console.error(err.message);
-    errorMessageBox.classList.remove("hidden")
+    errorMessageBox.classList.remove("hidden");
   }
 }
 loadJSON("/static/classes.json");

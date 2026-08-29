@@ -11,14 +11,13 @@
     <!-- Makes space for the finder input to move to the top of the page then it jumps -->
     <div class = "spacer"></div>
 
-    
-
 
     <!-- Sidebar -->
     <!-- The sidebar holds the finder input (until screen size is below 1024px) and the map key -->
     <div class = "sidebar" id = "left_sidebar">
         <div class = "sidebar_content">
 
+            
 
             <!-- Button that hides the sidebar when pressed -->
             <button id = "left_sidebar_close_button" ><abbr title = "Close Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/collapse_side_panel_left.svg') }}" alt = "Collapse left sidebar icon"></abbr></button>
@@ -32,11 +31,14 @@
 
             <!-- When this input is typed into, it highlights places on the map depending on what is typed in -->
             <input type = "text" placeholder = "Type code here" class = "finder_input" id = "finder_input">
-
-                
+            
+            <!-- if the json file fails to load then this message will be displayed -->
+            <p class = "error_message hidden" id = "error_message">Map data unavailable</p>
+            
             <!-- Gives space between the input and the next element -->
             <br class = "finder_text">
             <br class = "finder_text">
+
 
             <!-- The key gives the user useful information on the map like what the icons mean and which letters to type in the input so that it highlights buildings -->
             <h2>Key</h2>

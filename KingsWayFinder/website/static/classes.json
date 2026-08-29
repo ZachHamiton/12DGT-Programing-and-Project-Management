@@ -4,11 +4,9 @@
   {"code": "library",             "building": "sanford",      "top": 89.397, "left": 87.382},
   {"code": "it",                  "building": "sanford",      "top": 69.784, "left": 82.744},
   {"code": "student hub",         "building": "sanford",      "top": 22.122, "left": 9.374},
-
   {"code": "a",                   "building": "allen",        "top": null,   "left": null},
   {"code": "allen",               "building": "allen",        "top": null,   "left": null},
   {"code": "science block",        "building": "allen",       "top": null,   "left": null},
-
   {"code": "b",                   "building": "bolam",        "top": null,   "left": null},
   {"code": "bolam",               "building": "bolam",        "top": null,   "left": null},
   {"code": "foyer",               "building": "bolam",        "top": 83.993, "left": 79.375},
@@ -20,7 +18,6 @@
   {"code": "nurse",               "building": "bolam",        "top": 69.864, "left": 60.167},
   {"code": "the cave",            "building": "bolam",        "top": 68.705, "left": 32.097},
   {"code": "staffroom",           "building": "bolam",        "top": 52.698, "left": 47.544},
-
   {"code": "g",                   "building": "event centre", "top": null,   "left": null},
   {"code": "event centre",        "building": "event centre", "top": null,   "left": null},
   {"code": "weights room",        "building": "event centre", "top": 89.209, "left": 74.7},
@@ -34,16 +31,12 @@
   {"code": "sports shed 1",       "building": "event centre", "top": 75.000, "left": 92.044},
   {"code": "pe shed",             "building": "event centre", "top": 70.504, "left": 60.353},
   {"code": "sound room",          "building": "event centre", "top": 27.158, "left": 86.973},
-
   {"code": "k",                   "building": "te kainga",    "top": null,   "left": null},
   {"code": "te kainga",           "building": "te kainga",    "top": null,   "left": null},
   {"code": "te kāinga",           "building": "te kainga",    "top": null,   "left": null},
   {"code": "youngman arena",      "building": "te kainga",    "top": 36.691, "left": 69.968},
-
   {"code": "d",                   "building": "arts block",   "top": null,   "left": null},
-  {"code": "arts block",          "building": "arts block",   "top": null,   "left": null},
-
-  
+  {"code": "arts block",          "building": "arts block",   "top": null,   "left": null},  
   {"code": "s101",  "building": "sanford",      "top": 17.986, "left": 4.669},
   {"code": "s101a", "building": "sanford",      "top": 14.388, "left": 6.704},
   {"code": "s101b", "building": "sanford",      "top": 20.683, "left": 6.322},
