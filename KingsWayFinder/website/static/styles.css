@@ -187,7 +187,7 @@ abbr {
 .table_div {
   flex: 1; /* Makes the table div take up all remaining space */
   overflow-y: scroll;
-  margin-top: none;
+  margin-top: 0;
   border-radius: 12px;
 }
 
@@ -252,7 +252,6 @@ tr:nth-child(even) {
   fill: white;
   stroke: gray;
   stroke-width: 3px;
-  vector-effect: non-scaling-stroke;
 }
 
 /* #endregion */
@@ -468,10 +467,6 @@ tr:nth-child(even) {
     box-shadow: 0 0 0 0vw rgb(255, 212, 3, 0.7);
   }
 
-  50% {
-    box-shadow: rgb(255, 212, 3, 0.5);
-  }
-
   100% {
     box-shadow: 0 0 0 1.5vw rgb(255, 212, 3, 0);
   }
@@ -479,9 +474,9 @@ tr:nth-child(even) {
 
 /* #endregion */
 
-/* ===================== */
-/* JS toggleable classes */
-/* #region============== */
+/* =================================== */
+/* JS toggleable classes and elements */
+/* #region=========================== */
 
 /* Fills the element with a yellow background (use with things that use fill instead of background-color) */
 .highlighted {
@@ -521,7 +516,7 @@ animation-fill-mode: forwards;
   animation-name: sidebarWidth0;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease;
+  animation-timing-function: ease;  
 }
 
 /* Animation that makes the closing of the sidebar look smooth */
@@ -564,6 +559,22 @@ animation-fill-mode: forwards;
     transform: translate(0px);
   }
 }
+
+
+/* sets the size of the error message box and also puts the error message in the centre of the screen */
+.error_message_box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Makes the error message text look like an error massage*/
+.error_message{
+  color: rgb(255, 83, 83);
+  font-family: sans-serif;
+  margin: 5px 10px;
+}
+
 
 @media screen and (max-width: 1024px) {
   /* Makes the map and the sidebar go on top of each other */
@@ -634,9 +645,7 @@ animation-fill-mode: forwards;
   /* Overrides the styles that the animations give the sidebar for closing and opening so that it displays correctly at the bottom of the page */
   .sidebar.opening {
     animation-name: sidebarFullWidth;
-    animation-duration: none;
     animation-fill-mode: none;
-    animation-timing-function: none;
     transform: translate(0px);
     width: calc(100% - 40px);
     order: 2;
@@ -649,9 +658,7 @@ animation-fill-mode: forwards;
 
   .sidebar.closing {
     animation-name: sidebarWidth0;
-    animation-duration: none;
     animation-fill-mode: none;
-    animation-timing-function: none;
     transform: translate(0px);
     width: calc(100% - 40px);
     order: 2;

@@ -23,6 +23,10 @@
         <!-- Content section -->
         <!-- This is where the majority of the html is located -->
         <!-- It contains all the maps and the sidebar-->
+        <div class = "hidden error_message_box" id = "error_message_box">
+            <p class = "error_message">Map data unavailable</p>
+        </div>
+
         <div class = "content">
             {% block content %}
             {% endblock %}

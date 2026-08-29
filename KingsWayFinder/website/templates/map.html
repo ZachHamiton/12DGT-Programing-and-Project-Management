@@ -11,6 +11,9 @@
     <!-- Makes space for the finder input to move to the top of the page then it jumps -->
     <div class = "spacer"></div>
 
+    
+
+
     <!-- Sidebar -->
     <!-- The sidebar holds the finder input (until screen size is below 1024px) and the map key -->
     <div class = "sidebar" id = "left_sidebar">
@@ -18,7 +21,7 @@
 
 
             <!-- Button that hides the sidebar when pressed -->
-            <button id = "left_sidebar_close_button" ><abbr title = "Close Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='/images/collapse_side_panel_left.svg') }}" alt = "Collapse left sidebar icon"></abbr></button>
+            <button id = "left_sidebar_close_button" ><abbr title = "Close Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/collapse_side_panel_left.svg') }}" alt = "Collapse left sidebar icon"></abbr></button>
             
 
 
@@ -61,8 +64,8 @@
                             </td>
                             <td>Buildings</td>
                         </tr>
-                        <tr><td><img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Staircase" class = "table_img" id = "key_stairs_icon"></td><td>External Staircase</td></tr>
-                        <tr><td><img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Elevator" class = "table_img" id = "key_elevator_icon"></td><td>Elevator</td></tr>
+                        <tr><td><img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Staircase" class = "table_img" id = "key_stairs_icon"></td><td>External Staircase</td></tr>
+                        <tr><td><img src="{{ url_for('static', filename='images/elevator_icon.svg') }}" alt="Elevator" class = "table_img" id = "key_elevator_icon"></td><td>Elevator</td></tr>
                         <tr>
                             <td>
                                 <svg class = "key_polygon_container" id="key_astro_polygon_container" viewBox="0 0 100 100">
@@ -71,7 +74,7 @@
                             </td>
                             <td>Sports Area</td>
                         </tr>
-                        <tr><td><img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass" class = "table_img" id = "key_compass_icon"></td><td>Compass</td></tr>
+                        <tr><td><img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass" class = "table_img" id = "key_compass_icon"></td><td>Compass</td></tr>
 
                     </tbody>
 
@@ -195,6 +198,12 @@
 
                         <tr><td>D</td></tr>
                         <tr><td>Arts block</td></tr>
+                        <tr><td></td></tr>
+
+                        <tr><td>Astro</td></tr>
+                        <tr><td>COLA</td></tr>
+                        <tr><td>Field</td></tr>
+
                     </tbody>
                 </table>
 
@@ -204,7 +213,7 @@
     </div>
 
     <!-- Opens the left side panel when pressed -->
-    <button id="left_sidebar_open_button" class = "hidden" ><abbr title = "Open Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='/images/open_side_panel_left.svg') }}" alt = "Open left side panel icon"></abbr></button>
+    <button id="left_sidebar_open_button" class = "hidden" ><abbr title = "Open Sidebar"><img class = "left_sidebar_button_image" src = "{{ url_for('static', filename='images/open_side_panel_left.svg') }}" alt = "Open left side panel icon"></abbr></button>
 
     <!-- Areas map -->
     <!-- This is the part that shows the zoomed-out map that shows all the different areas -->
@@ -257,30 +266,30 @@
         
         <!-- Icons -->
         <!-- These icons show where different things are throughout the map like stairs or elevators -->
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford Back Gate Staircase" class="areas_map_icon hidden" id="sanford_back_gate_staircase">
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford East Staircase Facing the Allen Quad" class="areas_map_icon hidden" id="sanford_east_staircase_facing_the_allen_quad">
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford West Staircase Facing Allen Quad" class="areas_map_icon hidden" id="sanford_west_staircase_facing_allen_quad">    
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford Staircase Facing the Field" class="areas_map_icon hidden" id="sanford_staircase_facing_the_field">
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Sanford Staircase Facing the Astro" class="areas_map_icon hidden" id="sanford_staircase_facing_the_astro">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Sanford Back Gate Staircase" class="areas_map_icon hidden" id="sanford_back_gate_staircase">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Sanford East Staircase Facing the Allen Quad" class="areas_map_icon hidden" id="sanford_east_staircase_facing_the_allen_quad">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Sanford West Staircase Facing Allen Quad" class="areas_map_icon hidden" id="sanford_west_staircase_facing_allen_quad">    
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Sanford Staircase Facing the Field" class="areas_map_icon hidden" id="sanford_staircase_facing_the_field">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Sanford Staircase Facing the Astro" class="areas_map_icon hidden" id="sanford_staircase_facing_the_astro">
 
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Bolam Staircase Facing the Astro" class="areas_map_icon hidden" id="bolam_staircase_facing_the_astro">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Bolam Staircase Facing the Astro" class="areas_map_icon hidden" id="bolam_staircase_facing_the_astro">
 
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Arts Block East Staircase" class="areas_map_icon hidden" id="arts_block_east_staircase">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Arts Block East Staircase" class="areas_map_icon hidden" id="arts_block_east_staircase">
 
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing Astro" class="areas_map_icon hidden" id="event_centre_staircase_facing_astro">
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing the field" class="areas_map_icon hidden" id="event_centre_staircase_facing_the_field">
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing the arts block" class="areas_map_icon hidden" id="event_centre_staircase_facing_arts_block">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing Astro" class="areas_map_icon hidden" id="event_centre_staircase_facing_astro">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing the field" class="areas_map_icon hidden" id="event_centre_staircase_facing_the_field">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Event Centre Staircase Facing the arts block" class="areas_map_icon hidden" id="event_centre_staircase_facing_arts_block">
 
-        <img src="{{ url_for('static', filename='/images/staircase_simple_icon.svg') }}" alt="Te Kāinga Staircase Facing the Uniform Shop" class="areas_map_icon hidden" id="te-Kainga_staircase_facing_the_uniform_shop">
+        <img src="{{ url_for('static', filename='images/staircase_simple_icon.svg') }}" alt="Te Kāinga Staircase Facing the Uniform Shop" class="areas_map_icon hidden" id="te-Kainga_staircase_facing_the_uniform_shop">
 
-        <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Sanford Elevator" class="areas_map_icon hidden" id="sanford_elevator">
-        <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Allen Elevator" class="areas_map_icon hidden" id="allen_elevator">
-        <img src="{{ url_for('static', filename='/images/elevator_icon.svg') }}" alt="Arts Block Elevator" class="areas_map_icon hidden" id="arts_block_elevator">
+        <img src="{{ url_for('static', filename='images/elevator_icon.svg') }}" alt="Sanford Elevator" class="areas_map_icon hidden" id="sanford_elevator">
+        <img src="{{ url_for('static', filename='images/elevator_icon.svg') }}" alt="Allen Elevator" class="areas_map_icon hidden" id="allen_elevator">
+        <img src="{{ url_for('static', filename='images/elevator_icon.svg') }}" alt="Arts Block Elevator" class="areas_map_icon hidden" id="arts_block_elevator">
 
 
         <!-- Compass -->
         <!-- There are 7 compasses in the HTML. The areas map and each layout map have one. Since each map is from a different angle, JavaScript rotates them accordingly -->
-        <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Map Compass facing the top of the screen" id="areas_compass" class="compass hidden">
+        <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Map Compass facing the top of the screen" id="areas_compass" class="compass hidden">
 
 
         <!-- Labels -->
@@ -316,11 +325,13 @@
 
         <button class = "back_to_areas_map_button" id = "sanford_layout_map_back_button"><abbr title="Back"><img src="{{ url_for('static', filename='images/arrow_back.svg') }}" alt="Back Arrow" ></abbr></button>
 
-        
+        <!-- The outer marker container is the same size as the layout map -->
+        <!-- The inner marker container overlays the layout_map_image perfectly at any screen size allowing for elements to be positioned absolutely and appear above the right place in the layout_map_image all time time -->
+         
         <div class = "outer_marker_container">
             <div class = "inner_marker_container" id = "sanford_inner_marker_container"> 
                 <div class = "indicator hidden" id = "indicator_sanford"></div>
-                <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing to the right of the screen" id="sanford_compass" class="compass hidden">
+                <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass pointing to the right of the screen" id="sanford_compass" class="compass hidden">
             </div>
         </div> 
         
@@ -337,7 +348,7 @@
         <div class = "outer_marker_container">
             <div class = "inner_marker_container" id = "allen_inner_marker_container">
                 <div class = "indicator hidden" id = "indicator_allen"></div> 
-                <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing to the bottom right of the screen" id="allen_compass" class="compass hidden">
+                <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass pointing to the bottom right of the screen" id="allen_compass" class="compass hidden">
             </div>
         </div>
     </div>
@@ -351,7 +362,7 @@
         <div class = "outer_marker_container">
             <div class = "inner_marker_container" id = "bolam_inner_marker_container"> 
                 <div class = "indicator hidden" id = "indicator_bolam"></div>
-                <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing to the left of the screen" id="bolam_compass" class="compass hidden">
+                <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass pointing to the left of the screen" id="bolam_compass" class="compass hidden">
             </div>
         </div>
 
@@ -366,7 +377,7 @@
         <div class = "outer_marker_container">
             <div class = "inner_marker_container" id = "ec_inner_marker_container"> 
                 <div class = "indicator hidden" id = "indicator_ec"></div>
-                <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing to the right of the screen" id="ec_compass" class="compass hidden">
+                <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass pointing to the right of the screen" id="ec_compass" class="compass hidden">
             </div>
         </div>
 
@@ -381,7 +392,7 @@
         <div class = "outer_marker_container">
             <div class = "inner_marker_container" id = "te-kainga_inner_marker_container"> 
                 <div class = "indicator hidden" id = "indicator_te-kainga"></div>
-                <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing towards the left of the screen" id="te-kainga_compass" class="compass hidden">
+                <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass pointing towards the left of the screen" id="te-kainga_compass" class="compass hidden">
             </div>
         </div>
 
@@ -396,11 +407,10 @@
         <div class = "outer_marker_container">
             <div class = "inner_marker_container" id = "arts_block_inner_marker_container"> 
                 <div class = "indicator hidden" id = "indicator_arts_block"></div>
-                <img src="{{ url_for('static', filename='/images/compass.svg') }}" alt="Compass pointing towards the top of the screen" id="arts_block_compass" class="compass hidden">
+                <img src="{{ url_for('static', filename='images/compass.svg') }}" alt="Compass pointing towards the top of the screen" id="arts_block_compass" class="compass hidden">
             </div>
         </div>
         
     </div>
 
-    
 {%endblock%}

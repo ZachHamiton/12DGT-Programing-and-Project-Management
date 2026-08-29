@@ -60,6 +60,12 @@ const ecIndicator = document.getElementById("indicator_ec");
 const teKaingaIndicator = document.getElementById("indicator_te-kainga");
 const artsBlockIndicator = document.getElementById("indicator_arts_block");
 
+
+// const for error message box that will be unhidden if the json file fails to load
+const errorMessageBox = document.getElementById("error_message_box")
+
+
+
 // This array holds the position information about the elements on the areas map.
 // Values are percentages relative to their container height used in absolute positioning.
 // Rotation is how many degrees the element will rotate clockwise
@@ -160,7 +166,9 @@ async function loadJSON(file) {
     // checkJsonforhighlights runs as soon as the JSON file has loaded to update the map.
     checkJsonforhighlights();
   } catch (err) {
+    // displays error messages
     console.error(err.message);
+    errorMessageBox.classList.remove("hidden")
   }
 }
 loadJSON("/static/classes.json");
@@ -243,7 +251,6 @@ function enterPressed(event) {
         if (selectedRoom.building === building.name) {
           building.layoutMap.classList.remove("hidden");
         } else if (
-          selectedRoom.building &&
           selectedRoom.building !== building.name
         ) {
           building.layoutMap.classList.add("hidden");
@@ -345,38 +352,3 @@ mediaQuery1024px.addEventListener("change", changeInputPosition);
 
 // Runs it at the start so that if the screen is less than 1024px to begin with, the finder is in the right place.
 changeInputPosition(mediaQuery1024px);
-
-// This code is not to be marked and should be removed before handing in because it was made by AI as a tool to help find the position of things on the map.
-const innerMarkerContainers = [
-  document.getElementById("sanford_inner_marker_container"),
-  document.getElementById("allen_inner_marker_container"),
-  document.getElementById("bolam_inner_marker_container"),
-  document.getElementById("ec_inner_marker_container"),
-  document.getElementById("te-kainga_inner_marker_container"),
-  document.getElementById("arts_block_inner_marker_container"),
-].filter(Boolean);
-
-function logClickPercent(event) {
-  const rect = event.currentTarget.getBoundingClientRect();
-  const offsetX = event.clientX - rect.left;
-  const offsetY = event.clientY - rect.top;
-  const percentLeft = ((offsetX / rect.width) * 100).toFixed(3);
-  const percentTop = ((offsetY / rect.height) * 100).toFixed(3);
-  console.log(`"top": ${percentTop}, "left": ${percentLeft}`);
-}
-
-innerMarkerContainers.forEach((container) => {
-  container.addEventListener("click", logClickPercent);
-});
-
-// This code is not to be marked and should be removed before handing in — dev tool to help find the position of things on the areas map.
-function logAreasMapClickPercent(event) {
-  const rect = areasMap.getBoundingClientRect();
-  const offsetX = event.clientX - rect.left;
-  const offsetY = event.clientY - rect.top;
-  const percentLeft = ((offsetX / rect.width) * 100).toFixed(3);
-  const percentTop = ((offsetY / rect.height) * 100).toFixed(3);
-  console.log(`top_pos: ${percentTop}, left_pos: ${percentLeft}`);
-}
-
-areasMap?.addEventListener("click", logAreasMapClickPercent);
